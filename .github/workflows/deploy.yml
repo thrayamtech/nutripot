@@ -34,7 +34,8 @@ jobs:
         key: ${{ secrets.EC2_SSH_KEY }}
         source: "frontend/build"
         target: "/home/ec2-user/apps/thrayam-threads/frontend"
-        strip_components: 2
+        rm: true
+
 
     # ---------- DEPLOY BACKEND ----------
     - name: Deploy Backend & Restart Services
