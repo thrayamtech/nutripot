@@ -1,6 +1,10 @@
 # Ignore everything
 *
 
+# Allow GitHub workflows
+!.github/
+!.github/**
+
 # But allow these folders
 !frontend/
 !backend/
