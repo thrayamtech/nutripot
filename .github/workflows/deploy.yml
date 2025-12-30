@@ -26,6 +26,7 @@ jobs:
         npm run build
 
 # ---------- DEPLOY FRONTEND ----------
+# ---------- DEPLOY FRONTEND ----------
     - name: Upload build to EC2
       uses: appleboy/scp-action@v0.1.4
       with:
@@ -34,7 +35,8 @@ jobs:
         key: ${{ secrets.EC2_SSH_KEY }}
         source: "frontend/build"
         target: "/home/ec2-user/apps/thrayam-threads/frontend"
-        rm: true
+        strip_components: 2
+
 
 
     # ---------- DEPLOY BACKEND ----------
