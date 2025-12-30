@@ -26,16 +26,16 @@ jobs:
         npm run build
 
 # ---------- DEPLOY FRONTEND ----------
-# ---------- DEPLOY FRONTEND ----------
     - name: Upload build to EC2
       uses: appleboy/scp-action@v0.1.4
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ec2-user
         key: ${{ secrets.EC2_SSH_KEY }}
-        source: "frontend/build"
-        target: "/home/ec2-user/apps/thrayam-threads/frontend"
-        strip_components: 2
+        source: "frontend/build/*"
+        target: "/home/ec2-user/apps/thrayam-threads/frontend/build"
+        recursive: true
+
 
 
 
@@ -54,4 +54,11 @@ jobs:
           npm install
           pm2 restart thrayam-backend || pm2 start index.js --name thrayam-backend
 
+    - name: Reload Nginx
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ec2-user
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script: |
           sudo systemctl reload nginx
