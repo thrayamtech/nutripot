@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { FaSearch, FaEye, FaShoppingCart, FaPrint, FaTruck, FaMoneyBillWave, FaEdit, FaTrash, FaCheck, FaTimes, FaBox, FaDownload, FaFileExcel } from 'react-icons/fa';
+import { FaSearch, FaEye, FaShoppingCart, FaPrint, FaTruck, FaMoneyBillWave, FaEdit, FaCheck, FaTimes, FaBox, FaFileExcel } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import { useReactToPrint } from 'react-to-print';
 import { QRCodeCanvas } from 'qrcode.react';

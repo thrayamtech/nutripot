@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { FaUserPlus, FaUsers, FaGift, FaPhone, FaCheckCircle, FaArrowRight, FaSignInAlt, FaClock, FaInfoCircle, FaShoppingCart } from 'react-icons/fa';
+import { FaUserPlus, FaUsers, FaGift, FaPhone, FaCheckCircle, FaArrowRight, FaSignInAlt, FaClock, FaInfoCircle } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import API from '../utils/api';
 import { useAuth } from '../context/AuthContext';
 
 const ReferFriend = () => {
-  const { isAuthenticated, user } = useAuth();
+  const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const [referrals, setReferrals] = useState([]);
   const [referralStats, setReferralStats] = useState(null);

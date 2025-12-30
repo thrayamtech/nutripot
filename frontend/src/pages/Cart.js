@@ -2,12 +2,10 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaTrash, FaMinus, FaPlus, FaShoppingBag, FaArrowRight } from 'react-icons/fa';
 import { useCart } from '../context/CartContext';
-import { useAuth } from '../context/AuthContext';
 import { toast } from 'react-toastify';
 
 const Cart = () => {
   const { cart, loading, updateCartItem, removeFromCart, getCartTotal } = useCart();
-  const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   const handleQuantityChange = async (itemId, currentQuantity, change, availableStock) => {

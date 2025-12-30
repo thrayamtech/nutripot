@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useState, useContext, useEffect, useCallback } from 'react';
 import API from '../utils/api';
 import { toast } from 'react-toastify';
 import { useAuth } from './AuthContext';
@@ -200,7 +200,7 @@ export const CartProvider = ({ children }) => {
   };
 
   // Sync guest cart to server when user logs in
-  const syncGuestCart = async () => {
+  const syncGuestCart = useCallback(async () => {
     const guestCart = localStorage.getItem('guestCart');
     if (guestCart && isAuthenticated) {
       try {
@@ -229,14 +229,14 @@ export const CartProvider = ({ children }) => {
         console.error('Error syncing guest cart:', error);
       }
     }
-  };
+  }, [isAuthenticated]);
 
   // Sync cart when user logs in
   useEffect(() => {
     if (isAuthenticated) {
       syncGuestCart();
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, syncGuestCart]);
 
   const getCartCount = () => {
     if (!cart || !cart.items) return 0;

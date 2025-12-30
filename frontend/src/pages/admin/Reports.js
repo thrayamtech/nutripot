@@ -20,6 +20,7 @@ const AdminReports = () => {
 
   useEffect(() => {
     fetchReports();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dateRange]);
 
   const fetchReports = async () => {

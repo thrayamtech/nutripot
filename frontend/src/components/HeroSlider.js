@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import API from '../utils/api';
@@ -39,11 +39,7 @@ const HeroSlider = () => {
     }
   ];
 
-  useEffect(() => {
-    fetchSliders();
-  }, []);
-
-  const fetchSliders = async () => {
+  const fetchSliders = useCallback(async () => {
     try {
       const { data } = await API.get('/sliders/active');
       if (data.sliders && data.sliders.length > 0) {
@@ -57,7 +53,12 @@ const HeroSlider = () => {
     } finally {
       setLoading(false);
     }
-  };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    fetchSliders();
+  }, [fetchSliders]);
 
   useEffect(() => {
     if (slides.length > 0) {

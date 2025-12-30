@@ -5,6 +5,8 @@
 !.github/
 !.github/**
 
+
+
 # But allow these folders
 !frontend/
 !backend/

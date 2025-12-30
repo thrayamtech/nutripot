@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FaPlay, FaPause, FaVolumeMute, FaVolumeUp, FaTimes, FaChevronLeft, FaChevronRight, FaShoppingCart } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { toast } from 'react-toastify';
 
@@ -13,7 +12,6 @@ const ProductReels = ({ reels }) => {
   const videoRefs = useRef([]);
   const popupVideoRef = useRef(null);
   const scrollContainerRef = useRef(null);
-  const navigate = useNavigate();
   const { addToCart } = useCart();
   const isDragging = useRef(false);
   const startX = useRef(0);
@@ -72,6 +70,7 @@ const ProductReels = ({ reels }) => {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedReelIndex, isPlaying]);
 
   // Control popup video playback
@@ -213,12 +212,13 @@ const ProductReels = ({ reels }) => {
       { threshold: 0.5 }
     );
 
-    videoRefs.current.forEach((video) => {
+    const currentVideoRefs = videoRefs.current;
+    currentVideoRefs.forEach((video) => {
       if (video) observer.observe(video);
     });
 
     return () => {
-      videoRefs.current.forEach((video) => {
+      currentVideoRefs.forEach((video) => {
         if (video) observer.unobserve(video);
       });
     };

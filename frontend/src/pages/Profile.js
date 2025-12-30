@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { FaUser, FaEnvelope, FaPhone, FaMapMarkerAlt, FaEdit, FaSave, FaTimes, FaPlus, FaTrash, FaStar, FaLock, FaShieldAlt } from 'react-icons/fa';
+import React, { useState, useEffect, useCallback } from 'react';
+import { FaUser, FaMapMarkerAlt, FaEdit, FaSave, FaTimes, FaPlus, FaTrash, FaStar, FaLock, FaShieldAlt } from 'react-icons/fa';
 import { useAuth } from '../context/AuthContext';
 import API from '../utils/api';
 import { toast } from 'react-toastify';
@@ -39,11 +39,7 @@ const Profile = () => {
     confirmPassword: ''
   });
 
-  useEffect(() => {
-    fetchProfile();
-  }, []);
-
-  const fetchProfile = async () => {
+  const fetchProfile = useCallback(async () => {
     try {
       const { data } = await API.get('/auth/profile');
 
@@ -70,7 +66,11 @@ const Profile = () => {
       console.error('Error fetching profile:', error);
       toast.error('Failed to load profile');
     }
-  };
+  }, [updateUser]);
+
+  useEffect(() => {
+    fetchProfile();
+  }, [fetchProfile]);
 
   const handleProfileUpdate = async (e) => {
     e.preventDefault();

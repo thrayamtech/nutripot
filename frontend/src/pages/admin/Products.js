@@ -116,10 +116,6 @@ const AdminProducts = () => {
     }
   };
 
-  const setAsMainImage = (index) => {
-    setMainImageIndex(index);
-  };
-
   const moveImage = (fromIndex, toIndex) => {
     const newPreviews = [...previewImages];
     const [movedItem] = newPreviews.splice(fromIndex, 1);

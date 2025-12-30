@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaStar, FaHeart, FaEye } from 'react-icons/fa';
 import { useCart } from '../context/CartContext';
-import { toast } from 'react-toastify';
 
 const ProductCard = ({ product }) => {
   const [showSizeDropdown, setShowSizeDropdown] = useState(false);

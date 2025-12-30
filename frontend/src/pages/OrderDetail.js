@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { FaCheckCircle, FaBox, FaTruck, FaHome, FaTimesCircle, FaMoneyBillWave, FaCreditCard, FaCalendar, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaCheckCircle, FaBox, FaTruck, FaTimesCircle, FaMoneyBillWave, FaCreditCard, FaCalendar, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 import { useAuth } from '../context/AuthContext';
 import API from '../utils/api';
 import { toast } from 'react-toastify';
@@ -19,6 +19,7 @@ const OrderDetail = () => {
       return;
     }
     fetchOrder();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id, isAuthenticated]);
 
   const fetchOrder = async () => {

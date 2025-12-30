@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { FaStar, FaTruck, FaUndo, FaShieldAlt, FaHeadset, FaTag, FaCrown, FaFire, FaArrowRight, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { FaTruck, FaUndo, FaShieldAlt, FaHeadset, FaTag, FaCrown, FaFire, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import HeroSlider from '../components/HeroSlider';
 import ProductCard from '../components/ProductCard';
 import ProductReels from '../components/ProductReels';
@@ -22,10 +21,12 @@ const Home = () => {
   useEffect(() => {
     fetchData();
     fetchSettings();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     fetchCategoryProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedCategory]);
 
   const fetchSettings = async () => {

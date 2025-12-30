@@ -13,6 +13,7 @@ const ReferralTracking = () => {
 
   useEffect(() => {
     fetchReferrals();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [statusFilter, searchTerm]);
 
   const fetchReferrals = async () => {

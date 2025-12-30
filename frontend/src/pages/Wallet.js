@@ -3,17 +3,15 @@ import { FaWallet, FaGift, FaUsers, FaHistory, FaCoins, FaArrowUp, FaArrowDown, 
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import API from '../utils/api';
-import { useAuth } from '../context/AuthContext';
 
 const Wallet = () => {
-  const [wallet, setWallet] = useState(null);
+  const [, setWallet] = useState(null);
   const [stats, setStats] = useState(null);
   const [transactions, setTransactions] = useState([]);
   const [referrals, setReferrals] = useState([]);
   const [referralStats, setReferralStats] = useState(null);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('overview');
-  const { user } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {

@@ -197,6 +197,7 @@ const CheckoutSteps = () => {
       fetchUserAddresses();
       fetchWalletBalance();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
 
   const fetchCodSetting = async () => {

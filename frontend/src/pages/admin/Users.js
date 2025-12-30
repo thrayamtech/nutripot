@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaSearch, FaUser, FaEnvelope, FaPhone, FaCalendar, FaShieldAlt, FaBan, FaCheck } from 'react-icons/fa';
+import { FaSearch, FaUser, FaEnvelope, FaPhone, FaCalendar, FaBan, FaCheck } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import AdminLayout from '../../components/AdminLayout';
 import API from '../../utils/api';
