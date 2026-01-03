@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { FaPhone, FaLock, FaWhatsapp } from 'react-icons/fa';
 import { useAuth } from '../context/AuthContext';
 import API from '../utils/api';
@@ -11,7 +11,6 @@ const UserLogin = () => {
   const [otpSent, setOtpSent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [timer, setTimer] = useState(60);
-  const [userExists, setUserExists] = useState(false);
 
   const { setAuthData } = useAuth();
   const navigate = useNavigate();
@@ -40,7 +39,6 @@ const UserLogin = () => {
       // Send WhatsApp OTP for all users (new and existing)
       const { data } = await API.post('/auth/send-whatsapp-otp', { phone: mobileNumber });
 
-      setUserExists(data.exists);
       setOtpSent(true);
       setTimer(60);
 
@@ -105,7 +103,7 @@ const UserLogin = () => {
     setLoading(true);
     try {
       // Resend WhatsApp OTP for all users
-      const { data } = await API.post('/auth/send-whatsapp-otp', { phone: mobileNumber });
+      await API.post('/auth/send-whatsapp-otp', { phone: mobileNumber });
 
       setTimer(60);
       toast.success(`OTP resent to your WhatsApp number.`);

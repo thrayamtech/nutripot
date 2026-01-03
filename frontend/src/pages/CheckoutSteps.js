@@ -129,7 +129,6 @@ const CheckoutSteps = () => {
   const [otp, setOtp] = useState('');
   const [otpDigits, setOtpDigits] = useState(['', '', '', '']);
   const [otpSent, setOtpSent] = useState(false);
-  const [isExistingUser, setIsExistingUser] = useState(false);
 
   const [shippingAddress, setShippingAddress] = useState({
     fullName: user?.name || '',
