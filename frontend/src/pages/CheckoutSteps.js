@@ -325,7 +325,6 @@ const CheckoutSteps = () => {
     try {
       // Send WhatsApp OTP for all users (new and existing)
       const { data } = await API.post('/auth/send-whatsapp-otp', { phone: mobileNumber });
-      setIsExistingUser(data.exists);
       setOtpSent(true);
 
       if (data.exists) {
