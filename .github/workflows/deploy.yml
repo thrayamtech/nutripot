@@ -57,9 +57,14 @@ jobs:
           username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd /home/ec2-user/apps/thrayam-threads/backend
-            npm install
-            pm2 restart thrayam-backend || pm2 start index.js --name thrayam-backend
+            cd /home/ec2-user/apps/thrayam-threads
+            # Pull latest code from GitHub
+            git pull origin main
+            # Install backend dependencies
+            cd backend
+            npm install --production
+            # Restart PM2 process
+            pm2 restart thrayam-backend || pm2 start server.js --name thrayam-backend
 
       # ---------- RELOAD NGINX ----------
       - name: Reload Nginx
