@@ -175,15 +175,15 @@ const Reels = () => {
   };
 
   // Extract Instagram reel ID from URL for thumbnail
-  const getInstagramEmbedUrl = (url) => {
-    if (!url) return '';
-    // Convert Instagram reel URL to embed format
-    const match = url.match(/instagram\.com\/(?:reel|p)\/([A-Za-z0-9_-]+)/);
-    if (match) {
-      return `https://www.instagram.com/reel/${match[1]}/embed`;
-    }
-    return url;
-  };
+  // const getInstagramEmbedUrl = (url) => {
+  //   if (!url) return '';
+  //   // Convert Instagram reel URL to embed format
+  //   const match = url.match(/instagram\.com\/(?:reel|p)\/([A-Za-z0-9_-]+)/);
+  //   if (match) {
+  //     return `https://www.instagram.com/reel/${match[1]}/embed`;
+  //   }
+  //   return url;
+  // };
 
   return (
     <div className="p-6">
