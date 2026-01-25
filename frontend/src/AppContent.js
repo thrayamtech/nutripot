@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { useCart } from './context/CartContext';
 import analytics from './utils/analytics';
+import { setCanonicalUrl, setSEO } from './utils/seo';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -60,31 +61,104 @@ function AppContent() {
     analytics.init();
   }, []);
 
-  // Track page views on route change
+  // Track page views and set SEO on route change
   useEffect(() => {
-    const pageTitles = {
-      '/': 'Home',
-      '/products': 'Products',
-      '/cart': 'Shopping Cart',
-      '/checkout': 'Checkout',
-      '/login': 'Login',
-      '/register': 'Register',
-      '/profile': 'My Profile',
-      '/orders': 'My Orders',
-      '/wishlist': 'Wishlist',
-      '/wallet': 'Wallet',
-      '/refer': 'Refer a Friend',
-      '/categories': 'Categories',
-      '/about': 'About Us',
-      '/blogs': 'Blogs',
-      '/contact': 'Contact Us',
-      '/privacy-policy': 'Privacy Policy',
-      '/terms-conditions': 'Terms & Conditions',
-      '/refund-policy': 'Refund Policy',
-      '/shipping-policy': 'Shipping Policy'
+    // SEO-optimized page titles with keywords
+    const pageSEO = {
+      '/': {
+        title: null, // Uses default with full brand name
+        description: 'Shop premium handcrafted sarees at Thrayam Threads. Exclusive collection of silk, cotton, designer, bridal & handloom sarees. Free shipping across India.'
+      },
+      '/products': {
+        title: 'Shop All Sarees - Silk, Cotton, Designer & Bridal',
+        description: 'Browse our complete collection of premium sarees. Filter by silk, cotton, designer, bridal, and handloom. Best prices with free shipping.'
+      },
+      '/cart': {
+        title: 'Shopping Cart',
+        description: 'Review your selected sarees and proceed to checkout. Secure payment options available.'
+      },
+      '/checkout': {
+        title: 'Secure Checkout',
+        description: 'Complete your order securely. Multiple payment options available including COD, UPI, and cards.'
+      },
+      '/login': {
+        title: 'Login to Your Account',
+        description: 'Login to your Thrayam Threads account to track orders, save favorites, and enjoy exclusive offers.'
+      },
+      '/register': {
+        title: 'Create an Account',
+        description: 'Join Thrayam Threads today. Create an account for exclusive offers, order tracking, and personalized recommendations.'
+      },
+      '/profile': {
+        title: 'My Profile',
+        description: 'Manage your Thrayam Threads account, addresses, and preferences.'
+      },
+      '/orders': {
+        title: 'My Orders',
+        description: 'Track your saree orders and view order history.'
+      },
+      '/wishlist': {
+        title: 'My Wishlist',
+        description: 'Your saved sarees and favorite picks from Thrayam Threads.'
+      },
+      '/wallet': {
+        title: 'My Wallet',
+        description: 'Manage your Thrayam Threads wallet balance and rewards.'
+      },
+      '/refer': {
+        title: 'Refer a Friend & Earn Rewards',
+        description: 'Share the love for sarees! Refer friends to Thrayam Threads and earn rewards.'
+      },
+      '/categories': {
+        title: 'Shop by Category - Saree Collections',
+        description: 'Browse sarees by category - silk, cotton, designer, bridal, handloom, and more.'
+      },
+      '/about': {
+        title: 'About Us - Our Story',
+        description: 'Learn about Thrayam Threads - your trusted destination for premium handcrafted sarees since 2020.'
+      },
+      '/blogs': {
+        title: 'Saree Blog - Style Tips & Guides',
+        description: 'Explore saree styling tips, fashion trends, fabric guides, and occasion wear advice.'
+      },
+      '/contact': {
+        title: 'Contact Us',
+        description: 'Get in touch with Thrayam Threads. We are here to help with your saree queries and orders.'
+      },
+      '/privacy-policy': {
+        title: 'Privacy Policy',
+        description: 'Read our privacy policy to understand how we protect your personal information.'
+      },
+      '/terms-conditions': {
+        title: 'Terms & Conditions',
+        description: 'Terms and conditions for shopping at Thrayam Threads online store.'
+      },
+      '/refund-policy': {
+        title: 'Refund & Return Policy',
+        description: 'Our hassle-free refund and return policy for sarees purchased at Thrayam Threads.'
+      },
+      '/shipping-policy': {
+        title: 'Shipping Policy',
+        description: 'Free shipping across India. Learn about our delivery timelines and shipping methods.'
+      }
     };
 
-    const title = pageTitles[location.pathname] || document.title;
+    const currentSEO = pageSEO[location.pathname];
+
+    if (currentSEO) {
+      // Set SEO for known pages
+      setSEO({
+        title: currentSEO.title,
+        description: currentSEO.description,
+        url: location.pathname
+      });
+    }
+
+    // Set canonical URL for all pages
+    setCanonicalUrl(location.pathname);
+
+    // Track page view in analytics
+    const title = currentSEO?.title || document.title;
     analytics.trackPageView(location.pathname, title);
   }, [location]);
 

@@ -1,10 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const reelController = require('../controllers/reelController');
-const { protect, admin } = require('../middleware/auth');
+const { protect, admin, optionalAuth } = require('../middleware/auth');
 
 // Public routes
-router.get('/active', reelController.getActiveReels);
+router.get('/active', optionalAuth, reelController.getActiveReels);
+router.post('/:id/view', reelController.viewReel);
+
+// Protected routes (need login)
+router.post('/:id/like', protect, reelController.likeReel);
 
 // Admin routes
 router.get('/', protect, admin, reelController.getAllReels);

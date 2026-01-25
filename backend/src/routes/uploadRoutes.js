@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const upload = require('../middleware/upload');
 const { protect, authorize } = require('../middleware/auth');
-const { uploadToS3, deleteFromS3, extractS3Key } = require('../utils/s3Upload');
+const { uploadToS3, deleteFromS3, extractS3Key, videoUpload } = require('../utils/s3Upload');
 
 // Single image upload to S3
 router.post('/single', protect, authorize('admin'), upload.single('image'), async (req, res) => {
@@ -60,6 +60,35 @@ router.post('/multiple', protect, authorize('admin'), upload.array('images', 5),
       files
     });
   } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message
+    });
+  }
+});
+
+// Video upload to S3 (for reels)
+router.post('/', protect, authorize('admin'), videoUpload.single('file'), async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({
+        success: false,
+        message: 'Please upload a video file'
+      });
+    }
+
+    // Upload to S3 in 'reels' folder
+    const uploadResult = await uploadToS3(req.file, 'reels');
+
+    res.status(200).json({
+      success: true,
+      message: 'Video uploaded successfully to S3',
+      url: uploadResult.url,
+      key: uploadResult.key,
+      size: req.file.size
+    });
+  } catch (error) {
+    console.error('Video upload error:', error);
     res.status(500).json({
       success: false,
       message: error.message

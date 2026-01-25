@@ -5,6 +5,7 @@ import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import API from '../utils/api';
 import { toast } from 'react-toastify';
+import { trackInitiateCheckout, trackPurchase, trackAddPaymentInfo } from '../utils/metaPixel';
 
 const CheckoutNew = () => {
   const { cart, getCartTotal, clearCart } = useCart();
@@ -55,6 +56,9 @@ const CheckoutNew = () => {
   useEffect(() => {
     if (!cart || !cart.items || cart.items.length === 0) {
       navigate('/cart');
+    } else {
+      // Meta Pixel: Track InitiateCheckout
+      trackInitiateCheckout(cart.items, getCartTotal());
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Only run on mount
@@ -375,6 +379,8 @@ const CheckoutNew = () => {
 
         console.log('Profile updated successfully');
         toast.success('Details saved! Proceeding to payment.');
+        // Meta Pixel: Track AddPaymentInfo
+        trackAddPaymentInfo(getCartTotal());
         setLoading(false);
         setCurrentStep(4);
       } catch (error) {
@@ -450,6 +456,13 @@ const CheckoutNew = () => {
       };
 
       const { data } = await API.post('/orders', orderData);
+
+      // Meta Pixel: Track Purchase
+      trackPurchase({
+        ...data.order,
+        items: cart.items,
+        total: getCartTotal()
+      });
 
       // Clear cart
       await clearCart();

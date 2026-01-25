@@ -13,16 +13,16 @@ const s3Client = new S3Client({
 });
 
 // Generate unique filename
-const generateFileName = (originalname) => {
+const generateFileName = (originalname, folder = 'products') => {
   const timestamp = Date.now();
   const randomString = crypto.randomBytes(8).toString('hex');
   const ext = path.extname(originalname);
-  return `products/${timestamp}-${randomString}${ext}`;
+  return `${folder}/${timestamp}-${randomString}${ext}`;
 };
 
 // Upload file to S3
-const uploadToS3 = async (file) => {
-  const fileName = generateFileName(file.originalname);
+const uploadToS3 = async (file, folder = 'products') => {
+  const fileName = generateFileName(file.originalname, folder);
 
   const params = {
     Bucket: process.env.AWS_S3_BUCKET_NAME,
@@ -104,7 +104,7 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
-// Multer upload instance
+// Multer upload instance for images
 const upload = multer({
   storage: storage,
   limits: {
@@ -113,10 +113,34 @@ const upload = multer({
   fileFilter: fileFilter
 });
 
+// File filter for videos
+const videoFileFilter = (req, file, cb) => {
+  const allowedTypes = /mp4|webm|mov|avi|mkv|m4v/;
+  const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
+  const allowedMimeTypes = ['video/mp4', 'video/webm', 'video/quicktime', 'video/x-msvideo', 'video/x-matroska', 'video/x-m4v'];
+  const mimetype = allowedMimeTypes.includes(file.mimetype) || file.mimetype.startsWith('video/');
+
+  if (extname || mimetype) {
+    cb(null, true);
+  } else {
+    cb(new Error('Only video files are allowed (mp4, webm, mov, avi, mkv)'));
+  }
+};
+
+// Multer upload instance for videos (100MB limit)
+const videoUpload = multer({
+  storage: storage,
+  limits: {
+    fileSize: 100 * 1024 * 1024 // 100MB limit
+  },
+  fileFilter: videoFileFilter
+});
+
 module.exports = {
   s3Client,
   uploadToS3,
   deleteFromS3,
   extractS3Key,
-  upload
+  upload,
+  videoUpload
 };

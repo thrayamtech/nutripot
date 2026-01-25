@@ -1,12 +1,7 @@
 const mongoose = require('mongoose');
 
 const reelSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    trim: true,
-    default: ''
-  },
-  instagramUrl: {
+  videoUrl: {
     type: String,
     required: true,
     trim: true
@@ -20,6 +15,18 @@ const reelSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Product',
     default: null
+  },
+  likes: {
+    type: Number,
+    default: 0
+  },
+  likedBy: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  }],
+  views: {
+    type: Number,
+    default: 0
   },
   order: {
     type: Number,

@@ -4,6 +4,7 @@ import { FaSearch, FaShoppingCart, FaUser, FaBars, FaTimes, FaHeart, FaPhone, Fa
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import API from '../utils/api';
+import { trackSearch } from '../utils/metaPixel';
 
 const Navbar = ({ onCartOpen }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,6 +35,8 @@ const Navbar = ({ onCartOpen }) => {
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
+      // Meta Pixel: Track Search
+      trackSearch(searchQuery);
       navigate(`/products?search=${searchQuery}`);
       setSearchQuery('');
     }
@@ -472,36 +475,50 @@ const Navbar = ({ onCartOpen }) => {
 
               <hr className="my-2" />
 
+              {/* Cart - Always visible */}
+              <button
+                onClick={() => {
+                  onCartOpen();
+                  setIsOpen(false);
+                }}
+                className="text-left text-gray-700 hover:text-[#5A0F1B] font-medium py-2.5 px-3 rounded-lg hover:bg-[#5A0F1B]/10 transition-colors duration-200 flex items-center gap-2"
+              >
+                <FaShoppingCart />
+                Cart {getCartCount() > 0 && `(${getCartCount()})`}
+              </button>
+
               {isAuthenticated ? (
                 <>
                   <Link
                     to="/wishlist"
-                    className="text-gray-700 hover:text-[#5A0F1B] font-medium py-2.5 px-3 rounded-lg hover:bg-[#5A0F1B]/10 transition-colors duration-200"
+                    className="text-gray-700 hover:text-[#5A0F1B] font-medium py-2.5 px-3 rounded-lg hover:bg-[#5A0F1B]/10 transition-colors duration-200 flex items-center gap-2"
                     onClick={() => setIsOpen(false)}
                   >
+                    <FaHeart />
                     Wishlist
                   </Link>
-                  <button
-                    onClick={() => {
-                      onCartOpen();
-                      setIsOpen(false);
-                    }}
-                    className="text-left text-gray-700 hover:text-[#5A0F1B] font-medium py-2.5 px-3 rounded-lg hover:bg-[#5A0F1B]/10 transition-colors duration-200"
-                  >
-                    Cart ({getCartCount()})
-                  </button>
                   <Link
-                    to="/profile"
-                    className="text-gray-700 hover:text-[#5A0F1B] font-medium py-2.5 px-3 rounded-lg hover:bg-[#5A0F1B]/10 transition-colors duration-200"
+                    to="/wallet"
+                    className="text-gray-700 hover:text-[#5A0F1B] font-medium py-2.5 px-3 rounded-lg hover:bg-[#5A0F1B]/10 transition-colors duration-200 flex items-center gap-2"
                     onClick={() => setIsOpen(false)}
                   >
+                    <FaWallet />
+                    My Wallet & Rewards
+                  </Link>
+                  <Link
+                    to="/profile"
+                    className="text-gray-700 hover:text-[#5A0F1B] font-medium py-2.5 px-3 rounded-lg hover:bg-[#5A0F1B]/10 transition-colors duration-200 flex items-center gap-2"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <FaUser />
                     My Profile
                   </Link>
                   <Link
                     to="/orders"
-                    className="text-gray-700 hover:text-[#5A0F1B] font-medium py-2.5 px-3 rounded-lg hover:bg-[#5A0F1B]/10 transition-colors duration-200"
+                    className="text-gray-700 hover:text-[#5A0F1B] font-medium py-2.5 px-3 rounded-lg hover:bg-[#5A0F1B]/10 transition-colors duration-200 flex items-center gap-2"
                     onClick={() => setIsOpen(false)}
                   >
+                    <FaShoppingCart />
                     My Orders
                   </Link>
                   {isAdmin && (

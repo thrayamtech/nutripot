@@ -1,0 +1,65 @@
+# Robots.txt for Thrayam Threads - Premium Sarees Online
+# https://thrayamthreads.com
+
+# Allow all search engine crawlers
+User-agent: *
+
+# Allow crawling of main content pages
+Allow: /
+Allow: /products
+Allow: /products/*
+Allow: /about
+Allow: /contact
+Allow: /blogs
+Allow: /blogs/*
+Allow: /privacy-policy
+Allow: /terms-conditions
+Allow: /refund-policy
+Allow: /shipping-policy
+
+# Disallow admin and user-specific pages
+Disallow: /admin
+Disallow: /admin/*
+Disallow: /profile
+Disallow: /orders
+Disallow: /orders/*
+Disallow: /wallet
+Disallow: /cart
+Disallow: /checkout
+Disallow: /login
+Disallow: /register
+Disallow: /wishlist
+
+# Disallow search result pages with complex parameters
+Disallow: /*?sort=
+Disallow: /*?page=
+Disallow: /*?minPrice=
+Disallow: /*?maxPrice=
+
+# Allow category and search pages (important for SEO)
+Allow: /products?category=
+Allow: /products?search=
+
+# Crawl delay (optional - be respectful to server resources)
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://thrayamthreads.com/sitemap.xml
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+
+# Bing specific
+User-agent: Bingbot
+Allow: /
+
+# Block AI scrapers if desired (optional)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /

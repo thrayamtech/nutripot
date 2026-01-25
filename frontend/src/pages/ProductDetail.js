@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
 import { FaStar, FaHeart, FaShoppingCart, FaCheck, FaMinus, FaPlus } from 'react-icons/fa';
 import { useCart } from '../context/CartContext';
-import { useAuth } from '../context/AuthContext';
+// useAuth removed - cart now works for both logged in and guest users
 import { toast } from 'react-toastify';
 import API from '../utils/api';
 import analytics from '../utils/analytics';
+import { trackViewContent, trackAddToCart as trackPixelAddToCart } from '../utils/metaPixel';
 import { getProductImage, handleImageError } from '../utils/imageHelper';
+import { setSEO, generateProductSchema, generateBreadcrumbSchema } from '../utils/seo';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -19,19 +21,52 @@ const ProductDetail = () => {
   const [quantity, setQuantity] = useState(1);
   const [showLightbox, setShowLightbox] = useState(false);
   const { addToCart } = useCart();
-  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     fetchProduct();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
-  // Track product view
+  // Track product view and set SEO
   useEffect(() => {
     if (product) {
       const searchParams = new URLSearchParams(location.search);
       const source = searchParams.get('source') || 'direct';
       analytics.trackProductView(product._id, source);
+      // Meta Pixel: Track ViewContent
+      trackViewContent(product);
+
+      // SEO: Set page title, meta tags, and structured data
+      const categoryName = product.category?.name || 'Sarees';
+      const priceText = product.discountPrice
+        ? `₹${product.discountPrice.toLocaleString()}`
+        : `₹${product.price?.toLocaleString()}`;
+
+      setSEO({
+        title: `${product.name} - ${categoryName}`,
+        description: `Buy ${product.name} online at Thrayam Threads. ${product.fabric ? `Made with premium ${product.fabric}.` : ''} ${categoryName}. Price: ${priceText}. Free shipping across India. ${product.description?.slice(0, 100) || ''}`,
+        url: `/products/${product._id}`,
+        image: getProductImage(product),
+        type: 'product',
+        structuredData: generateProductSchema(product)
+      });
+
+      // Add Breadcrumb structured data
+      const breadcrumbs = [
+        { name: 'Home', url: '/' },
+        { name: 'Products', url: '/products' },
+        { name: product.name, url: `/products/${product._id}` }
+      ];
+      const breadcrumbScript = document.getElementById('breadcrumb-structured-data');
+      if (breadcrumbScript) {
+        breadcrumbScript.textContent = JSON.stringify(generateBreadcrumbSchema(breadcrumbs));
+      } else {
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.id = 'breadcrumb-structured-data';
+        script.textContent = JSON.stringify(generateBreadcrumbSchema(breadcrumbs));
+        document.head.appendChild(script);
+      }
     }
   }, [product, location]);
 
@@ -56,11 +91,6 @@ const ProductDetail = () => {
   };
 
   const handleAddToCart = async () => {
-    if (!isAuthenticated) {
-      toast.error('Please login to add items to cart');
-      return;
-    }
-
     // Check if product is out of stock
     if (product.stock === 0) {
       toast.error('Product is out of stock');
@@ -85,6 +115,8 @@ const ProductDetail = () => {
 
       // Track add to cart action
       analytics.trackAddToCart(product._id, product.name, quantityToAdd);
+      // Meta Pixel: Track AddToCart
+      trackPixelAddToCart(product, quantityToAdd);
 
       toast.success('Added to cart!');
     } catch (error) {

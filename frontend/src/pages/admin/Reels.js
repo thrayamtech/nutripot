@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { FaPlus, FaEdit, FaTrash, FaGripVertical, FaToggleOn, FaToggleOff, FaInstagram } from 'react-icons/fa';
+import { useState, useEffect, useRef } from 'react';
+import { FaPlus, FaEdit, FaTrash, FaGripVertical, FaPlay, FaCloudUploadAlt } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import API from '../../utils/api';
 
@@ -9,15 +9,16 @@ const Reels = () => {
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [editingReel, setEditingReel] = useState(null);
+  const [saving, setSaving] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
   const [formData, setFormData] = useState({
-    title: '',
-    instagramUrl: '',
-    thumbnailUrl: '',
+    videoUrl: '',
     product: '',
-    order: 0,
     isActive: true
   });
   const [draggedItem, setDraggedItem] = useState(null);
+  const fileInputRef = useRef(null);
 
   useEffect(() => {
     fetchReels();
@@ -53,21 +54,66 @@ const Reels = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleVideoUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
 
-    if (!formData.instagramUrl) {
-      toast.error('Instagram URL is required');
+    // Validate file type
+    if (!file.type.startsWith('video/')) {
+      toast.error('Please select a video file');
       return;
     }
 
+    // Validate file size (max 100MB)
+    if (file.size > 100 * 1024 * 1024) {
+      toast.error('Video file must be less than 100MB');
+      return;
+    }
+
+    setUploading(true);
+    setUploadProgress(0);
+
+    const uploadFormData = new FormData();
+    uploadFormData.append('file', file);
+
+    try {
+      const { data } = await API.post('/upload', uploadFormData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+        onUploadProgress: (progressEvent) => {
+          const progress = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+          setUploadProgress(progress);
+        }
+      });
+      setFormData(prev => ({ ...prev, videoUrl: data.url }));
+      toast.success('Video uploaded successfully');
+    } catch (error) {
+      console.error('Error uploading video:', error);
+      toast.error('Failed to upload video');
+    } finally {
+      setUploading(false);
+      setUploadProgress(0);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!formData.videoUrl) {
+      toast.error('Please upload a video');
+      return;
+    }
+
+    if (!formData.product) {
+      toast.error('Please select a product');
+      return;
+    }
+
+    setSaving(true);
+
     try {
       const payload = {
-        title: formData.title,
-        instagramUrl: formData.instagramUrl,
-        thumbnailUrl: formData.thumbnailUrl,
-        product: formData.product || null,
-        order: formData.order,
+        videoUrl: formData.videoUrl,
+        product: formData.product,
         isActive: formData.isActive
       };
 
@@ -84,17 +130,16 @@ const Reels = () => {
     } catch (error) {
       console.error('Error saving reel:', error);
       toast.error(error.response?.data?.message || 'Failed to save reel');
+    } finally {
+      setSaving(false);
     }
   };
 
   const handleEdit = (reel) => {
     setEditingReel(reel);
     setFormData({
-      title: reel.title || '',
-      instagramUrl: reel.instagramUrl,
-      thumbnailUrl: reel.thumbnailUrl || '',
+      videoUrl: reel.videoUrl || '',
       product: reel.product?._id || reel.product || '',
-      order: reel.order,
       isActive: reel.isActive
     });
     setShowModal(true);
@@ -128,11 +173,8 @@ const Reels = () => {
     setShowModal(false);
     setEditingReel(null);
     setFormData({
-      title: '',
-      instagramUrl: '',
-      thumbnailUrl: '',
+      videoUrl: '',
       product: '',
-      order: 0,
       isActive: true
     });
   };
@@ -168,29 +210,18 @@ const Reels = () => {
     } catch (error) {
       console.error('Error updating reel order:', error);
       toast.error('Failed to update order');
-      fetchReels(); // Revert on error
+      fetchReels();
     }
 
     setDraggedItem(null);
   };
-
-  // Extract Instagram reel ID from URL for thumbnail
-  // const getInstagramEmbedUrl = (url) => {
-  //   if (!url) return '';
-  //   // Convert Instagram reel URL to embed format
-  //   const match = url.match(/instagram\.com\/(?:reel|p)\/([A-Za-z0-9_-]+)/);
-  //   if (match) {
-  //     return `https://www.instagram.com/reel/${match[1]}/embed`;
-  //   }
-  //   return url;
-  // };
 
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
         <div>
           <h1 className="text-3xl font-bold text-gray-800">Reels Management</h1>
-          <p className="text-gray-600 mt-1">Manage Instagram reels displayed on the homepage</p>
+          <p className="text-gray-600 mt-1">Upload videos to display on the homepage</p>
         </div>
         <button
           onClick={() => setShowModal(true)}
@@ -206,9 +237,9 @@ const Reels = () => {
         </div>
       ) : reels.length === 0 ? (
         <div className="bg-white rounded-lg shadow-md p-12 text-center">
-          <FaInstagram className="mx-auto text-6xl text-gray-300 mb-4" />
+          <FaPlay className="mx-auto text-6xl text-gray-300 mb-4" />
           <h3 className="text-xl font-medium text-gray-700 mb-2">No Reels Added</h3>
-          <p className="text-gray-500 mb-4">Add Instagram reels to showcase on your homepage</p>
+          <p className="text-gray-500 mb-4">Upload videos to showcase on your homepage</p>
           <button
             onClick={() => setShowModal(true)}
             className="bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] text-white px-6 py-2 rounded-lg"
@@ -217,228 +248,200 @@ const Reels = () => {
           </button>
         </div>
       ) : (
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
-          <div className="p-4 bg-gray-50 border-b">
-            <p className="text-sm text-gray-600">
-              <FaGripVertical className="inline mr-2" />
-              Drag and drop to reorder reels
-            </p>
-          </div>
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-10"></th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Reel</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Title</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Linked Product</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Order</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
-              </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              {reels.map((reel, index) => (
-                <tr
-                  key={reel._id}
-                  className={`hover:bg-gray-50 ${draggedItem === index ? 'bg-blue-50' : ''}`}
-                  draggable
-                  onDragStart={(e) => handleDragStart(e, index)}
-                  onDragOver={(e) => handleDragOver(e, index)}
-                  onDragEnd={handleDragEnd}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+          {reels.map((reel, index) => (
+            <div
+              key={reel._id}
+              className={`bg-white rounded-xl shadow-md overflow-hidden group ${draggedItem === index ? 'ring-2 ring-blue-500' : ''}`}
+              draggable
+              onDragStart={(e) => handleDragStart(e, index)}
+              onDragOver={(e) => handleDragOver(e, index)}
+              onDragEnd={handleDragEnd}
+            >
+              {/* Video Preview */}
+              <div className="relative aspect-[9/16] bg-black">
+                <video
+                  src={reel.videoUrl}
+                  className="w-full h-full object-cover"
+                  muted
+                  loop
+                  onMouseEnter={(e) => e.target.play()}
+                  onMouseLeave={(e) => { e.target.pause(); e.target.currentTime = 0; }}
+                />
+
+                {/* Overlay Controls */}
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                  <button
+                    onClick={() => handleEdit(reel)}
+                    className="p-2 bg-white rounded-full text-gray-700 hover:bg-gray-100"
+                  >
+                    <FaEdit />
+                  </button>
+                  <button
+                    onClick={() => handleDelete(reel._id)}
+                    className="p-2 bg-white rounded-full text-red-600 hover:bg-red-50"
+                  >
+                    <FaTrash />
+                  </button>
+                </div>
+
+                {/* Drag Handle */}
+                <div className="absolute top-2 left-2 cursor-move opacity-0 group-hover:opacity-100 transition-opacity">
+                  <FaGripVertical className="text-white text-lg drop-shadow-lg" />
+                </div>
+
+                {/* Status Badge */}
+                <button
+                  onClick={() => handleToggleStatus(reel)}
+                  className={`absolute top-2 right-2 px-2 py-1 rounded-full text-xs font-medium ${
+                    reel.isActive ? 'bg-green-500 text-white' : 'bg-gray-500 text-white'
+                  }`}
                 >
-                  <td className="px-4 py-4 cursor-move">
-                    <FaGripVertical className="text-gray-400" />
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="flex items-center gap-3">
-                      <div className="relative w-16 h-24 bg-gray-100 rounded overflow-hidden flex items-center justify-center">
-                        {reel.thumbnailUrl ? (
-                          <img
-                            src={reel.thumbnailUrl}
-                            alt={reel.title || 'Reel thumbnail'}
-                            className="w-full h-full object-cover"
-                          />
-                        ) : (
-                          <FaInstagram className="text-2xl text-pink-500" />
-                        )}
-                      </div>
-                      <a
-                        href={reel.instagramUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-pink-600 hover:text-pink-800 text-sm truncate max-w-[200px]"
-                        title={reel.instagramUrl}
-                      >
-                        {reel.instagramUrl}
-                      </a>
-                    </div>
-                  </td>
-                  <td className="px-6 py-4">
-                    <div className="text-sm font-medium text-gray-900">{reel.title || '-'}</div>
-                  </td>
-                  <td className="px-6 py-4">
-                    <div className="text-sm text-gray-600">
-                      {reel.product?.name || '-'}
-                    </div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">{reel.order}</div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <button
-                      onClick={() => handleToggleStatus(reel)}
-                      className={`flex items-center gap-2 ${reel.isActive ? 'text-green-600' : 'text-gray-400'}`}
-                    >
-                      {reel.isActive ? (
-                        <>
-                          <FaToggleOn className="text-2xl" />
-                          <span className="text-xs">Active</span>
-                        </>
-                      ) : (
-                        <>
-                          <FaToggleOff className="text-2xl" />
-                          <span className="text-xs">Inactive</span>
-                        </>
-                      )}
-                    </button>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                    <button
-                      onClick={() => handleEdit(reel)}
-                      className="text-[#5A0F1B] hover:text-[#7A1525] mr-3"
-                    >
-                      <FaEdit className="text-lg" />
-                    </button>
-                    <button
-                      onClick={() => handleDelete(reel._id)}
-                      className="text-red-600 hover:text-red-900"
-                    >
-                      <FaTrash className="text-lg" />
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                  {reel.isActive ? 'Active' : 'Inactive'}
+                </button>
+              </div>
+
+              {/* Product Info */}
+              <div className="p-3">
+                <p className="text-sm font-medium text-gray-800 truncate">
+                  {reel.product?.name || 'No product linked'}
+                </p>
+                <p className="text-xs text-gray-500">Order: {reel.order}</p>
+              </div>
+            </div>
+          ))}
         </div>
       )}
 
       {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg max-w-xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="bg-white rounded-xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <FaInstagram className="text-2xl text-pink-500" />
-                <h2 className="text-2xl font-bold">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] rounded-full flex items-center justify-center">
+                  <FaPlay className="text-white" />
+                </div>
+                <h2 className="text-xl font-bold text-gray-800">
                   {editingReel ? 'Edit Reel' : 'Add New Reel'}
                 </h2>
               </div>
-              <form onSubmit={handleSubmit} className="space-y-4">
+
+              <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Video Upload */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Instagram Reel URL <span className="text-red-500">*</span>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Video <span className="text-red-500">*</span>
                   </label>
+
+                  {formData.videoUrl ? (
+                    <div className="relative rounded-xl overflow-hidden bg-black">
+                      <video
+                        src={formData.videoUrl}
+                        className="w-full aspect-[9/16] max-h-[300px] object-contain"
+                        controls
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setFormData(prev => ({ ...prev, videoUrl: '' }))}
+                        className="absolute top-2 right-2 bg-red-500 text-white px-3 py-1 rounded-full text-sm hover:bg-red-600"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  ) : (
+                    <div
+                      onClick={() => !uploading && fileInputRef.current?.click()}
+                      className={`border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-colors ${
+                        uploading ? 'border-gray-300 bg-gray-50' : 'border-gray-300 hover:border-[#5A0F1B] hover:bg-[#5A0F1B]/5'
+                      }`}
+                    >
+                      {uploading ? (
+                        <div className="space-y-3">
+                          <div className="w-12 h-12 mx-auto border-4 border-[#5A0F1B] border-t-transparent rounded-full animate-spin"></div>
+                          <p className="text-gray-600">Uploading... {uploadProgress}%</p>
+                          <div className="w-full bg-gray-200 rounded-full h-2">
+                            <div
+                              className="bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] h-2 rounded-full transition-all"
+                              style={{ width: `${uploadProgress}%` }}
+                            ></div>
+                          </div>
+                        </div>
+                      ) : (
+                        <>
+                          <FaCloudUploadAlt className="mx-auto text-4xl text-gray-400 mb-3" />
+                          <p className="text-gray-600 font-medium">Click to upload video</p>
+                          <p className="text-xs text-gray-400 mt-1">MP4, WebM, MOV (max 100MB)</p>
+                        </>
+                      )}
+                    </div>
+                  )}
                   <input
-                    type="url"
-                    name="instagramUrl"
-                    value={formData.instagramUrl}
-                    onChange={handleInputChange}
-                    required
-                    placeholder="https://www.instagram.com/reel/ABC123..."
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5A0F1B]"
+                    ref={fileInputRef}
+                    type="file"
+                    accept="video/*"
+                    onChange={handleVideoUpload}
+                    className="hidden"
                   />
-                  <p className="text-xs text-gray-500 mt-1">
-                    Paste the Instagram reel URL (e.g., https://www.instagram.com/reel/ABC123/)
-                  </p>
                 </div>
 
+                {/* Product Selection */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Title (Optional)</label>
-                  <input
-                    type="text"
-                    name="title"
-                    value={formData.title}
-                    onChange={handleInputChange}
-                    placeholder="Reel title or description"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5A0F1B]"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Thumbnail URL (Optional)</label>
-                  <input
-                    type="url"
-                    name="thumbnailUrl"
-                    value={formData.thumbnailUrl}
-                    onChange={handleInputChange}
-                    placeholder="https://example.com/thumbnail.jpg"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5A0F1B]"
-                  />
-                  <p className="text-xs text-gray-500 mt-1">
-                    Custom thumbnail image URL (optional)
-                  </p>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Link to Product (Optional)</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Link to Product <span className="text-red-500">*</span>
+                  </label>
                   <select
                     name="product"
                     value={formData.product}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5A0F1B]"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5A0F1B] focus:border-transparent"
                   >
-                    <option value="">No product linked</option>
+                    <option value="">Select a product</option>
                     {products.map(product => (
                       <option key={product._id} value={product._id}>
                         {product.name}
                       </option>
                     ))}
                   </select>
-                  <p className="text-xs text-gray-500 mt-1">
-                    Optionally link this reel to a product for easy navigation
-                  </p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                {/* Active Toggle */}
+                <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Order</label>
-                    <input
-                      type="number"
-                      name="order"
-                      value={formData.order}
-                      onChange={handleInputChange}
-                      min="0"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5A0F1B]"
-                    />
+                    <p className="font-medium text-gray-800">Active Status</p>
+                    <p className="text-sm text-gray-500">Show this reel on homepage</p>
                   </div>
-
-                  <div className="flex items-center mt-6">
-                    <input
-                      type="checkbox"
-                      name="isActive"
-                      checked={formData.isActive}
-                      onChange={handleInputChange}
-                      className="h-4 w-4 text-[#5A0F1B] focus:ring-[#5A0F1B] border-gray-300 rounded"
-                    />
-                    <label className="ml-2 block text-sm text-gray-900">
-                      Active (visible on homepage)
-                    </label>
-                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setFormData(prev => ({ ...prev, isActive: !prev.isActive }))}
+                    className={`relative w-12 h-6 rounded-full transition-colors ${
+                      formData.isActive ? 'bg-green-500' : 'bg-gray-300'
+                    }`}
+                  >
+                    <div
+                      className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${
+                        formData.isActive ? 'left-7' : 'left-1'
+                      }`}
+                    ></div>
+                  </button>
                 </div>
 
-                <div className="flex justify-end gap-3 pt-4 border-t">
+                {/* Buttons */}
+                <div className="flex gap-3 pt-4">
                   <button
                     type="button"
                     onClick={closeModal}
-                    className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
+                    className="flex-1 px-4 py-3 border border-gray-300 rounded-lg text-gray-700 font-medium hover:bg-gray-50"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] hover:from-[#7A1525] hover:to-[#8A1F35] text-white rounded-md"
+                    disabled={saving || uploading}
+                    className="flex-1 px-4 py-3 bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] hover:from-[#7A1525] hover:to-[#8A1F35] text-white rounded-lg font-medium disabled:opacity-50 flex items-center justify-center gap-2"
                   >
+                    {saving && <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>}
                     {editingReel ? 'Update Reel' : 'Add Reel'}
                   </button>
                 </div>

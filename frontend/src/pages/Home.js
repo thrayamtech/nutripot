@@ -4,6 +4,7 @@ import HeroSlider from '../components/HeroSlider';
 import ProductCard from '../components/ProductCard';
 import ProductReels from '../components/ProductReels';
 import API from '../utils/api';
+import { setStructuredData, generateCollectionSchema } from '../utils/seo';
 
 const Home = () => {
   const [categories, setCategories] = useState([]);
@@ -53,6 +54,17 @@ const Home = () => {
       setCategories(categoriesRes.data.categories || []);
       setFeaturedProducts(productsRes.data.products || []);
       setReels(reelsRes.data.reels || []);
+
+      // Add homepage structured data for featured products
+      if (productsRes.data.products?.length > 0) {
+        setStructuredData(
+          generateCollectionSchema(
+            { name: 'Featured Sarees Collection', description: 'Our handpicked selection of premium sarees' },
+            productsRes.data.products
+          ),
+          'homepage-collection-data'
+        );
+      }
 
       // Fetch initial products for "All" category
       fetchCategoryProducts();

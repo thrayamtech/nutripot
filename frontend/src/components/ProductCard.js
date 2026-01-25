@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaStar, FaHeart, FaEye } from 'react-icons/fa';
 import { useCart } from '../context/CartContext';
 import { getProductImage, handleImageError } from '../utils/imageHelper';
+import { generateProductAltText } from '../utils/seo';
 
 const ProductCard = ({ product }) => {
   const [showSizeDropdown, setShowSizeDropdown] = useState(false);
@@ -51,9 +52,10 @@ const ProductCard = ({ product }) => {
         <Link to={`/products/${product._id}`}>
           <img
             src={getProductImage(product, currentImageIndex)}
-            alt={product.name}
+            alt={generateProductAltText(product, currentImageIndex)}
             onError={(e) => handleImageError(e, 'product')}
             className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+            loading="lazy"
           />
         </Link>
 
