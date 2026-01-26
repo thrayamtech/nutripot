@@ -1,8 +1,6 @@
 // Meta Pixel Event Tracking Utility
 // Pixel ID: 781947610882866
 
-const PIXEL_ID = '781947610882866';
-
 // Check if fbq is available
 const fbq = (...args) => {
   if (typeof window !== 'undefined' && window.fbq) {
@@ -116,7 +114,7 @@ export const trackCustomEvent = (eventName, params = {}) => {
   fbq('trackCustom', eventName, params);
 };
 
-export default {
+const metaPixel = {
   trackPageView,
   trackViewContent,
   trackAddToCart,
@@ -129,3 +127,5 @@ export default {
   trackContact,
   trackCustomEvent
 };
+
+export default metaPixel;

@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { FaThLarge, FaTh, FaFilter, FaTimes, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import ProductCard from '../components/ProductCard';
 import API from '../utils/api';
+import { setSEO, generateCollectionSchema, setStructuredData } from '../utils/seo';
 
 const Products = () => {
   const location = useLocation();
@@ -89,6 +90,50 @@ const Products = () => {
     fetchProducts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters, sortBy, currentPage]);
+
+  // SEO: Update meta tags based on current filters
+  useEffect(() => {
+    const categoryName = categories.find(c => c._id === filters.category)?.name;
+    const fabricName = filters.fabric;
+
+    let title = 'Shop All Sarees';
+    let description = 'Browse our complete collection of premium sarees.';
+    let url = '/products';
+
+    if (categoryName) {
+      title = `${categoryName} Collection`;
+      description = `Shop ${categoryName} at Thrayam Threads. Explore premium handcrafted ${categoryName.toLowerCase()} with free shipping across India.`;
+      url = `/products?category=${filters.category}`;
+    } else if (fabricName) {
+      title = `${fabricName} Sarees`;
+      description = `Shop ${fabricName} sarees at Thrayam Threads. Premium quality ${fabricName.toLowerCase()} sarees with free shipping across India.`;
+      url = `/products?fabric=${fabricName}`;
+    } else if (filters.search) {
+      title = `Search: ${filters.search}`;
+      description = `Search results for "${filters.search}" at Thrayam Threads. Find premium sarees matching your search.`;
+      url = `/products?search=${filters.search}`;
+    } else if (filters.sale) {
+      title = 'Sale - Discounted Sarees';
+      description = 'Shop sarees on sale at Thrayam Threads. Get the best deals on premium silk, cotton & designer sarees.';
+      url = '/products?sale=true';
+    } else if (filters.featured) {
+      title = 'Featured Sarees';
+      description = 'Explore our handpicked featured sarees collection at Thrayam Threads. Premium quality sarees curated for you.';
+      url = '/products?featured=true';
+    }
+
+    setSEO({ title, description, url });
+
+    // Add collection structured data when products are loaded
+    if (products.length > 0) {
+      const collectionData = {
+        name: categoryName || 'All Sarees',
+        description: description,
+        _id: filters.category || 'all'
+      };
+      setStructuredData(generateCollectionSchema(collectionData, products), 'products-collection-data');
+    }
+  }, [filters, categories, products]);
 
   const fetchCategories = async () => {
     try {
