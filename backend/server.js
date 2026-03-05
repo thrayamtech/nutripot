@@ -42,6 +42,19 @@ app.use('/api/analytics', require('./src/routes/analytics'));
 app.use('/api/reels', require('./src/routes/reelRoutes'));
 app.use('/api/seo', require('./src/routes/seoRoutes'));
 
+// Billing Module Routes
+app.use('/api/billing/suppliers', require('./src/routes/billing/supplierRoutes'));
+app.use('/api/billing/raw-materials', require('./src/routes/billing/rawMaterialRoutes'));
+app.use('/api/billing/purchase', require('./src/routes/billing/purchaseRoutes'));
+app.use('/api/billing/grn', require('./src/routes/billing/grnRoutes'));
+app.use('/api/billing/purchase-returns', require('./src/routes/billing/purchaseReturnRoutes'));
+app.use('/api/billing/bom', require('./src/routes/billing/bomRoutes'));
+app.use('/api/billing/production', require('./src/routes/billing/productionRoutes'));
+app.use('/api/billing/sales', require('./src/routes/billing/salesInvoiceRoutes'));
+app.use('/api/billing/sales-returns', require('./src/routes/billing/salesReturnRoutes'));
+app.use('/api/billing/vouchers', require('./src/routes/billing/voucherRoutes'));
+app.use('/api/billing/reports', require('./src/routes/billing/reportRoutes'));
+
 // Health check route
 app.get('/api/health', (req, res) => {
   res.status(200).json({

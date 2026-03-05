@@ -6,7 +6,7 @@ const RefundPolicy = () => {
   return (
     <PolicyLayout title="Refund Policy" icon={FaUndo}>
       <p>
-        At <strong>Thrayam Threads</strong>, we want you to be completely satisfied with your purchase.
+        At <strong>JJ Trendz Official</strong>, we want you to be completely satisfied with your purchase.
         This Refund Policy outlines the conditions under which you can return products and receive a refund.
       </p>
 
@@ -48,7 +48,7 @@ const RefundPolicy = () => {
         <li>Submit the return request</li>
         <li>Our team will review and respond within 24-48 hours</li>
       </ol>
-      <p>Alternatively, you can contact us at <strong>info@thrayamthreads.com</strong> or call <strong>+91 88072 59471</strong>.</p>
+      <p>Alternatively, you can contact us at <strong>info@jjtrendz.com</strong> or call <strong>+91 88072 59471</strong>.</p>
 
       <h2>Return Shipping</h2>
       <ul>
@@ -95,7 +95,7 @@ const RefundPolicy = () => {
       <h2>Contact Us</h2>
       <p>For any questions regarding returns and refunds, please reach out to us:</p>
       <ul>
-        <li><strong>Email:</strong> info@thrayamthreads.com</li>
+        <li><strong>Email:</strong> info@jjtrendz.com</li>
         <li><strong>Phone:</strong> +91 88072 59471</li>
         <li><strong>WhatsApp:</strong> +91 88072 59471</li>
         <li><strong>Working Hours:</strong> Monday to Saturday, 10:00 AM - 7:00 PM IST</li>

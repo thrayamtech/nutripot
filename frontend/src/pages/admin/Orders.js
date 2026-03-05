@@ -650,7 +650,7 @@ const AdminOrders = () => {
               <div ref={printRef} className="space-y-6">
                 {/* Header for print */}
                 <div className="print-only text-center mb-6">
-                  <h1 className="text-3xl font-bold text-[#5A0F1B]">Thrayam Threads</h1>
+                  <h1 className="text-3xl font-bold text-[#1e3a8a]">JJ Trendz Official</h1>
                   <p className="text-gray-600">Order Invoice</p>
                   <hr className="my-4" />
                 </div>
@@ -1043,12 +1043,12 @@ const AdminOrders = () => {
               }}
             >
               {/* Sticker Header */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px', borderBottom: '2px solid #5A0F1B', paddingBottom: '8px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px', borderBottom: '2px solid #1e3a8a', paddingBottom: '8px' }}>
                 <div style={{ flex: 1 }}>
-                  <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#5A0F1B', margin: 0, lineHeight: '1.2' }}>
-                    Thrayam Threads
+                  <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#1e3a8a', margin: 0, lineHeight: '1.2' }}>
+                    JJ Trendz Official
                   </h3>
-                  <p style={{ fontSize: '10px', color: '#666', margin: '3px 0' }}>Premium Sarees Collection</p>
+                  <p style={{ fontSize: '10px', color: '#666', margin: '3px 0' }}>Premium Boutique Fashion</p>
                   <p style={{ fontSize: '9px', color: '#333', margin: '2px 0', fontWeight: 'bold' }}>
                     ORDER: {order.orderNumber}
                   </p>
@@ -1222,12 +1222,12 @@ const AdminOrders = () => {
                   border: '1px solid #ff9800'
                 }}>
                   <p style={{ margin: '0 0 2px 0', fontSize: '11px', fontWeight: 'bold', color: '#000' }}>
-                    Thrayam Threads
+                    JJ Trendz Official
                   </p>
                   <p style={{ margin: '0', fontSize: '9px', lineHeight: '1.3', color: '#333' }}>
-                    123 Fashion Street, Textile Hub<br />
-                    Mumbai, Maharashtra - 400001<br />
-                    Phone: +91 98765 43210
+                    11/109/2, Edavattam, Thirunanthikarai<br />
+                    Kulasekharam, Kanyakumari Dist - 629161<br />
+                    Phone: +91 88072 59471
                   </p>
                 </div>
               </div>

@@ -44,7 +44,7 @@ const ProductDetail = () => {
 
       setSEO({
         title: `${product.name} - ${categoryName}`,
-        description: `Buy ${product.name} online at Thrayam Threads. ${product.fabric ? `Made with premium ${product.fabric}.` : ''} ${categoryName}. Price: ${priceText}. Free shipping across India. ${product.description?.slice(0, 100) || ''}`,
+        description: `Buy ${product.name} online at JJ Trendz Official. ${product.fabric ? `Made with premium ${product.fabric}.` : ''} ${categoryName}. Price: ${priceText}. Free shipping across India. ${product.description?.slice(0, 100) || ''}`,
         url: `/products/${product._id}`,
         image: getProductImage(product),
         type: 'product',

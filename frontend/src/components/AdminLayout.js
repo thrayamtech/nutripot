@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaTachometerAlt, FaBoxes, FaShoppingCart, FaUsers, FaTags, FaTicketAlt, FaBars, FaTimes, FaSignOutAlt, FaChartLine, FaImages, FaCog, FaGift, FaWallet, FaChartBar, FaFilm } from 'react-icons/fa';
+import { FaTachometerAlt, FaBoxes, FaShoppingCart, FaUsers, FaTags, FaTicketAlt, FaBars, FaTimes, FaSignOutAlt, FaChartLine, FaImages, FaCog, FaGift, FaWallet, FaChartBar, FaFilm, FaFileInvoiceDollar, FaChevronDown, FaChevronRight, FaTruck, FaIndustry, FaMoneyBillWave, FaClipboardList } from 'react-icons/fa';
 import { useAuth } from '../context/AuthContext';
 
 const AdminLayout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [billingExpanded, setBillingExpanded] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const { logout, user } = useAuth();
@@ -13,6 +14,9 @@ const AdminLayout = ({ children }) => {
     logout();
     navigate('/login');
   };
+
+  // Check if any billing route is active
+  const isBillingActive = location.pathname.startsWith('/admin/billing');
 
   const menuItems = [
     { path: '/admin', icon: FaTachometerAlt, label: 'Dashboard', exact: true },
@@ -30,6 +34,17 @@ const AdminLayout = ({ children }) => {
     { path: '/admin/analytics', icon: FaChartBar, label: 'Analytics' },
   ];
 
+  const billingMenuItems = [
+    { path: '/admin/billing', icon: FaTachometerAlt, label: 'Dashboard', exact: true },
+    { path: '/admin/billing/suppliers', icon: FaTruck, label: 'Suppliers' },
+    { path: '/admin/billing/raw-materials', icon: FaBoxes, label: 'Raw Materials' },
+    { path: '/admin/billing/purchase', icon: FaClipboardList, label: 'Purchase' },
+    { path: '/admin/billing/production', icon: FaIndustry, label: 'Production' },
+    { path: '/admin/billing/sales', icon: FaFileInvoiceDollar, label: 'Sales' },
+    { path: '/admin/billing/vouchers', icon: FaMoneyBillWave, label: 'Vouchers' },
+    { path: '/admin/billing/reports', icon: FaChartLine, label: 'Reports' },
+  ];
+
   const isActive = (path, exact = false) => {
     if (exact) {
       return location.pathname === path;
@@ -43,19 +58,19 @@ const AdminLayout = ({ children }) => {
       <aside
         className={`${
           sidebarOpen ? 'w-64' : 'w-20'
-        } bg-gradient-to-b from-gray-900 to-gray-800 text-white transition-all duration-300 flex flex-col`}
+        } bg-gradient-to-b from-[#0c1a5c] to-[#1e3a8a] text-white transition-all duration-300 flex flex-col`}
       >
         {/* Logo */}
-        <div className="p-4 border-b border-gray-700">
+        <div className="p-4 border-b border-blue-900">
           <div className="flex items-center justify-between">
             {sidebarOpen && (
-              <h1 className="text-xl font-bold bg-gradient-to-r from-[#8A1F35] to-[#5A0F1B] bg-clip-text text-transparent">
-                Admin Panel
+              <h1 className="text-xl font-bold bg-gradient-to-r from-white to-[#93c5fd] bg-clip-text text-transparent">
+                JJ Trendz
               </h1>
             )}
             <button
               onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="p-2 hover:bg-gray-700 rounded-lg transition-colors"
+              className="p-2 hover:bg-blue-900 rounded-lg transition-colors"
             >
               {sidebarOpen ? <FaTimes /> : <FaBars />}
             </button>
@@ -71,8 +86,8 @@ const AdminLayout = ({ children }) => {
                   to={item.path}
                   className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
                     isActive(item.path, item.exact)
-                      ? 'bg-[#5A0F1B] text-white shadow-lg'
-                      : 'hover:bg-gray-700 text-gray-300'
+                      ? 'bg-[#2563eb] text-white shadow-lg'
+                      : 'hover:bg-blue-900 text-blue-100'
                   }`}
                   title={!sidebarOpen ? item.label : ''}
                 >
@@ -81,13 +96,55 @@ const AdminLayout = ({ children }) => {
                 </Link>
               </li>
             ))}
+
+            {/* Billing Menu with Submenu */}
+            <li>
+              <button
+                onClick={() => setBillingExpanded(!billingExpanded)}
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
+                  isBillingActive
+                    ? 'bg-[#2563eb] text-white shadow-lg'
+                    : 'hover:bg-blue-900 text-blue-100'
+                }`}
+                title={!sidebarOpen ? 'Billing' : ''}
+              >
+                <FaFileInvoiceDollar className="text-xl flex-shrink-0" />
+                {sidebarOpen && (
+                  <>
+                    <span className="font-medium flex-1 text-left">Billing</span>
+                    {billingExpanded ? <FaChevronDown className="text-sm" /> : <FaChevronRight className="text-sm" />}
+                  </>
+                )}
+              </button>
+
+              {/* Billing Submenu */}
+              {sidebarOpen && billingExpanded && (
+                <ul className="mt-1 ml-4 space-y-1 border-l-2 border-blue-700 pl-4">
+                  {billingMenuItems.map((subItem) => (
+                    <li key={subItem.path}>
+                      <Link
+                        to={subItem.path}
+                        className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-all text-sm ${
+                          isActive(subItem.path, subItem.exact)
+                            ? 'bg-[#1d4ed8] text-white'
+                            : 'hover:bg-blue-900 text-blue-200'
+                        }`}
+                      >
+                        <subItem.icon className="text-sm flex-shrink-0" />
+                        <span>{subItem.label}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
           </ul>
         </nav>
 
         {/* User Info & Logout */}
-        <div className="p-4 border-t border-gray-700">
+        <div className="p-4 border-t border-blue-900">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-10 h-10 bg-[#5A0F1B] rounded-full flex items-center justify-center font-bold flex-shrink-0">
+            <div className="w-10 h-10 bg-[#1d4ed8] rounded-full flex items-center justify-center font-bold flex-shrink-0">
               {user?.name?.charAt(0).toUpperCase()}
             </div>
             {sidebarOpen && (
@@ -123,7 +180,7 @@ const AdminLayout = ({ children }) => {
               <Link
                 to="/"
                 target="_blank"
-                className="px-4 py-2 bg-[#5A0F1B] text-white rounded-lg hover:bg-[#7A1525] transition-colors text-sm font-medium"
+                className="px-4 py-2 bg-[#2563eb] text-white rounded-lg hover:bg-[#1d4ed8] transition-colors text-sm font-medium"
               >
                 View Store
               </Link>

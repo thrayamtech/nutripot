@@ -6,7 +6,7 @@ const TermsConditions = () => {
   return (
     <PolicyLayout title="Terms & Conditions" icon={FaFileContract}>
       <p>
-        Welcome to <strong>Thrayam Threads</strong>. By accessing and using our website, you agree to
+        Welcome to <strong>JJ Trendz Official</strong>. By accessing and using our website, you agree to
         be bound by these Terms and Conditions. Please read them carefully before making any purchase
         or using our services.
       </p>
@@ -63,7 +63,7 @@ const TermsConditions = () => {
       <h2>Intellectual Property</h2>
       <p>
         All content on this website, including but not limited to text, graphics, logos, images,
-        product designs, and software, is the property of Thrayam Threads and is protected by
+        product designs, and software, is the property of JJ Trendz Official and is protected by
         intellectual property laws. You may not:
       </p>
       <ul>
@@ -86,7 +86,7 @@ const TermsConditions = () => {
 
       <h2>Limitation of Liability</h2>
       <p>
-        To the fullest extent permitted by law, Thrayam Threads shall not be liable for any indirect,
+        To the fullest extent permitted by law, JJ Trendz Official shall not be liable for any indirect,
         incidental, special, consequential, or punitive damages arising from your use of the website
         or purchase of products. Our total liability shall not exceed the amount paid by you for the
         specific product or service giving rise to the claim.
@@ -94,7 +94,7 @@ const TermsConditions = () => {
 
       <h2>Indemnification</h2>
       <p>
-        You agree to indemnify and hold harmless Thrayam Threads, its officers, directors, employees,
+        You agree to indemnify and hold harmless JJ Trendz Official, its officers, directors, employees,
         and agents from any claims, damages, losses, or expenses arising from your violation of these
         Terms and Conditions or your use of the website.
       </p>
@@ -118,7 +118,7 @@ const TermsConditions = () => {
         If you have any questions about these Terms and Conditions, please contact us at:
       </p>
       <ul>
-        <li><strong>Email:</strong> info@thrayamthreads.com</li>
+        <li><strong>Email:</strong> info@jjtrendz.com</li>
         <li><strong>Phone:</strong> +91 88072 59471</li>
         <li><strong>Address:</strong> 11/109/2, Edavattam, Thirunanthikarai, Kulasekharam, Kanyakumari Dist - 629161, Tamilnadu, India</li>
       </ul>

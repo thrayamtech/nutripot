@@ -278,7 +278,7 @@ const UserLogin = () => {
         <div className="mt-6 text-center space-y-3">
           <div className="bg-gradient-to-r from-white/60 to-white/40 backdrop-blur-sm rounded-2xl p-4 border border-white/30 shadow-lg">
             <p className="text-sm text-gray-700 font-medium mb-2">
-              ✨ New to Thrayam Threads?
+              ✨ New to JJ Trendz Official?
             </p>
             <p className="text-xs text-gray-600 leading-relaxed">
               No registration needed! Just enter your mobile number and we'll create your account automatically.

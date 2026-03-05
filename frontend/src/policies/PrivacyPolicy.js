@@ -6,7 +6,7 @@ const PrivacyPolicy = () => {
   return (
     <PolicyLayout title="Privacy Policy" icon={FaShieldAlt}>
       <p>
-        At <strong>Thrayam Threads</strong>, we are committed to protecting your privacy and ensuring
+        At <strong>JJ Trendz Official</strong>, we are committed to protecting your privacy and ensuring
         the security of your personal information. This Privacy Policy explains how we collect, use,
         disclose, and safeguard your information when you visit our website or make a purchase.
       </p>
@@ -89,7 +89,7 @@ const PrivacyPolicy = () => {
         If you have any questions about this Privacy Policy or our data practices, please contact us at:
       </p>
       <ul>
-        <li><strong>Email:</strong> info@thrayamthreads.com</li>
+        <li><strong>Email:</strong> info@jjtrendz.com</li>
         <li><strong>Phone:</strong> +91 88072 59471</li>
         <li><strong>Address:</strong> 11/109/2, Edavattam, Thirunanthikarai, Kulasekharam, Kanyakumari Dist - 629161, Tamilnadu, India</li>
       </ul>

@@ -6,7 +6,7 @@ const ShippingPolicy = () => {
   return (
     <PolicyLayout title="Shipping Policy" icon={FaTruck}>
       <p>
-        At <strong>Thrayam Threads</strong>, we are committed to delivering your beautiful sarees
+        At <strong>JJ Trendz Official</strong>, we are committed to delivering your beautiful fashion
         safely and on time. This Shipping Policy provides detailed information about our shipping
         process, delivery times, and charges.
       </p>
@@ -116,7 +116,7 @@ const ShippingPolicy = () => {
       <h2>Contact Us</h2>
       <p>For shipping-related queries, please contact us:</p>
       <ul>
-        <li><strong>Email:</strong> info@thrayamthreads.com</li>
+        <li><strong>Email:</strong> info@jjtrendz.com</li>
         <li><strong>Phone:</strong> +91 88072 59471</li>
         <li><strong>WhatsApp:</strong> +91 88072 59471</li>
         <li><strong>Working Hours:</strong> Monday to Saturday, 10:00 AM - 7:00 PM IST</li>

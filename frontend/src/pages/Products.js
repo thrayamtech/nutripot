@@ -96,29 +96,29 @@ const Products = () => {
     const categoryName = categories.find(c => c._id === filters.category)?.name;
     const fabricName = filters.fabric;
 
-    let title = 'Shop All Sarees';
+    let title = 'Shop All Products';
     let description = 'Browse our complete collection of premium sarees.';
     let url = '/products';
 
     if (categoryName) {
       title = `${categoryName} Collection`;
-      description = `Shop ${categoryName} at Thrayam Threads. Explore premium handcrafted ${categoryName.toLowerCase()} with free shipping across India.`;
+      description = `Shop ${categoryName} at JJ Trendz Official. Explore our premium ${categoryName.toLowerCase()} collection with free shipping across India.`;
       url = `/products?category=${filters.category}`;
     } else if (fabricName) {
-      title = `${fabricName} Sarees`;
-      description = `Shop ${fabricName} sarees at Thrayam Threads. Premium quality ${fabricName.toLowerCase()} sarees with free shipping across India.`;
+      title = `${fabricName} Collection`;
+      description = `Shop ${fabricName} fashion at JJ Trendz Official. Premium quality ${fabricName.toLowerCase()} collection with free shipping across India.`;
       url = `/products?fabric=${fabricName}`;
     } else if (filters.search) {
       title = `Search: ${filters.search}`;
-      description = `Search results for "${filters.search}" at Thrayam Threads. Find premium sarees matching your search.`;
+      description = `Search results for "${filters.search}" at JJ Trendz Official. Find premium fashion matching your search.`;
       url = `/products?search=${filters.search}`;
     } else if (filters.sale) {
-      title = 'Sale - Discounted Sarees';
-      description = 'Shop sarees on sale at Thrayam Threads. Get the best deals on premium silk, cotton & designer sarees.';
+      title = 'Sale - Discounted Fashion';
+      description = 'Shop on sale at JJ Trendz Official. Get the best deals on premium designer kurtis, co-ords & party wear.';
       url = '/products?sale=true';
     } else if (filters.featured) {
-      title = 'Featured Sarees';
-      description = 'Explore our handpicked featured sarees collection at Thrayam Threads. Premium quality sarees curated for you.';
+      title = 'Featured Collection';
+      description = 'Explore our handpicked featured collection at JJ Trendz Official. Premium quality fashion curated for you.';
       url = '/products?featured=true';
     }
 
@@ -288,10 +288,10 @@ const Products = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Premium Hero Banner */}
-      <div className="relative bg-gradient-to-r from-[#5A0F1B] via-[#7A1525] to-[#5A0F1B] py-8 md:py-12">
+      <div className="relative bg-gradient-to-r from-[#0c1a5c] via-[#1e3a8a] to-[#0c1a5c] py-8 md:py-12">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0djEySDI0VjM0aDEyek0zNiAydjEySDI0VjJoMTJ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20"></div>
         <div className="max-w-[1600px] mx-auto px-4 text-center relative z-10">
-          <h1 className="text-2xl md:text-3xl font-serif font-bold mb-1 text-white">Shop All Sarees</h1>
+          <h1 className="text-2xl md:text-3xl font-serif font-bold mb-1 text-white">Shop All Products</h1>
           <p className="text-white/80 text-xs md:text-sm">Discover our exquisite collection</p>
         </div>
       </div>

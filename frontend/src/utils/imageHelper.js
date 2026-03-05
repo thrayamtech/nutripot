@@ -36,7 +36,7 @@ export const getImageUrl = (url, type = 'product') => {
 
   // If S3 URL pattern (starts with products/, categories/, etc.)
   if (url.includes('/') && !url.startsWith('/')) {
-    const S3_BUCKET = process.env.REACT_APP_S3_BUCKET_NAME || 'thrayam-threads-s3';
+    const S3_BUCKET = process.env.REACT_APP_S3_BUCKET_NAME || 'jjtrendz-s3';
     const S3_REGION = process.env.REACT_APP_AWS_REGION || 'ap-south-1';
     return `https://${S3_BUCKET}.s3.${S3_REGION}.amazonaws.com/${url}`;
   }

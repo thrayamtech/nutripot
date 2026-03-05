@@ -3,7 +3,7 @@ const router = express.Router();
 const Product = require('../models/Product');
 const Category = require('../models/Category');
 
-const SITE_URL = process.env.SITE_URL || 'https://thrayamthreads.com';
+const SITE_URL = process.env.SITE_URL || 'https://jjtrendz.com';
 
 /**
  * @route   GET /api/seo/sitemap.xml
@@ -85,7 +85,7 @@ router.get('/sitemap.xml', async (req, res) => {
  * @access  Public
  */
 router.get('/robots.txt', (req, res) => {
-  const robotsTxt = `# Robots.txt for Thrayam Threads
+  const robotsTxt = `# Robots.txt for JJ Trendz Official
 # ${SITE_URL}
 
 User-agent: *

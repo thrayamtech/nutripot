@@ -1,11 +1,11 @@
 /**
- * SEO Utility for Thrayam Threads
+ * SEO Utility for JJ Trendz Official
  * Manages dynamic meta tags, structured data, and page titles
  * No external dependencies required
  */
 
-const SITE_NAME = 'Thrayam Threads';
-const SITE_URL = 'https://thrayamthreads.com';
+const SITE_NAME = 'JJ Trendz Official';
+const SITE_URL = 'https://jjtrendz.com';
 const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`;
 
 /**
@@ -13,7 +13,7 @@ const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`;
  * @param {string} title - Page-specific title
  */
 export const setPageTitle = (title) => {
-  document.title = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} - Buy Premium Silk, Cotton & Designer Sarees Online India`;
+  document.title = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} - Premium Boutique Fashion Online India`;
 };
 
 /**
@@ -210,10 +210,10 @@ export const generateLocalBusinessSchema = () => {
     '@type': 'Store',
     '@id': `${SITE_URL}/#store`,
     name: SITE_NAME,
-    description: 'Premium handcrafted sarees - silk, cotton, designer & bridal sarees online in India',
+    description: 'Premium boutique fashion - designer kurtis, co-ords, party wear & bridal collections online in India',
     url: SITE_URL,
-    telephone: '+91-XXXXXXXXXX',
-    email: 'info@thrayamthreads.com',
+    telephone: '+91-88072-59471',
+    email: 'info@jjtrendz.com',
     priceRange: '₹₹₹',
     currenciesAccepted: 'INR',
     paymentAccepted: 'Cash, Credit Card, Debit Card, UPI, Net Banking',
@@ -285,27 +285,27 @@ export const setSEO = (config) => {
 export const PAGE_SEO = {
   home: {
     title: null, // Uses default
-    description: 'Shop premium handcrafted sarees at Thrayam Threads. Explore our exclusive collection of silk sarees, cotton sarees, designer sarees, bridal sarees & handloom sarees. Free shipping across India.',
+    description: 'Shop premium boutique fashion at JJ Trendz Official. Explore our exclusive collection of designer kurtis, co-ords, party wear & bridal collections. Free shipping across India.',
     url: '/'
   },
   products: {
-    title: 'Shop All Sarees',
-    description: 'Browse our complete collection of premium sarees. Filter by silk, cotton, designer, bridal, and handloom sarees. Best prices with free shipping across India.',
+    title: 'Shop All Products',
+    description: 'Browse our complete collection of premium boutique fashion. Filter by kurtis, co-ords, party wear, and bridal collections. Best prices with free shipping across India.',
     url: '/products'
   },
   about: {
     title: 'About Us',
-    description: 'Learn about Thrayam Threads - your trusted destination for premium handcrafted sarees. Discover our story, values, and commitment to quality Indian sarees.',
+    description: 'Learn about JJ Trendz Official - your trusted destination for premium boutique fashion. Discover our story, values, and commitment to quality Indian fashion.',
     url: '/about'
   },
   contact: {
     title: 'Contact Us',
-    description: 'Get in touch with Thrayam Threads. We are here to help with your saree queries, orders, and styling advice. Contact us via phone, email, or WhatsApp.',
+    description: 'Get in touch with JJ Trendz Official. We are here to help with your fashion queries, orders, and styling advice. Contact us via phone, email, or WhatsApp.',
     url: '/contact'
   },
   blogs: {
     title: 'Saree Blog & Style Guide',
-    description: 'Explore saree styling tips, fashion trends, fabric guides, and occasion wear advice on the Thrayam Threads blog.',
+    description: 'Explore fashion styling tips, trends, fabric guides, and occasion wear advice on the JJ Trendz blog.',
     url: '/blogs'
   }
 };

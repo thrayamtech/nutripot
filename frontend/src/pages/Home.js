@@ -129,7 +129,7 @@ const Home = () => {
       <HeroSlider />
 
       {/* Promo Banner Strip - More Elegant */}
-      <div className="bg-gradient-to-r from-[#5A0F1B] via-[#7A1525] to-[#5A0F1B] text-white py-2 overflow-hidden shadow-md">
+      <div className="bg-gradient-to-r from-[#1e3a8a] via-[#1d4ed8] to-[#1e3a8a] text-white py-2 overflow-hidden shadow-md">
         <div className="flex animate-marquee whitespace-nowrap">
           <div className="flex items-center gap-8 md:gap-12 px-6">
             <span className="flex items-center gap-2 font-medium text-xs md:text-sm tracking-wide">
@@ -157,23 +157,23 @@ const Home = () => {
       </div>
 
       {/* Featured Products Section - Elegant Carousel */}
-      <section className="py-6 md:py-10 bg-gradient-to-b from-white via-[#5A0F1B]/5 to-white relative overflow-hidden">
+      <section className="py-6 md:py-10 bg-gradient-to-b from-white via-[#1e3a8a]/5 to-white relative overflow-hidden">
         {/* Decorative Elements */}
-        <div className="absolute top-10 right-10 w-32 h-32 bg-[#5A0F1B]/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 left-10 w-40 h-40 bg-[#7A1525]/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-10 right-10 w-32 h-32 bg-[#1e3a8a]/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 left-10 w-40 h-40 bg-[#1d4ed8]/20 rounded-full blur-3xl"></div>
 
         <div className="max-w-[1600px] mx-auto px-4 md:px-6 relative">
           <div className="text-center mb-4 md:mb-6">
             <div className="inline-block mb-1">
-              <div className="flex items-center gap-1.5 text-[#5A0F1B] font-serif text-xs tracking-[0.15em] uppercase">
+              <div className="flex items-center gap-1.5 text-[#1e3a8a] font-serif text-xs tracking-[0.15em] uppercase">
                 <FaCrown className="text-xs" />
                 <span>Handpicked</span>
               </div>
             </div>
-            <h2 className="text-xl md:text-3xl font-serif font-bold bg-gradient-to-r from-[#5A0F1B] via-[#7A1525] to-[#5A0F1B] bg-clip-text text-transparent mb-1">
+            <h2 className="text-xl md:text-3xl font-serif font-bold bg-gradient-to-r from-[#1e3a8a] via-[#1d4ed8] to-[#1e3a8a] bg-clip-text text-transparent mb-1">
               Featured Collection
             </h2>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#5A0F1B] to-transparent mx-auto mb-1"></div>
+            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#1e3a8a] to-transparent mx-auto mb-1"></div>
             <p className="text-gray-600 text-xs md:text-sm max-w-2xl mx-auto">
               Trending styles and timeless classics curated just for you
             </p>
@@ -195,7 +195,7 @@ const Home = () => {
               {showFeaturedLeftArrow && (
                 <button
                   onClick={() => scrollFeaturedCarousel('left')}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white hover:bg-gradient-to-r hover:from-[#5A0F1B] hover:to-[#7A1525] shadow-xl rounded-full flex items-center justify-center text-gray-800 hover:text-white opacity-0 group-hover:opacity-100 transition-all duration-300 border border-gray-100"
+                  className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white hover:bg-gradient-to-r hover:from-[#1e3a8a] hover:to-[#1d4ed8] shadow-xl rounded-full flex items-center justify-center text-gray-800 hover:text-white opacity-0 group-hover:opacity-100 transition-all duration-300 border border-gray-100"
                   aria-label="Scroll left"
                 >
                   <FaChevronLeft className="text-lg" />
@@ -206,7 +206,7 @@ const Home = () => {
               {showFeaturedRightArrow && (
                 <button
                   onClick={() => scrollFeaturedCarousel('right')}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white hover:bg-gradient-to-r hover:from-[#5A0F1B] hover:to-[#7A1525] shadow-xl rounded-full flex items-center justify-center text-gray-800 hover:text-white opacity-0 group-hover:opacity-100 transition-all duration-300 border border-gray-100"
+                  className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white hover:bg-gradient-to-r hover:from-[#1e3a8a] hover:to-[#1d4ed8] shadow-xl rounded-full flex items-center justify-center text-gray-800 hover:text-white opacity-0 group-hover:opacity-100 transition-all duration-300 border border-gray-100"
                   aria-label="Scroll right"
                 >
                   <FaChevronRight className="text-lg" />
@@ -239,18 +239,18 @@ const Home = () => {
       {/* Shop by Category Section - Elegant & Modern */}
       <section className="py-6 md:py-10 bg-white relative overflow-hidden">
         {/* Decorative Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#5A0F1B]/10 via-transparent to-[#7A1525]/10 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a8a]/10 via-transparent to-[#1d4ed8]/10 pointer-events-none"></div>
 
         <div className="max-w-[1600px] mx-auto px-4 md:px-6 relative">
           {/* Section Header - More Artistic */}
           <div className="text-center mb-4 md:mb-6">
             <div className="inline-block mb-1">
-              <span className="text-[#5A0F1B] font-serif text-xs tracking-[0.15em] uppercase">Collections</span>
+              <span className="text-[#1e3a8a] font-serif text-xs tracking-[0.15em] uppercase">Collections</span>
             </div>
-            <h2 className="text-xl md:text-3xl font-serif font-bold bg-gradient-to-r from-gray-900 via-[#5A0F1B] to-gray-900 bg-clip-text text-transparent mb-1">
+            <h2 className="text-xl md:text-3xl font-serif font-bold bg-gradient-to-r from-gray-900 via-[#1e3a8a] to-gray-900 bg-clip-text text-transparent mb-1">
               Shop by Category
             </h2>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#5A0F1B] to-transparent mx-auto mb-1"></div>
+            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#1e3a8a] to-transparent mx-auto mb-1"></div>
             <p className="text-gray-600 text-xs md:text-sm max-w-2xl mx-auto">
               Discover our exquisite saree collections
             </p>
@@ -263,8 +263,8 @@ const Home = () => {
                 onClick={() => setSelectedCategory('all')}
                 className={`px-5 md:px-7 py-2 md:py-2.5 rounded-full font-medium text-sm md:text-base transition-all duration-300 ${
                   selectedCategory === 'all'
-                    ? 'bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] text-white shadow-lg shadow-[#5A0F1B]/30 scale-105'
-                    : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-[#5A0F1B]'
+                    ? 'bg-gradient-to-r from-[#1e3a8a] to-[#1d4ed8] text-white shadow-lg shadow-[#1e3a8a]/30 scale-105'
+                    : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-[#1e3a8a]'
                 }`}
               >
                 All
@@ -275,8 +275,8 @@ const Home = () => {
                   onClick={() => setSelectedCategory(category._id)}
                   className={`px-5 md:px-7 py-2 md:py-2.5 rounded-full font-medium text-sm md:text-base transition-all duration-300 ${
                     selectedCategory === category._id
-                      ? 'bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] text-white shadow-lg shadow-[#5A0F1B]/30 scale-105'
-                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-[#5A0F1B]'
+                      ? 'bg-gradient-to-r from-[#1e3a8a] to-[#1d4ed8] text-white shadow-lg shadow-[#1e3a8a]/30 scale-105'
+                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-[#1e3a8a]'
                   }`}
                 >
                   {category.name}
@@ -330,25 +330,25 @@ const Home = () => {
                 icon: <FaTruck className="text-2xl md:text-3xl" />,
                 title: 'Free Shipping',
                 desc: 'On orders above ₹999',
-                gradient: 'from-[#5A0F1B] to-[#7A1525]'
+                gradient: 'from-[#1e3a8a] to-[#2563eb]'
               },
               {
                 icon: <FaUndo className="text-2xl md:text-3xl" />,
                 title: 'Easy Returns',
                 desc: '7 days return policy',
-                gradient: 'from-[#6A1525] to-[#8A1F35]'
+                gradient: 'from-[#0c1a5c] to-[#1e3a8a]'
               },
               {
                 icon: <FaShieldAlt className="text-2xl md:text-3xl" />,
                 title: 'Secure Payment',
                 desc: '100% secure checkout',
-                gradient: 'from-[#7A1525] to-[#5A0F1B]'
+                gradient: 'from-[#1d4ed8] to-[#3b82f6]'
               },
               {
                 icon: <FaHeadset className="text-2xl md:text-3xl" />,
                 title: '24/7 Support',
                 desc: 'Dedicated customer care',
-                gradient: 'from-[#8A1F35] to-[#6A1525]'
+                gradient: 'from-[#2563eb] to-[#60a5fa]'
               }
             ].map((feature, index) => (
               <div key={index} className="flex flex-col items-center text-center group">

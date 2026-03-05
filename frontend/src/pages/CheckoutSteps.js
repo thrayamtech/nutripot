@@ -695,8 +695,8 @@ const CheckoutSteps = () => {
         key: keyData.key,
         amount: amount * 100,
         currency: 'INR',
-        name: 'Thrayam Threads',
-        description: 'Purchase from Thrayam Threads',
+        name: 'JJ Trendz Official',
+        description: 'Purchase from JJ Trendz Official',
         order_id: razorpayOrderId,
         handler: async function (response) {
           try {

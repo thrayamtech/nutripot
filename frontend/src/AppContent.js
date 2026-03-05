@@ -52,6 +52,16 @@ import LoyaltySettings from './pages/admin/LoyaltySettings';
 import ReferralTracking from './pages/admin/ReferralTracking';
 import Analytics from './pages/admin/Analytics';
 
+// Billing Pages
+import BillingDashboard from './pages/admin/billing/BillingDashboard';
+import Suppliers from './pages/admin/billing/Suppliers';
+import RawMaterials from './pages/admin/billing/RawMaterials';
+import Purchase from './pages/admin/billing/Purchase';
+import Production from './pages/admin/billing/Production';
+import SalesInvoices from './pages/admin/billing/SalesInvoices';
+import Vouchers from './pages/admin/billing/Vouchers';
+import BillingReports from './pages/admin/billing/BillingReports';
+
 function AppContent() {
   const { isCartSidebarOpen, setIsCartSidebarOpen } = useCart();
   const location = useLocation();
@@ -67,15 +77,15 @@ function AppContent() {
     const pageSEO = {
       '/': {
         title: null, // Uses default with full brand name
-        description: 'Shop premium handcrafted sarees at Thrayam Threads. Exclusive collection of silk, cotton, designer, bridal & handloom sarees. Free shipping across India.'
+        description: 'Shop premium boutique fashion at JJ Trendz Official. Exclusive collection of designer kurtis, co-ords, party wear & bridal collections. Free shipping across India.'
       },
       '/products': {
-        title: 'Shop All Sarees - Silk, Cotton, Designer & Bridal',
-        description: 'Browse our complete collection of premium sarees. Filter by silk, cotton, designer, bridal, and handloom. Best prices with free shipping.'
+        title: 'Shop All Products - Kurtis, Co-ords, Party Wear & Bridal',
+        description: 'Browse our complete collection of premium boutique fashion. Filter by kurtis, co-ords, party wear, and bridal collections. Best prices with free shipping.'
       },
       '/cart': {
         title: 'Shopping Cart',
-        description: 'Review your selected sarees and proceed to checkout. Secure payment options available.'
+        description: 'Review your selected items and proceed to checkout. Secure payment options available.'
       },
       '/checkout': {
         title: 'Secure Checkout',
@@ -83,47 +93,47 @@ function AppContent() {
       },
       '/login': {
         title: 'Login to Your Account',
-        description: 'Login to your Thrayam Threads account to track orders, save favorites, and enjoy exclusive offers.'
+        description: 'Login to your JJ Trendz account to track orders, save favorites, and enjoy exclusive offers.'
       },
       '/register': {
         title: 'Create an Account',
-        description: 'Join Thrayam Threads today. Create an account for exclusive offers, order tracking, and personalized recommendations.'
+        description: 'Join JJ Trendz Official today. Create an account for exclusive offers, order tracking, and personalized recommendations.'
       },
       '/profile': {
         title: 'My Profile',
-        description: 'Manage your Thrayam Threads account, addresses, and preferences.'
+        description: 'Manage your JJ Trendz account, addresses, and preferences.'
       },
       '/orders': {
         title: 'My Orders',
-        description: 'Track your saree orders and view order history.'
+        description: 'Track your orders and view order history.'
       },
       '/wishlist': {
         title: 'My Wishlist',
-        description: 'Your saved sarees and favorite picks from Thrayam Threads.'
+        description: 'Your saved items and favorite picks from JJ Trendz Official.'
       },
       '/wallet': {
         title: 'My Wallet',
-        description: 'Manage your Thrayam Threads wallet balance and rewards.'
+        description: 'Manage your JJ Trendz wallet balance and rewards.'
       },
       '/refer': {
         title: 'Refer a Friend & Earn Rewards',
-        description: 'Share the love for sarees! Refer friends to Thrayam Threads and earn rewards.'
+        description: 'Refer friends to JJ Trendz Official and earn rewards.'
       },
       '/categories': {
-        title: 'Shop by Category - Saree Collections',
-        description: 'Browse sarees by category - silk, cotton, designer, bridal, handloom, and more.'
+        title: 'Shop by Category - Fashion Collections',
+        description: 'Browse by category - kurtis, co-ords, party wear, bridal, ethnic, and more.'
       },
       '/about': {
         title: 'About Us - Our Story',
-        description: 'Learn about Thrayam Threads - your trusted destination for premium handcrafted sarees since 2020.'
+        description: 'Learn about JJ Trendz Official - your trusted destination for premium boutique fashion.'
       },
       '/blogs': {
-        title: 'Saree Blog - Style Tips & Guides',
-        description: 'Explore saree styling tips, fashion trends, fabric guides, and occasion wear advice.'
+        title: 'Fashion Blog - Style Tips & Guides',
+        description: 'Explore fashion styling tips, trends, fabric guides, and occasion wear advice.'
       },
       '/contact': {
         title: 'Contact Us',
-        description: 'Get in touch with Thrayam Threads. We are here to help with your saree queries and orders.'
+        description: 'Get in touch with JJ Trendz Official. We are here to help with your fashion queries and orders.'
       },
       '/privacy-policy': {
         title: 'Privacy Policy',
@@ -131,11 +141,11 @@ function AppContent() {
       },
       '/terms-conditions': {
         title: 'Terms & Conditions',
-        description: 'Terms and conditions for shopping at Thrayam Threads online store.'
+        description: 'Terms and conditions for shopping at JJ Trendz Official online store.'
       },
       '/refund-policy': {
         title: 'Refund & Return Policy',
-        description: 'Our hassle-free refund and return policy for sarees purchased at Thrayam Threads.'
+        description: 'Our hassle-free refund and return policy for purchases at JJ Trendz Official.'
       },
       '/shipping-policy': {
         title: 'Shipping Policy',
@@ -270,6 +280,71 @@ function AppContent() {
               element={
                 <AdminRoute>
                   <ReferralTracking />
+                </AdminRoute>
+              }
+            />
+            {/* Billing Module Routes */}
+            <Route
+              path="/billing"
+              element={
+                <AdminRoute>
+                  <BillingDashboard />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/billing/suppliers"
+              element={
+                <AdminRoute>
+                  <Suppliers />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/billing/raw-materials"
+              element={
+                <AdminRoute>
+                  <RawMaterials />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/billing/purchase"
+              element={
+                <AdminRoute>
+                  <Purchase />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/billing/production"
+              element={
+                <AdminRoute>
+                  <Production />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/billing/sales"
+              element={
+                <AdminRoute>
+                  <SalesInvoices />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/billing/vouchers"
+              element={
+                <AdminRoute>
+                  <Vouchers />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/billing/reports"
+              element={
+                <AdminRoute>
+                  <BillingReports />
                 </AdminRoute>
               }
             />

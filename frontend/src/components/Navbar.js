@@ -45,13 +45,13 @@ const Navbar = ({ onCartOpen }) => {
   return (
     <>
       {/* Premium Top Bar with Contact Info */}
-      <div className="bg-gradient-to-r from-[#5A0F1B] via-[#7A1525] to-[#5A0F1B] text-white py-2 shadow-sm">
+      <div className="bg-gradient-to-r from-[#0c1a5c] via-[#1e3a8a] to-[#0c1a5c] text-white py-2 shadow-sm">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-between items-center text-xs font-light tracking-wide">
             <div className="flex items-center space-x-4">
-              <a href="mailto:info@thrayamthreads.com" className="flex items-center hover:text-white/80 transition-colors duration-300">
+              <a href="mailto:info@jjtrendz.com" className="flex items-center hover:text-white/80 transition-colors duration-300">
                 <FaEnvelope className="mr-1.5 text-sm" />
-                <span className="hidden sm:inline">info@thrayamthreads.com</span>
+                <span className="hidden sm:inline">info@jjtrendz.com</span>
               </a>
               <a href="tel:+918807259471" className="flex items-center hover:text-white/80 transition-colors duration-300">
                 <FaPhone className="mr-1.5 text-sm" />
@@ -80,22 +80,22 @@ const Navbar = ({ onCartOpen }) => {
                 <div className="flex items-center space-x-3">
                   <img
                     src="/logo.jpg"
-                    alt="Thrayam Threads Logo"
+                    alt="JJ Trendz Logo"
                     className="w-12 h-12 object-contain transform hover:scale-105 transition-transform duration-300"
                     onError={(e) => {
                       e.target.style.display = 'none';
                       e.target.nextSibling.style.display = 'flex';
                     }}
                   />
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#5A0F1B] via-[#7A1525] to-[#8A1F35] rounded-lg shadow-lg items-center justify-center transform hover:scale-105 transition-transform duration-300 hidden">
-                    <span className="text-white font-serif font-bold text-lg">TT</span>
+                  <div className="w-12 h-12 bg-gradient-to-br from-[#1e3a8a] via-[#1d4ed8] to-[#2563eb] rounded-lg shadow-lg items-center justify-center transform hover:scale-105 transition-transform duration-300 hidden">
+                    <span className="text-white font-serif font-bold text-lg">JJ</span>
                   </div>
                   <div className="flex flex-col">
-                    <span className="text-base font-serif font-bold bg-gradient-to-r from-[#5A0F1B] to-[#5A0F1B] bg-clip-text text-transparent tracking-wider leading-tight">
-                      THRAYAM
+                    <span className="text-base font-serif font-bold bg-gradient-to-r from-[#1e3a8a] to-[#2563eb] bg-clip-text text-transparent tracking-wider leading-tight">
+                      JJ TRENDZ
                     </span>
                     <span className="text-xs font-serif font-semibold text-gray-600 tracking-widest leading-tight">
-                      THREADS
+                      OFFICIAL
                     </span>
                   </div>
                 </div>
@@ -105,13 +105,13 @@ const Navbar = ({ onCartOpen }) => {
               <div className="flex items-center space-x-6 border-l border-gray-200 pl-8">
                 <Link
                   to="/"
-                  className="text-gray-700 hover:text-[#5A0F1B] font-medium transition-colors duration-300 text-sm"
+                  className="text-gray-700 hover:text-[#1e3a8a] font-medium transition-colors duration-300 text-sm"
                 >
                   Home
                 </Link>
                 <Link
                   to="/products"
-                  className="text-gray-700 hover:text-[#5A0F1B] font-medium transition-colors duration-300 text-sm"
+                  className="text-gray-700 hover:text-[#1e3a8a] font-medium transition-colors duration-300 text-sm"
                 >
                   Shop
                 </Link>
@@ -123,7 +123,7 @@ const Navbar = ({ onCartOpen }) => {
                   onMouseEnter={() => setShowCategoriesMenu(true)}
                   onMouseLeave={() => setShowCategoriesMenu(false)}
                 >
-                  <button className="text-gray-700 hover:text-[#5A0F1B] font-medium transition-colors duration-300 flex items-center space-x-1 text-sm">
+                  <button className="text-gray-700 hover:text-[#1e3a8a] font-medium transition-colors duration-300 flex items-center space-x-1 text-sm">
                     <span>Categories</span>
                     <FaChevronDown className="text-xs" />
                   </button>
@@ -141,7 +141,7 @@ const Navbar = ({ onCartOpen }) => {
                           <Link
                             key={category._id}
                             to={`/products?category=${category._id}`}
-                            className="block px-5 py-2.5 text-sm text-gray-700 hover:bg-[#5A0F1B]/10 hover:text-[#5A0F1B] transition-colors duration-200"
+                            className="block px-5 py-2.5 text-sm text-gray-700 hover:bg-[#1e3a8a]/10 hover:text-[#1e3a8a] transition-colors duration-200"
                           >
                             {category.name}
                           </Link>
@@ -155,19 +155,19 @@ const Navbar = ({ onCartOpen }) => {
 
                 <Link
                   to="/about"
-                  className="text-gray-700 hover:text-[#5A0F1B] font-medium transition-colors duration-300 text-sm"
+                  className="text-gray-700 hover:text-[#1e3a8a] font-medium transition-colors duration-300 text-sm"
                 >
                   About
                 </Link>
                 <Link
                   to="/contact"
-                  className="text-gray-700 hover:text-[#5A0F1B] font-medium transition-colors duration-300 text-sm"
+                  className="text-gray-700 hover:text-[#1e3a8a] font-medium transition-colors duration-300 text-sm"
                 >
                   Contact
                 </Link>
                 <Link
                   to="/refer-friend"
-                  className="text-white bg-gradient-to-r from-[#5A0F1B] to-[#8A1F35] hover:from-[#6A1F2B] hover:to-[#9A2F45] px-4 py-2 rounded-full font-semibold transition-all duration-300 text-sm flex items-center gap-2 shadow-md hover:shadow-lg"
+                  className="text-white bg-gradient-to-r from-[#1e3a8a] to-[#2563eb] hover:from-[#1d4ed8] hover:to-[#3b82f6] px-4 py-2 rounded-full font-semibold transition-all duration-300 text-sm flex items-center gap-2 shadow-md hover:shadow-lg"
                 >
                   <FaGift className="text-sm" />
                   Refer & Earn
@@ -180,18 +180,18 @@ const Navbar = ({ onCartOpen }) => {
               <div className="flex items-center space-x-2">
                 <img
                   src="/logo.jpg"
-                  alt="Thrayam Threads Logo"
+                  alt="JJ Trendz Logo"
                   className="w-10 h-10 object-contain"
                   onError={(e) => {
                     e.target.style.display = 'none';
                     e.target.nextSibling.style.display = 'flex';
                   }}
                 />
-                <div className="w-10 h-10 bg-gradient-to-br from-[#5A0F1B] via-[#7A1525] to-[#8A1F35] rounded-lg shadow-lg items-center justify-center hidden">
-                  <span className="text-white font-serif font-bold text-base">TT</span>
+                <div className="w-10 h-10 bg-gradient-to-br from-[#1e3a8a] via-[#1d4ed8] to-[#2563eb] rounded-lg shadow-lg items-center justify-center hidden">
+                  <span className="text-white font-serif font-bold text-base">JJ</span>
                 </div>
-                <span className="text-sm font-serif font-bold bg-gradient-to-r from-[#5A0F1B] to-[#5A0F1B] bg-clip-text text-transparent">
-                  THRAYAM THREADS
+                <span className="text-sm font-serif font-bold bg-gradient-to-r from-[#1e3a8a] to-[#2563eb] bg-clip-text text-transparent">
+                  JJ TRENDZ
                 </span>
               </div>
             </Link>
@@ -206,13 +206,13 @@ const Navbar = ({ onCartOpen }) => {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search..."
-                    className="w-44 px-4 py-2 pr-10 border border-[#5A0F1B]/30 rounded-full focus:outline-none focus:border-[#5A0F1B] focus:w-60 transition-all duration-300 text-sm"
+                    className="w-44 px-4 py-2 pr-10 border border-[#1e3a8a]/30 rounded-full focus:outline-none focus:border-[#1e3a8a] focus:w-60 transition-all duration-300 text-sm"
                     autoFocus
                     onBlur={() => !searchQuery && setShowSearchBar(false)}
                   />
                   <button
                     type="submit"
-                    className="absolute right-2 top-1/2 transform -translate-y-1/2 text-[#5A0F1B] hover:text-[#8A1F35]"
+                    className="absolute right-2 top-1/2 transform -translate-y-1/2 text-[#1e3a8a] hover:text-[#2563eb]"
                   >
                     <FaSearch className="text-sm" />
                   </button>
@@ -220,7 +220,7 @@ const Navbar = ({ onCartOpen }) => {
               ) : (
                 <button
                   onClick={() => setShowSearchBar(true)}
-                  className="text-gray-600 hover:text-[#5A0F1B] transition-colors duration-300 p-2 hover:bg-[#5A0F1B]/10 rounded-full"
+                  className="text-gray-600 hover:text-[#1e3a8a] transition-colors duration-300 p-2 hover:bg-[#1e3a8a]/10 rounded-full"
                   aria-label="Search"
                 >
                   <FaSearch className="text-lg" />
@@ -231,7 +231,7 @@ const Navbar = ({ onCartOpen }) => {
               {isAuthenticated && (
                 <Link
                   to="/wishlist"
-                  className="text-gray-600 hover:text-[#5A0F1B] transition-colors duration-300 p-2 hover:bg-[#5A0F1B]/10 rounded-full relative"
+                  className="text-gray-600 hover:text-[#1e3a8a] transition-colors duration-300 p-2 hover:bg-[#1e3a8a]/10 rounded-full relative"
                   aria-label="Wishlist"
                 >
                   <FaHeart className="text-lg" />
@@ -242,7 +242,7 @@ const Navbar = ({ onCartOpen }) => {
               {isAuthenticated && (
                 <Link
                   to="/wallet"
-                  className="text-gray-600 hover:text-[#5A0F1B] transition-colors duration-300 p-2 hover:bg-[#5A0F1B]/10 rounded-full relative group"
+                  className="text-gray-600 hover:text-[#1e3a8a] transition-colors duration-300 p-2 hover:bg-[#1e3a8a]/10 rounded-full relative group"
                   aria-label="Wallet"
                   title="My Wallet & Rewards"
                 >
@@ -256,12 +256,12 @@ const Navbar = ({ onCartOpen }) => {
               {/* Cart - Always visible */}
               <button
                 onClick={onCartOpen}
-                className="text-gray-600 hover:text-[#5A0F1B] transition-colors duration-300 p-2 hover:bg-[#5A0F1B]/10 rounded-full relative"
+                className="text-gray-600 hover:text-[#1e3a8a] transition-colors duration-300 p-2 hover:bg-[#1e3a8a]/10 rounded-full relative"
                 aria-label="Shopping Cart"
               >
                 <FaShoppingCart className="text-lg" />
                 {getCartCount() > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-[#5A0F1B] text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold shadow-md">
+                  <span className="absolute -top-1 -right-1 bg-[#1e3a8a] text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold shadow-md">
                     {getCartCount()}
                   </span>
                 )}
@@ -277,20 +277,20 @@ const Navbar = ({ onCartOpen }) => {
                 {isAuthenticated ? (
                   /* Logged In - Show Avatar with Name */
                   <div className="flex items-center space-x-2 cursor-pointer group">
-                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#5A0F1B] to-[#8A1F35] flex items-center justify-center text-white font-semibold text-sm shadow-md group-hover:shadow-lg transition-all duration-300 ring-2 ring-white group-hover:ring-[#5A0F1B]/20">
+                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#1e3a8a] to-[#2563eb] flex items-center justify-center text-white font-semibold text-sm shadow-md group-hover:shadow-lg transition-all duration-300 ring-2 ring-white group-hover:ring-[#1e3a8a]/20">
                       {user?.name?.charAt(0).toUpperCase()}
                     </div>
                     <div className="hidden xl:block">
-                      <p className="text-sm font-semibold text-gray-800 group-hover:text-[#5A0F1B] transition-colors">
+                      <p className="text-sm font-semibold text-gray-800 group-hover:text-[#1e3a8a] transition-colors">
                         {user?.name?.split(' ')[0]}
                       </p>
                       <p className="text-xs text-gray-500">My Account</p>
                     </div>
-                    <FaChevronDown className="text-xs text-gray-400 group-hover:text-[#5A0F1B] transition-colors" />
+                    <FaChevronDown className="text-xs text-gray-400 group-hover:text-[#1e3a8a] transition-colors" />
                   </div>
                 ) : (
                   /* Not Logged In - Show Login Button */
-                  <div className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] hover:from-[#5A0F1B] hover:to-[#8A1F35] text-white rounded-full cursor-pointer transition-all duration-300 shadow-md hover:shadow-lg">
+                  <div className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#1e3a8a] to-[#1d4ed8] hover:from-[#1e3a8a] hover:to-[#2563eb] text-white rounded-full cursor-pointer transition-all duration-300 shadow-md hover:shadow-lg">
                     <FaUser className="text-sm" />
                     <span className="font-semibold text-sm">Login</span>
                   </div>
@@ -306,9 +306,9 @@ const Navbar = ({ onCartOpen }) => {
                   {isAuthenticated ? (
                     <>
                       {/* User Info Header */}
-                      <div className="px-5 py-4 bg-gradient-to-br from-[#5A0F1B]/5 via-white to-[#5A0F1B]/5 border-b border-[#5A0F1B]/20">
+                      <div className="px-5 py-4 bg-gradient-to-br from-[#1e3a8a]/5 via-white to-[#1e3a8a]/5 border-b border-[#1e3a8a]/20">
                         <div className="flex items-center space-x-3">
-                          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#5A0F1B] to-[#8A1F35] flex items-center justify-center text-white font-bold text-lg shadow-md">
+                          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1e3a8a] to-[#2563eb] flex items-center justify-center text-white font-bold text-lg shadow-md">
                             {user?.name?.charAt(0).toUpperCase()}
                           </div>
                           <div className="flex-1 min-w-0">
@@ -322,38 +322,38 @@ const Navbar = ({ onCartOpen }) => {
                       <div className="py-2">
                         <Link
                           to="/profile"
-                          className="flex items-center px-5 py-3 text-sm text-gray-700 hover:bg-[#5A0F1B]/10 hover:text-[#7A1525] transition-all duration-200 group"
+                          className="flex items-center px-5 py-3 text-sm text-gray-700 hover:bg-[#1e3a8a]/10 hover:text-[#1d4ed8] transition-all duration-200 group"
                         >
-                          <FaUser className="mr-3 text-gray-400 group-hover:text-[#5A0F1B]" />
+                          <FaUser className="mr-3 text-gray-400 group-hover:text-[#1e3a8a]" />
                           <span className="font-medium">My Profile</span>
                         </Link>
                         <Link
                           to="/orders"
-                          className="flex items-center px-5 py-3 text-sm text-gray-700 hover:bg-[#5A0F1B]/10 hover:text-[#7A1525] transition-all duration-200 group"
+                          className="flex items-center px-5 py-3 text-sm text-gray-700 hover:bg-[#1e3a8a]/10 hover:text-[#1d4ed8] transition-all duration-200 group"
                         >
-                          <FaShoppingCart className="mr-3 text-gray-400 group-hover:text-[#5A0F1B]" />
+                          <FaShoppingCart className="mr-3 text-gray-400 group-hover:text-[#1e3a8a]" />
                           <span className="font-medium">My Orders</span>
                         </Link>
                         <Link
                           to="/wishlist"
-                          className="flex items-center px-5 py-3 text-sm text-gray-700 hover:bg-[#5A0F1B]/10 hover:text-[#7A1525] transition-all duration-200 group"
+                          className="flex items-center px-5 py-3 text-sm text-gray-700 hover:bg-[#1e3a8a]/10 hover:text-[#1d4ed8] transition-all duration-200 group"
                         >
-                          <FaHeart className="mr-3 text-gray-400 group-hover:text-[#5A0F1B]" />
+                          <FaHeart className="mr-3 text-gray-400 group-hover:text-[#1e3a8a]" />
                           <span className="font-medium">My Wishlist</span>
                         </Link>
                         <Link
                           to="/wallet"
-                          className="flex items-center px-5 py-3 text-sm text-gray-700 hover:bg-[#5A0F1B]/10 hover:text-[#7A1525] transition-all duration-200 group"
+                          className="flex items-center px-5 py-3 text-sm text-gray-700 hover:bg-[#1e3a8a]/10 hover:text-[#1d4ed8] transition-all duration-200 group"
                         >
-                          <FaWallet className="mr-3 text-gray-400 group-hover:text-[#5A0F1B]" />
+                          <FaWallet className="mr-3 text-gray-400 group-hover:text-[#1e3a8a]" />
                           <span className="font-medium">My Wallet & Rewards</span>
                         </Link>
                         {isAdmin && (
                           <Link
                             to="/admin"
-                            className="flex items-center px-5 py-3 text-sm text-gray-700 hover:bg-[#5A0F1B]/10 hover:text-[#7A1525] transition-all duration-200 group"
+                            className="flex items-center px-5 py-3 text-sm text-gray-700 hover:bg-[#1e3a8a]/10 hover:text-[#1d4ed8] transition-all duration-200 group"
                           >
-                            <span className="mr-3 text-gray-400 group-hover:text-[#5A0F1B]">⚙️</span>
+                            <span className="mr-3 text-gray-400 group-hover:text-[#1e3a8a]">⚙️</span>
                             <span className="font-medium">Admin Dashboard</span>
                           </Link>
                         )}
@@ -379,12 +379,12 @@ const Navbar = ({ onCartOpen }) => {
                       {/* Not Logged In */}
                       <div className="p-5">
                         <div className="text-center mb-4">
-                          <p className="text-sm font-semibold text-gray-800 mb-1">Welcome to Thrayam Threads</p>
+                          <p className="text-sm font-semibold text-gray-800 mb-1">Welcome to JJ Trendz</p>
                           <p className="text-xs text-gray-600">Login or register with your mobile number</p>
                         </div>
                         <Link
                           to="/login"
-                          className="block w-full px-4 py-3 text-center text-sm font-semibold text-white bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] hover:from-[#5A0F1B] hover:to-[#8A1F35] rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+                          className="block w-full px-4 py-3 text-center text-sm font-semibold text-white bg-gradient-to-r from-[#1e3a8a] to-[#1d4ed8] hover:from-[#1e3a8a] hover:to-[#2563eb] rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
                         >
                           Login / Register
                         </Link>
@@ -401,7 +401,7 @@ const Navbar = ({ onCartOpen }) => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden text-gray-700 hover:text-[#5A0F1B] text-2xl p-2"
+              className="lg:hidden text-gray-700 hover:text-[#1e3a8a] text-2xl p-2"
               aria-label="Menu"
             >
               {isOpen ? <FaTimes /> : <FaBars />}
@@ -419,11 +419,11 @@ const Navbar = ({ onCartOpen }) => {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search for sarees..."
-                  className="w-full px-4 py-2.5 border-2 border-[#5A0F1B]/20 rounded-full focus:outline-none focus:border-[#5A0F1B] text-sm"
+                  className="w-full px-4 py-2.5 border-2 border-[#1e3a8a]/20 rounded-full focus:outline-none focus:border-[#1e3a8a] text-sm"
                 />
                 <button
                   type="submit"
-                  className="absolute right-2 top-1/2 transform -translate-y-1/2 text-[#5A0F1B]"
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2 text-[#1e3a8a]"
                 >
                   <FaSearch />
                 </button>
@@ -432,42 +432,42 @@ const Navbar = ({ onCartOpen }) => {
             <div className="flex flex-col space-y-1">
               <Link
                 to="/"
-                className="text-gray-700 hover:text-[#5A0F1B] font-medium py-2.5 px-3 rounded-lg hover:bg-[#5A0F1B]/10 transition-colors duration-200"
+                className="text-gray-700 hover:text-[#1e3a8a] font-medium py-2.5 px-3 rounded-lg hover:bg-[#1e3a8a]/10 transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 Home
               </Link>
               <Link
                 to="/products"
-                className="text-gray-700 hover:text-[#5A0F1B] font-medium py-2.5 px-3 rounded-lg hover:bg-[#5A0F1B]/10 transition-colors duration-200"
+                className="text-gray-700 hover:text-[#1e3a8a] font-medium py-2.5 px-3 rounded-lg hover:bg-[#1e3a8a]/10 transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 Shop
               </Link>
               <Link
                 to="/categories"
-                className="text-gray-700 hover:text-[#5A0F1B] font-medium py-2.5 px-3 rounded-lg hover:bg-[#5A0F1B]/10 transition-colors duration-200"
+                className="text-gray-700 hover:text-[#1e3a8a] font-medium py-2.5 px-3 rounded-lg hover:bg-[#1e3a8a]/10 transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 Categories
               </Link>
               <Link
                 to="/about"
-                className="text-gray-700 hover:text-[#5A0F1B] font-medium py-2.5 px-3 rounded-lg hover:bg-[#5A0F1B]/10 transition-colors duration-200"
+                className="text-gray-700 hover:text-[#1e3a8a] font-medium py-2.5 px-3 rounded-lg hover:bg-[#1e3a8a]/10 transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 About Us
               </Link>
               <Link
                 to="/contact"
-                className="text-gray-700 hover:text-[#5A0F1B] font-medium py-2.5 px-3 rounded-lg hover:bg-[#5A0F1B]/10 transition-colors duration-200"
+                className="text-gray-700 hover:text-[#1e3a8a] font-medium py-2.5 px-3 rounded-lg hover:bg-[#1e3a8a]/10 transition-colors duration-200"
                 onClick={() => setIsOpen(false)}
               >
                 Contact Us
               </Link>
               <Link
                 to="/refer-friend"
-                className="text-white bg-gradient-to-r from-[#5A0F1B] to-[#8A1F35] font-semibold py-2.5 px-3 rounded-lg hover:from-[#6A1F2B] hover:to-[#9A2F45] transition-all duration-200 flex items-center gap-2 shadow-md"
+                className="text-white bg-gradient-to-r from-[#1e3a8a] to-[#2563eb] font-semibold py-2.5 px-3 rounded-lg hover:from-[#1d4ed8] hover:to-[#3b82f6] transition-all duration-200 flex items-center gap-2 shadow-md"
                 onClick={() => setIsOpen(false)}
               >
                 <FaGift /> Refer & Earn Rewards
@@ -481,7 +481,7 @@ const Navbar = ({ onCartOpen }) => {
                   onCartOpen();
                   setIsOpen(false);
                 }}
-                className="text-left text-gray-700 hover:text-[#5A0F1B] font-medium py-2.5 px-3 rounded-lg hover:bg-[#5A0F1B]/10 transition-colors duration-200 flex items-center gap-2"
+                className="text-left text-gray-700 hover:text-[#1e3a8a] font-medium py-2.5 px-3 rounded-lg hover:bg-[#1e3a8a]/10 transition-colors duration-200 flex items-center gap-2"
               >
                 <FaShoppingCart />
                 Cart {getCartCount() > 0 && `(${getCartCount()})`}
@@ -491,7 +491,7 @@ const Navbar = ({ onCartOpen }) => {
                 <>
                   <Link
                     to="/wishlist"
-                    className="text-gray-700 hover:text-[#5A0F1B] font-medium py-2.5 px-3 rounded-lg hover:bg-[#5A0F1B]/10 transition-colors duration-200 flex items-center gap-2"
+                    className="text-gray-700 hover:text-[#1e3a8a] font-medium py-2.5 px-3 rounded-lg hover:bg-[#1e3a8a]/10 transition-colors duration-200 flex items-center gap-2"
                     onClick={() => setIsOpen(false)}
                   >
                     <FaHeart />
@@ -499,7 +499,7 @@ const Navbar = ({ onCartOpen }) => {
                   </Link>
                   <Link
                     to="/wallet"
-                    className="text-gray-700 hover:text-[#5A0F1B] font-medium py-2.5 px-3 rounded-lg hover:bg-[#5A0F1B]/10 transition-colors duration-200 flex items-center gap-2"
+                    className="text-gray-700 hover:text-[#1e3a8a] font-medium py-2.5 px-3 rounded-lg hover:bg-[#1e3a8a]/10 transition-colors duration-200 flex items-center gap-2"
                     onClick={() => setIsOpen(false)}
                   >
                     <FaWallet />
@@ -507,7 +507,7 @@ const Navbar = ({ onCartOpen }) => {
                   </Link>
                   <Link
                     to="/profile"
-                    className="text-gray-700 hover:text-[#5A0F1B] font-medium py-2.5 px-3 rounded-lg hover:bg-[#5A0F1B]/10 transition-colors duration-200 flex items-center gap-2"
+                    className="text-gray-700 hover:text-[#1e3a8a] font-medium py-2.5 px-3 rounded-lg hover:bg-[#1e3a8a]/10 transition-colors duration-200 flex items-center gap-2"
                     onClick={() => setIsOpen(false)}
                   >
                     <FaUser />
@@ -515,7 +515,7 @@ const Navbar = ({ onCartOpen }) => {
                   </Link>
                   <Link
                     to="/orders"
-                    className="text-gray-700 hover:text-[#5A0F1B] font-medium py-2.5 px-3 rounded-lg hover:bg-[#5A0F1B]/10 transition-colors duration-200 flex items-center gap-2"
+                    className="text-gray-700 hover:text-[#1e3a8a] font-medium py-2.5 px-3 rounded-lg hover:bg-[#1e3a8a]/10 transition-colors duration-200 flex items-center gap-2"
                     onClick={() => setIsOpen(false)}
                   >
                     <FaShoppingCart />
@@ -524,7 +524,7 @@ const Navbar = ({ onCartOpen }) => {
                   {isAdmin && (
                     <Link
                       to="/admin"
-                      className="text-gray-700 hover:text-[#5A0F1B] font-medium py-2.5 px-3 rounded-lg hover:bg-[#5A0F1B]/10 transition-colors duration-200"
+                      className="text-gray-700 hover:text-[#1e3a8a] font-medium py-2.5 px-3 rounded-lg hover:bg-[#1e3a8a]/10 transition-colors duration-200"
                       onClick={() => setIsOpen(false)}
                     >
                       Admin Dashboard
@@ -545,14 +545,14 @@ const Navbar = ({ onCartOpen }) => {
                 <>
                   <Link
                     to="/login"
-                    className="text-gray-700 hover:text-[#5A0F1B] font-medium py-2.5 px-3 rounded-lg hover:bg-[#5A0F1B]/10 transition-colors duration-200"
+                    className="text-gray-700 hover:text-[#1e3a8a] font-medium py-2.5 px-3 rounded-lg hover:bg-[#1e3a8a]/10 transition-colors duration-200"
                     onClick={() => setIsOpen(false)}
                   >
                     Login
                   </Link>
                   <Link
                     to="/register"
-                    className="text-gray-700 hover:text-[#5A0F1B] font-medium py-2.5 px-3 rounded-lg hover:bg-[#5A0F1B]/10 transition-colors duration-200"
+                    className="text-gray-700 hover:text-[#1e3a8a] font-medium py-2.5 px-3 rounded-lg hover:bg-[#1e3a8a]/10 transition-colors duration-200"
                     onClick={() => setIsOpen(false)}
                   >
                     Sign Up
