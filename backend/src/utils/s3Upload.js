@@ -17,7 +17,7 @@ const generateFileName = (originalname, folder = 'products') => {
   const timestamp = Date.now();
   const randomString = crypto.randomBytes(8).toString('hex');
   const ext = path.extname(originalname);
-  return `${folder}/${timestamp}-${randomString}${ext}`;
+  return `JJTrendz/${folder}/${timestamp}-${randomString}${ext}`;
 };
 
 // Upload file to S3
