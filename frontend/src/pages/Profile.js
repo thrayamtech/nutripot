@@ -638,7 +638,7 @@ const Profile = () => {
                 </form>
 
                 {/* Security Info */}
-                <div className="mt-8 p-6 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
+                <div className="mt-8 p-6 bg-gradient-to-br from-green-50 to-green-50 rounded-lg border border-blue-200">
                   <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
                     <FaShieldAlt className="text-blue-600" />
                     Security Tips

@@ -148,7 +148,7 @@ const Sliders = () => {
         <h1 className="text-3xl font-bold text-gray-800">Slider Management</h1>
         <button
           onClick={() => setShowModal(true)}
-          className="bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] hover:from-[#7A1525] hover:to-[#8A1F35] text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-all shadow-lg"
+          className="bg-gradient-to-r from-[#2d7d32] to-[#1e6623] hover:from-[#1e6623] hover:to-[#1a431c] text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-all shadow-lg"
         >
           <FaPlus /> Add New Slider
         </button>
@@ -156,7 +156,7 @@ const Sliders = () => {
 
       {loading ? (
         <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#5A0F1B]"></div>
+          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#2d7d32]"></div>
         </div>
       ) : (
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -204,7 +204,7 @@ const Sliders = () => {
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                     <button
                       onClick={() => handleEdit(slider)}
-                      className="text-[#5A0F1B] hover:text-[#7A1525] mr-3"
+                      className="text-[#2d7d32] hover:text-[#1e6623] mr-3"
                     >
                       <FaEdit className="text-lg" />
                     </button>
@@ -239,7 +239,7 @@ const Sliders = () => {
                     value={formData.title}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5A0F1B]"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2d7d32]"
                   />
                 </div>
 
@@ -251,7 +251,7 @@ const Sliders = () => {
                     value={formData.subtitle}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5A0F1B]"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2d7d32]"
                   />
                 </div>
 
@@ -263,7 +263,7 @@ const Sliders = () => {
                     onChange={handleInputChange}
                     required
                     rows="3"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5A0F1B]"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2d7d32]"
                   />
                 </div>
 
@@ -273,7 +273,7 @@ const Sliders = () => {
                     type="file"
                     accept="image/*"
                     onChange={handleImageChange}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5A0F1B]"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2d7d32]"
                   />
                   {imagePreview && (
                     <img src={imagePreview} alt="Preview" className="mt-2 h-32 object-cover rounded" />
@@ -285,7 +285,7 @@ const Sliders = () => {
                     value={formData.image}
                     onChange={handleInputChange}
                     placeholder="https://example.com/image.jpg"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5A0F1B] mt-2"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2d7d32] mt-2"
                   />
                 </div>
 
@@ -298,7 +298,7 @@ const Sliders = () => {
                       value={formData.cta}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5A0F1B]"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2d7d32]"
                     />
                   </div>
 
@@ -310,7 +310,7 @@ const Sliders = () => {
                       value={formData.link}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5A0F1B]"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2d7d32]"
                     />
                   </div>
                 </div>
@@ -324,7 +324,7 @@ const Sliders = () => {
                       value={formData.order}
                       onChange={handleInputChange}
                       min="0"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#5A0F1B]"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2d7d32]"
                     />
                   </div>
 
@@ -334,7 +334,7 @@ const Sliders = () => {
                       name="isActive"
                       checked={formData.isActive}
                       onChange={handleInputChange}
-                      className="h-4 w-4 text-[#5A0F1B] focus:ring-[#5A0F1B] border-gray-300 rounded"
+                      className="h-4 w-4 text-[#2d7d32] focus:ring-[#2d7d32] border-gray-300 rounded"
                     />
                     <label className="ml-2 block text-sm text-gray-900">
                       Active
@@ -352,7 +352,7 @@ const Sliders = () => {
                   </button>
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] hover:from-[#7A1525] hover:to-[#8A1F35] text-white rounded-md"
+                    className="px-4 py-2 bg-gradient-to-r from-[#2d7d32] to-[#1e6623] hover:from-[#1e6623] hover:to-[#1a431c] text-white rounded-md"
                   >
                     {editingSlider ? 'Update' : 'Create'}
                   </button>

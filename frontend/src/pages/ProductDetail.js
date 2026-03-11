@@ -44,7 +44,7 @@ const ProductDetail = () => {
 
       setSEO({
         title: `${product.name} - ${categoryName}`,
-        description: `Buy ${product.name} online at JJ Trendz Official. ${product.fabric ? `Made with premium ${product.fabric}.` : ''} ${categoryName}. Price: ${priceText}. Free shipping across India. ${product.description?.slice(0, 100) || ''}`,
+        description: `Buy ${product.name} online at NutriPot. ${product.fabric ? `Made with premium ${product.fabric}.` : ''} ${categoryName}. Price: ${priceText}. Free shipping across India. ${product.description?.slice(0, 100) || ''}`,
         url: `/products/${product._id}`,
         image: getProductImage(product),
         type: 'product',
@@ -133,7 +133,7 @@ const ProductDetail = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#5A0F1B]"></div>
+        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#2d7d32]"></div>
       </div>
     );
   }
@@ -143,7 +143,7 @@ const ProductDetail = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Product not found</h2>
-          <Link to="/products" className="text-[#5A0F1B] hover:text-[#7A1525]">
+          <Link to="/products" className="text-[#2d7d32] hover:text-[#1e6623]">
             Back to Products
           </Link>
         </div>
@@ -156,9 +156,9 @@ const ProductDetail = () => {
       <div className="max-w-[1600px] mx-auto px-3 py-4">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-xs text-gray-600 mb-4">
-          <Link to="/" className="hover:text-[#5A0F1B]">Home</Link>
+          <Link to="/" className="hover:text-[#2d7d32]">Home</Link>
           <span>/</span>
-          <Link to="/products" className="hover:text-[#5A0F1B]">Products</Link>
+          <Link to="/products" className="hover:text-[#2d7d32]">Products</Link>
           <span>/</span>
           <span className="text-gray-900">{product.name}</span>
         </div>
@@ -175,8 +175,8 @@ const ProductDetail = () => {
                     onClick={() => setSelectedImage(index)}
                     className={`aspect-square rounded-lg overflow-hidden border-2 transition-all hover:scale-105 ${
                       selectedImage === index
-                        ? 'border-[#5A0F1B] ring-2 ring-[#5A0F1B]/20'
-                        : 'border-gray-200 hover:border-[#5A0F1B]/50'
+                        ? 'border-[#2d7d32] ring-2 ring-[#2d7d32]/20'
+                        : 'border-gray-200 hover:border-[#2d7d32]/50'
                     }`}
                   >
                     <img
@@ -206,7 +206,7 @@ const ProductDetail = () => {
                 />
                 {product.discountPrice && (
                   <div className="absolute top-4 left-0 z-10">
-                    <div className="bg-gradient-to-r from-[#5A0F1B] to-[#8A1F35] text-white pl-4 pr-5 py-2 rounded-r-full shadow-lg">
+                    <div className="bg-gradient-to-r from-[#2d7d32] to-[#1a431c] text-white pl-4 pr-5 py-2 rounded-r-full shadow-lg">
                       <span className="text-sm font-bold">-{discountPercent}% OFF</span>
                     </div>
                   </div>
@@ -227,11 +227,11 @@ const ProductDetail = () => {
 
             {/* Rating */}
             <div className="flex items-center gap-2 mb-3">
-              <div className="flex text-[#8A1F35]">
+              <div className="flex text-[#1a431c]">
                 {[...Array(5)].map((_, i) => (
                   <FaStar
                     key={i}
-                    className={i < Math.floor(product.averageRating || 4.5) ? 'text-[#8A1F35]' : 'text-gray-300'}
+                    className={i < Math.floor(product.averageRating || 4.5) ? 'text-[#1a431c]' : 'text-gray-300'}
                   />
                 ))}
               </div>
@@ -273,13 +273,13 @@ const ProductDetail = () => {
                       onClick={() => setSelectedSize(size)}
                       className={`relative py-3 px-4 border-2 rounded-lg font-semibold text-sm transition-all ${
                         selectedSize === size
-                          ? 'border-[#5A0F1B] bg-[#5A0F1B]/10 text-[#7A1525]'
-                          : 'border-gray-200 hover:border-[#5A0F1B]/50 text-gray-700'
+                          ? 'border-[#2d7d32] bg-[#2d7d32]/10 text-[#1e6623]'
+                          : 'border-gray-200 hover:border-[#2d7d32]/50 text-gray-700'
                       }`}
                     >
                       {size}
                       {selectedSize === size && (
-                        <div className="absolute -top-1 -right-1 bg-[#5A0F1B] text-white rounded-full p-1">
+                        <div className="absolute -top-1 -right-1 bg-[#2d7d32] text-white rounded-full p-1">
                           <FaCheck className="text-[10px]" />
                         </div>
                       )}
@@ -302,8 +302,8 @@ const ProductDetail = () => {
                       onClick={() => setSelectedColor(color.name)}
                       className={`relative flex items-center gap-3 py-2 px-4 border-2 rounded-lg transition-all ${
                         selectedColor === color.name
-                          ? 'border-[#5A0F1B] bg-[#5A0F1B]/10'
-                          : 'border-gray-200 hover:border-[#5A0F1B]/50'
+                          ? 'border-[#2d7d32] bg-[#2d7d32]/10'
+                          : 'border-gray-200 hover:border-[#2d7d32]/50'
                       }`}
                     >
                       <div
@@ -312,7 +312,7 @@ const ProductDetail = () => {
                       />
                       <span className="font-semibold text-sm text-gray-800">{color.name}</span>
                       {selectedColor === color.name && (
-                        <FaCheck className="text-[#5A0F1B] ml-1" />
+                        <FaCheck className="text-[#2d7d32] ml-1" />
                       )}
                     </button>
                   ))}
@@ -356,7 +356,7 @@ const ProductDetail = () => {
               <button
                 onClick={handleAddToCart}
                 disabled={product.stock === 0}
-                className="flex-1 bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] hover:from-[#7A1525] hover:to-[#8A1F35] disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
+                className="flex-1 bg-gradient-to-r from-[#2d7d32] to-[#1e6623] hover:from-[#1e6623] hover:to-[#1a431c] disabled:from-gray-300 disabled:to-gray-400 disabled:cursor-not-allowed text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center justify-center gap-2"
               >
                 <FaShoppingCart />
                 {product.stock === 0 ? 'Out of Stock' : 'Add to Cart'}
@@ -497,7 +497,7 @@ const ProductDetail = () => {
                     }}
                     className={`w-16 h-16 flex-shrink-0 rounded overflow-hidden border-2 transition-all ${
                       selectedImage === index
-                        ? 'border-[#5A0F1B] ring-2 ring-[#5A0F1B]/30'
+                        ? 'border-[#2d7d32] ring-2 ring-[#2d7d32]/30'
                         : 'border-white/30 hover:border-white/60'
                     }`}
                   >

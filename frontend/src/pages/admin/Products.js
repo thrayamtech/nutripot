@@ -366,7 +366,7 @@ const AdminProducts = () => {
               resetForm();
               setShowModal(true);
             }}
-            className="flex items-center gap-2 px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition"
+            className="flex items-center gap-2 px-4 py-2 text-[#f77c1c] text-white rounded-lg hover:bg-amber-700 transition"
           >
             <FaPlus /> Add Product
           </button>
@@ -401,7 +401,7 @@ const AdminProducts = () => {
         {/* Products Table */}
         {loading ? (
           <div className="flex items-center justify-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-600"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#f77c1c]"></div>
           </div>
         ) : filteredProducts.length > 0 ? (
           <div className="bg-white rounded-lg shadow-sm overflow-hidden">
@@ -499,7 +499,7 @@ const AdminProducts = () => {
                 resetForm();
                 setShowModal(true);
               }}
-              className="px-6 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition"
+              className="px-6 py-3 text-[#f77c1c] text-white rounded-lg hover:bg-amber-700 transition"
             >
               Add Your First Product
             </button>
@@ -691,7 +691,7 @@ const AdminProducts = () => {
                       <button
                         type="button"
                         onClick={addColor}
-                        className="px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition"
+                        className="px-4 py-2 text-[#f77c1c] text-white rounded-lg hover:bg-amber-700 transition"
                       >
                         Add
                       </button>
@@ -766,7 +766,7 @@ const AdminProducts = () => {
                     <p className="text-xs text-gray-500">
                       Click on an image to set it as main (shown on hover will be second image)
                     </p>
-                    <p className="text-xs text-amber-600 font-medium">
+                    <p className="text-xs text-[#f77c1c] font-medium">
                       📸 Max 10 images per product • Max 5MB per image
                     </p>
                     <p className="text-xs text-gray-500">
@@ -902,7 +902,7 @@ const AdminProducts = () => {
                     id="isFeatured"
                     checked={formData.isFeatured}
                     onChange={(e) => setFormData({ ...formData, isFeatured: e.target.checked })}
-                    className="w-4 h-4 text-amber-600 border-gray-300 rounded focus:ring-amber-500"
+                    className="w-4 h-4 text-[#f77c1c] border-gray-300 rounded focus:ring-amber-500"
                   />
                   <label htmlFor="isFeatured" className="ml-2 text-sm text-gray-700">
                     Mark as Featured Product
@@ -913,7 +913,7 @@ const AdminProducts = () => {
               <div className="flex items-center gap-3 pt-4">
                 <button
                   type="submit"
-                  className="flex-1 px-4 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition font-medium"
+                  className="flex-1 px-4 py-3 text-[#f77c1c] text-white rounded-lg hover:bg-amber-700 transition font-medium"
                 >
                   {editingProduct ? 'Update Product' : 'Create Product'}
                 </button>

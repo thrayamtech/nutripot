@@ -453,7 +453,7 @@ const BillingReports = () => {
               onClick={() => setActiveReport(report.id)}
               className={`flex items-center gap-2 px-4 py-2 rounded-lg transition ${
                 activeReport === report.id
-                  ? 'bg-amber-600 text-white'
+                  ? 'bg-[#f77c1c] text-white'
                   : 'bg-white text-gray-700 hover:bg-gray-100 border'
               }`}
             >
@@ -488,7 +488,7 @@ const BillingReports = () => {
               <div className="pt-6">
                 <button
                   onClick={fetchReport}
-                  className="flex items-center gap-2 px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition"
+                  className="flex items-center gap-2 px-4 py-2 bg-[#f77c1c] text-white rounded-lg hover:bg-amber-700 transition"
                 >
                   <FaSearch /> Generate Report
                 </button>

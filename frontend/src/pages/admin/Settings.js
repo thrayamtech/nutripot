@@ -201,7 +201,7 @@ const Settings = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#5A0F1B]"></div>
+        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#2d7d32]"></div>
       </div>
     );
   }
@@ -230,8 +230,8 @@ const Settings = () => {
               <button
                 onClick={() => handleToggleReels(!settings.reels_enabled)}
                 disabled={saving}
-                className={`relative inline-flex h-8 w-14 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#5A0F1B] focus:ring-offset-2 ${
-                  settings.reels_enabled ? 'bg-[#5A0F1B]' : 'bg-gray-200'
+                className={`relative inline-flex h-8 w-14 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#2d7d32] focus:ring-offset-2 ${
+                  settings.reels_enabled ? 'bg-[#2d7d32]' : 'bg-gray-200'
                 } ${saving ? 'opacity-50 cursor-not-allowed' : ''}`}
               >
                 <span
@@ -258,8 +258,8 @@ const Settings = () => {
               <button
                 onClick={() => handleToggleCOD(!settings.cod_enabled)}
                 disabled={saving}
-                className={`relative inline-flex h-8 w-14 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#5A0F1B] focus:ring-offset-2 ${
-                  settings.cod_enabled ? 'bg-[#5A0F1B]' : 'bg-gray-200'
+                className={`relative inline-flex h-8 w-14 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#2d7d32] focus:ring-offset-2 ${
+                  settings.cod_enabled ? 'bg-[#2d7d32]' : 'bg-gray-200'
                 } ${saving ? 'opacity-50 cursor-not-allowed' : ''}`}
               >
                 <span
@@ -288,7 +288,7 @@ const Settings = () => {
               <button
                 onClick={handleAddTestAccount}
                 disabled={saving}
-                className="flex items-center px-4 py-2 bg-[#5A0F1B] text-white rounded-lg hover:bg-[#7A1525] transition disabled:opacity-50"
+                className="flex items-center px-4 py-2 bg-[#2d7d32] text-white rounded-lg hover:bg-[#1e6623] transition disabled:opacity-50"
               >
                 <FaPlus className="mr-2" />
                 Add Test Account
@@ -437,7 +437,7 @@ const Settings = () => {
                         setTestAccountForm(prev => ({ ...prev, phone: value }));
                       }}
                       placeholder="Enter 10-digit number"
-                      className="w-full pl-12 pr-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5A0F1B] focus:border-transparent"
+                      className="w-full pl-12 pr-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2d7d32] focus:border-transparent"
                       disabled={editingIndex !== null}
                     />
                   </div>
@@ -459,7 +459,7 @@ const Settings = () => {
                       setTestAccountForm(prev => ({ ...prev, otp: value }));
                     }}
                     placeholder="Enter 4-6 digit OTP (default: 1234)"
-                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5A0F1B] focus:border-transparent"
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2d7d32] focus:border-transparent"
                   />
                   <p className="text-xs text-gray-500 mt-1">This OTP will be used instead of sending WhatsApp message</p>
                 </div>
@@ -474,7 +474,7 @@ const Settings = () => {
                     value={testAccountForm.description}
                     onChange={(e) => setTestAccountForm(prev => ({ ...prev, description: e.target.value }))}
                     placeholder="e.g., QA Testing, Demo Account"
-                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5A0F1B] focus:border-transparent"
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2d7d32] focus:border-transparent"
                   />
                 </div>
 
@@ -485,7 +485,7 @@ const Settings = () => {
                     type="button"
                     onClick={() => setTestAccountForm(prev => ({ ...prev, enabled: !prev.enabled }))}
                     className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
-                      testAccountForm.enabled ? 'bg-[#5A0F1B]' : 'bg-gray-200'
+                      testAccountForm.enabled ? 'bg-[#2d7d32]' : 'bg-gray-200'
                     }`}
                   >
                     <span
@@ -508,7 +508,7 @@ const Settings = () => {
                 <button
                   onClick={handleSaveTestAccount}
                   disabled={saving}
-                  className="px-4 py-2 bg-[#5A0F1B] text-white rounded-lg hover:bg-[#7A1525] transition disabled:opacity-50 flex items-center"
+                  className="px-4 py-2 bg-[#2d7d32] text-white rounded-lg hover:bg-[#1e6623] transition disabled:opacity-50 flex items-center"
                 >
                   {saving ? (
                     <>

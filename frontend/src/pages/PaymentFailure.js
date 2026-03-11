@@ -94,10 +94,10 @@ const PaymentFailure = () => {
           {/* Retry Payment */}
           <button
             onClick={handleRetryPayment}
-            className="bg-white hover:bg-gray-50 border-2 border-[#5A0F1B] rounded-lg p-6 text-center transition-all transform hover:scale-105"
+            className="bg-white hover:bg-gray-50 border-2 border-[#2d7d32] rounded-lg p-6 text-center transition-all transform hover:scale-105"
           >
             <div className="flex justify-center mb-3">
-              <div className="bg-[#5A0F1B] rounded-full p-4">
+              <div className="bg-[#2d7d32] rounded-full p-4">
                 <FaRedo className="text-3xl text-white" />
               </div>
             </div>
@@ -131,30 +131,30 @@ const PaymentFailure = () => {
           <h3 className="text-lg font-bold text-gray-900 mb-4">Why did this happen?</h3>
           <ul className="space-y-3 text-gray-700">
             <li className="flex items-start gap-3">
-              <span className="text-[#5A0F1B] font-bold mt-1">•</span>
+              <span className="text-[#2d7d32] font-bold mt-1">•</span>
               <span>Insufficient balance in your account</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-[#5A0F1B] font-bold mt-1">•</span>
+              <span className="text-[#2d7d32] font-bold mt-1">•</span>
               <span>Payment gateway timeout or network issue</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-[#5A0F1B] font-bold mt-1">•</span>
+              <span className="text-[#2d7d32] font-bold mt-1">•</span>
               <span>Incorrect card details or CVV</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-[#5A0F1B] font-bold mt-1">•</span>
+              <span className="text-[#2d7d32] font-bold mt-1">•</span>
               <span>Bank declined the transaction</span>
             </li>
             <li className="flex items-start gap-3">
-              <span className="text-[#5A0F1B] font-bold mt-1">•</span>
+              <span className="text-[#2d7d32] font-bold mt-1">•</span>
               <span>Payment cancelled by user</span>
             </li>
           </ul>
         </div>
 
         {/* Help Section */}
-        <div className="bg-gradient-to-br from-[#5A0F1B]/10 to-[#7A1525]/10 rounded-lg p-6 mb-6">
+        <div className="bg-gradient-to-br from-[#2d7d32]/10 to-[#1e6623]/10 rounded-lg p-6 mb-6">
           <h3 className="text-lg font-bold text-gray-900 mb-2">Need Assistance?</h3>
           <p className="text-gray-700 mb-4">
             If you're facing repeated payment failures, our support team is here to help.
@@ -162,13 +162,13 @@ const PaymentFailure = () => {
           <div className="flex flex-wrap gap-3">
             <Link
               to="/contact"
-              className="px-6 py-3 bg-[#5A0F1B] hover:bg-[#7A1525] text-white rounded-lg font-semibold transition-colors"
+              className="px-6 py-3 bg-[#2d7d32] hover:bg-[#1e6623] text-white rounded-lg font-semibold transition-colors"
             >
               Contact Support
             </Link>
             <Link
               to="/orders"
-              className="px-6 py-3 bg-white hover:bg-gray-50 text-[#5A0F1B] border-2 border-[#5A0F1B] rounded-lg font-semibold transition-colors"
+              className="px-6 py-3 bg-white hover:bg-gray-50 text-[#2d7d32] border-2 border-[#2d7d32] rounded-lg font-semibold transition-colors"
             >
               My Orders
             </Link>
@@ -179,7 +179,7 @@ const PaymentFailure = () => {
         <div className="text-center">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-[#5A0F1B] hover:text-[#7A1525] font-semibold"
+            className="inline-flex items-center gap-2 text-[#2d7d32] hover:text-[#1e6623] font-semibold"
           >
             <FaHome />
             <span>Return to Home</span>

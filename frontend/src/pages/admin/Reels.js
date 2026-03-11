@@ -225,7 +225,7 @@ const Reels = () => {
         </div>
         <button
           onClick={() => setShowModal(true)}
-          className="bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] hover:from-[#7A1525] hover:to-[#8A1F35] text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-all shadow-lg"
+          className="bg-gradient-to-r from-[#2d7d32] to-[#1e6623] hover:from-[#1e6623] hover:to-[#1a431c] text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-all shadow-lg"
         >
           <FaPlus /> Add New Reel
         </button>
@@ -233,7 +233,7 @@ const Reels = () => {
 
       {loading ? (
         <div className="flex justify-center items-center h-64">
-          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#5A0F1B]"></div>
+          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#2d7d32]"></div>
         </div>
       ) : reels.length === 0 ? (
         <div className="bg-white rounded-lg shadow-md p-12 text-center">
@@ -242,7 +242,7 @@ const Reels = () => {
           <p className="text-gray-500 mb-4">Upload videos to showcase on your homepage</p>
           <button
             onClick={() => setShowModal(true)}
-            className="bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] text-white px-6 py-2 rounded-lg"
+            className="bg-gradient-to-r from-[#2d7d32] to-[#1e6623] text-white px-6 py-2 rounded-lg"
           >
             Add Your First Reel
           </button>
@@ -319,7 +319,7 @@ const Reels = () => {
           <div className="bg-white rounded-xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] rounded-full flex items-center justify-center">
+                <div className="w-10 h-10 bg-gradient-to-r from-[#2d7d32] to-[#1e6623] rounded-full flex items-center justify-center">
                   <FaPlay className="text-white" />
                 </div>
                 <h2 className="text-xl font-bold text-gray-800">
@@ -353,16 +353,16 @@ const Reels = () => {
                     <div
                       onClick={() => !uploading && fileInputRef.current?.click()}
                       className={`border-2 border-dashed rounded-xl p-8 text-center cursor-pointer transition-colors ${
-                        uploading ? 'border-gray-300 bg-gray-50' : 'border-gray-300 hover:border-[#5A0F1B] hover:bg-[#5A0F1B]/5'
+                        uploading ? 'border-gray-300 bg-gray-50' : 'border-gray-300 hover:border-[#2d7d32] hover:bg-[#2d7d32]/5'
                       }`}
                     >
                       {uploading ? (
                         <div className="space-y-3">
-                          <div className="w-12 h-12 mx-auto border-4 border-[#5A0F1B] border-t-transparent rounded-full animate-spin"></div>
+                          <div className="w-12 h-12 mx-auto border-4 border-[#2d7d32] border-t-transparent rounded-full animate-spin"></div>
                           <p className="text-gray-600">Uploading... {uploadProgress}%</p>
                           <div className="w-full bg-gray-200 rounded-full h-2">
                             <div
-                              className="bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] h-2 rounded-full transition-all"
+                              className="bg-gradient-to-r from-[#2d7d32] to-[#1e6623] h-2 rounded-full transition-all"
                               style={{ width: `${uploadProgress}%` }}
                             ></div>
                           </div>
@@ -395,7 +395,7 @@ const Reels = () => {
                     value={formData.product}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5A0F1B] focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2d7d32] focus:border-transparent"
                   >
                     <option value="">Select a product</option>
                     {products.map(product => (
@@ -439,7 +439,7 @@ const Reels = () => {
                   <button
                     type="submit"
                     disabled={saving || uploading}
-                    className="flex-1 px-4 py-3 bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] hover:from-[#7A1525] hover:to-[#8A1F35] text-white rounded-lg font-medium disabled:opacity-50 flex items-center justify-center gap-2"
+                    className="flex-1 px-4 py-3 bg-gradient-to-r from-[#2d7d32] to-[#1e6623] hover:from-[#1e6623] hover:to-[#1a431c] text-white rounded-lg font-medium disabled:opacity-50 flex items-center justify-center gap-2"
                   >
                     {saving && <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>}
                     {editingReel ? 'Update Reel' : 'Add Reel'}

@@ -21,7 +21,7 @@ const AddressForm = ({ address, onChange, title }) => (
           value={address.fullName || ''}
           onChange={onChange}
           required
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#5A0F1B] focus:ring-1 focus:ring-[#5A0F1B] text-sm"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2d7d32] focus:ring-1 focus:ring-[#2d7d32] text-sm"
           placeholder="Enter full name"
         />
       </div>
@@ -32,7 +32,7 @@ const AddressForm = ({ address, onChange, title }) => (
           name="email"
           value={address.email || ''}
           onChange={onChange}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#5A0F1B] focus:ring-1 focus:ring-[#5A0F1B] text-sm"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2d7d32] focus:ring-1 focus:ring-[#2d7d32] text-sm"
           placeholder="Email address"
         />
       </div>
@@ -45,7 +45,7 @@ const AddressForm = ({ address, onChange, title }) => (
           onChange={onChange}
           required
           maxLength="10"
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#5A0F1B] focus:ring-1 focus:ring-[#5A0F1B] text-sm"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2d7d32] focus:ring-1 focus:ring-[#2d7d32] text-sm"
           placeholder="10-digit mobile"
         />
       </div>
@@ -58,7 +58,7 @@ const AddressForm = ({ address, onChange, title }) => (
           onChange={onChange}
           required
           maxLength="6"
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#5A0F1B] focus:ring-1 focus:ring-[#5A0F1B] text-sm"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2d7d32] focus:ring-1 focus:ring-[#2d7d32] text-sm"
           placeholder="6-digit pincode"
         />
       </div>
@@ -70,7 +70,7 @@ const AddressForm = ({ address, onChange, title }) => (
           value={address.addressLine1 || ''}
           onChange={onChange}
           required
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#5A0F1B] focus:ring-1 focus:ring-[#5A0F1B] text-sm"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2d7d32] focus:ring-1 focus:ring-[#2d7d32] text-sm"
           placeholder="House No., Street, Area"
         />
       </div>
@@ -80,7 +80,7 @@ const AddressForm = ({ address, onChange, title }) => (
           name="addressLine2"
           value={address.addressLine2 || ''}
           onChange={onChange}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#5A0F1B] focus:ring-1 focus:ring-[#5A0F1B] text-sm"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2d7d32] focus:ring-1 focus:ring-[#2d7d32] text-sm"
           placeholder="Apartment, Suite (Optional)"
         />
       </div>
@@ -92,7 +92,7 @@ const AddressForm = ({ address, onChange, title }) => (
           value={address.city || ''}
           onChange={onChange}
           required
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#5A0F1B] focus:ring-1 focus:ring-[#5A0F1B] text-sm"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2d7d32] focus:ring-1 focus:ring-[#2d7d32] text-sm"
           placeholder="City"
         />
       </div>
@@ -104,7 +104,7 @@ const AddressForm = ({ address, onChange, title }) => (
           value={address.state || ''}
           onChange={onChange}
           required
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#5A0F1B] focus:ring-1 focus:ring-[#5A0F1B] text-sm"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2d7d32] focus:ring-1 focus:ring-[#2d7d32] text-sm"
           placeholder="State"
         />
       </div>
@@ -695,8 +695,8 @@ const CheckoutSteps = () => {
         key: keyData.key,
         amount: amount * 100,
         currency: 'INR',
-        name: 'JJ Trendz Official',
-        description: 'Purchase from JJ Trendz Official',
+        name: 'NutriPot',
+        description: 'Purchase from NutriPot',
         order_id: razorpayOrderId,
         handler: async function (response) {
           try {
@@ -728,7 +728,7 @@ const CheckoutSteps = () => {
           contact: shippingAddress.phone
         },
         theme: {
-          color: '#5A0F1B'
+          color: '#2d7d32'
         },
         method: {
           netbanking: true,
@@ -861,14 +861,14 @@ const CheckoutSteps = () => {
         {/* Page Title */}
         <div className="text-center mb-6">
           <h1 className="text-3xl md:text-4xl font-serif font-bold mb-2">
-            <span className="bg-gradient-to-r from-[#5A0F1B] via-[#7A1525] to-[#5A0F1B] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#2d7d32] via-[#1e6623] to-[#2d7d32] bg-clip-text text-transparent">
               Secure Checkout
             </span>
           </h1>
           <div className="flex items-center justify-center gap-2 mb-1">
-            <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-[#5A0F1B] to-transparent"></div>
-            <FaLock className="text-[#5A0F1B] text-sm" />
-            <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-[#5A0F1B] to-transparent"></div>
+            <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-[#2d7d32] to-transparent"></div>
+            <FaLock className="text-[#2d7d32] text-sm" />
+            <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-[#2d7d32] to-transparent"></div>
           </div>
           <p className="text-gray-600 text-sm">
             {currentStep === 0 ? 'Verify your mobile number to continue' : 'Complete your order in 2 easy steps'}
@@ -880,17 +880,17 @@ const CheckoutSteps = () => {
           <div className="mb-8">
             <div className="flex items-center justify-center">
               <div className="flex flex-col items-center">
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold shadow-lg transition-all ${currentStep >= 1 ? 'bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] text-white' : 'bg-gray-200 text-gray-500'}`}>
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold shadow-lg transition-all ${currentStep >= 1 ? 'bg-gradient-to-r from-[#2d7d32] to-[#1e6623] text-white' : 'bg-gray-200 text-gray-500'}`}>
                   {currentStep > 1 ? <FaCheckCircle /> : 1}
                 </div>
-                <span className={`text-xs mt-1 font-medium ${currentStep >= 1 ? 'text-[#5A0F1B]' : 'text-gray-500'}`}>Address</span>
+                <span className={`text-xs mt-1 font-medium ${currentStep >= 1 ? 'text-[#2d7d32]' : 'text-gray-500'}`}>Address</span>
               </div>
-              <div className={`w-24 h-1 mx-4 rounded transition-all ${currentStep >= 2 ? 'bg-gradient-to-r from-[#5A0F1B] to-[#7A1525]' : 'bg-gray-200'}`}></div>
+              <div className={`w-24 h-1 mx-4 rounded transition-all ${currentStep >= 2 ? 'bg-gradient-to-r from-[#2d7d32] to-[#1e6623]' : 'bg-gray-200'}`}></div>
               <div className="flex flex-col items-center">
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold shadow-lg transition-all ${currentStep >= 2 ? 'bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] text-white' : 'bg-gray-200 text-gray-500'}`}>
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold shadow-lg transition-all ${currentStep >= 2 ? 'bg-gradient-to-r from-[#2d7d32] to-[#1e6623] text-white' : 'bg-gray-200 text-gray-500'}`}>
                   2
                 </div>
-                <span className={`text-xs mt-1 font-medium ${currentStep >= 2 ? 'text-[#5A0F1B]' : 'text-gray-500'}`}>Payment</span>
+                <span className={`text-xs mt-1 font-medium ${currentStep >= 2 ? 'text-[#2d7d32]' : 'text-gray-500'}`}>Payment</span>
               </div>
             </div>
           </div>
@@ -903,7 +903,7 @@ const CheckoutSteps = () => {
               <div>
                 <div className="text-center mb-6">
                   <h2 className="text-2xl md:text-3xl font-serif font-bold mb-2">
-                    <span className="bg-gradient-to-r from-[#5A0F1B] via-[#7A1525] to-[#5A0F1B] bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-[#2d7d32] via-[#1e6623] to-[#2d7d32] bg-clip-text text-transparent">
                       Enter Mobile Number
                     </span>
                   </h2>
@@ -919,7 +919,7 @@ const CheckoutSteps = () => {
                     onChange={(e) => setMobileNumber(e.target.value.replace(/\D/g, '').slice(0, 10))}
                     maxLength="10"
                     placeholder="Enter 10-digit mobile number"
-                    className="w-full px-5 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#5A0F1B]/20 focus:border-[#5A0F1B] transition-all text-base bg-white/50"
+                    className="w-full px-5 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2d7d32]/20 focus:border-[#2d7d32] transition-all text-base bg-white/50"
                   />
                   <p className="mt-2 text-xs text-gray-500">
                     We'll send you a verification code
@@ -929,7 +929,7 @@ const CheckoutSteps = () => {
                   type="button"
                   onClick={handleSendOTP}
                   disabled={loading || mobileNumber.length !== 10}
-                  className="w-full py-3 bg-gradient-to-r from-[#5A0F1B] via-[#7A1525] to-[#5A0F1B] hover:from-[#6A1525] hover:via-[#8A1F35] hover:to-[#6A1525] text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-[1.02]"
+                  className="w-full py-3 bg-gradient-to-r from-[#2d7d32] via-[#1e6623] to-[#2d7d32] hover:from-[#1e6623] hover:via-[#1a431c] hover:to-[#1e6623] text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-[1.02]"
                 >
                   {loading ? (
                     <span className="flex items-center justify-center gap-2">
@@ -948,7 +948,7 @@ const CheckoutSteps = () => {
               <div>
                 <div className="text-center mb-6">
                   <h2 className="text-2xl md:text-3xl font-serif font-bold mb-2">
-                    <span className="bg-gradient-to-r from-[#5A0F1B] via-[#7A1525] to-[#5A0F1B] bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-[#2d7d32] via-[#1e6623] to-[#2d7d32] bg-clip-text text-transparent">
                       Verify OTP
                     </span>
                   </h2>
@@ -965,15 +965,15 @@ const CheckoutSteps = () => {
                         setOtpDigits(['', '', '', '']);
                         setOtp('');
                       }}
-                      className="text-sm text-[#5A0F1B] hover:text-[#7A1525] font-semibold transition-colors"
+                      className="text-sm text-[#2d7d32] hover:text-[#1e6623] font-semibold transition-colors"
                     >
                       Edit Number
                     </button>
                   </div>
-                  <div className="mb-4 p-3 bg-gradient-to-r from-[#5A0F1B]/10 to-[#7A1525]/10 rounded-xl border border-[#5A0F1B]/20">
+                  <div className="mb-4 p-3 bg-gradient-to-r from-[#2d7d32]/10 to-[#1e6623]/10 rounded-xl border border-[#2d7d32]/20">
                     <p className="text-sm text-gray-700 text-center">
                       <FaWhatsapp className="inline text-green-600 mr-1" />
-                      WhatsApp OTP sent to <span className="font-bold text-[#5A0F1B]">{mobileNumber}</span>
+                      WhatsApp OTP sent to <span className="font-bold text-[#2d7d32]">{mobileNumber}</span>
                     </p>
                   </div>
                   <div className="flex justify-center gap-3 mb-4">
@@ -987,7 +987,7 @@ const CheckoutSteps = () => {
                         onChange={(e) => handleOtpDigitChange(index, e.target.value)}
                         onKeyDown={(e) => handleOtpKeyDown(index, e)}
                         maxLength="1"
-                        className="w-14 h-14 text-center text-2xl font-bold border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#5A0F1B]/20 focus:border-[#5A0F1B] transition-all bg-white/50"
+                        className="w-14 h-14 text-center text-2xl font-bold border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#2d7d32]/20 focus:border-[#2d7d32] transition-all bg-white/50"
                       />
                     ))}
                   </div>
@@ -998,7 +998,7 @@ const CheckoutSteps = () => {
                   <button
                     type="button"
                     onClick={handleSendOTP}
-                    className="text-sm text-[#5A0F1B] hover:text-[#7A1525] font-bold underline decoration-2 underline-offset-4 transition-colors"
+                    className="text-sm text-[#2d7d32] hover:text-[#1e6623] font-bold underline decoration-2 underline-offset-4 transition-colors"
                   >
                     Resend Verification Code
                   </button>
@@ -1008,7 +1008,7 @@ const CheckoutSteps = () => {
                   type="button"
                   onClick={handleVerifyOTP}
                   disabled={loading || otp.length !== 4}
-                  className="w-full py-3 bg-gradient-to-r from-[#5A0F1B] via-[#7A1525] to-[#5A0F1B] hover:from-[#6A1525] hover:via-[#8A1F35] hover:to-[#6A1525] text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-[1.02]"
+                  className="w-full py-3 bg-gradient-to-r from-[#2d7d32] via-[#1e6623] to-[#2d7d32] hover:from-[#1e6623] hover:via-[#1a431c] hover:to-[#1e6623] text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-[1.02]"
                 >
                   {loading ? (
                     <span className="flex items-center justify-center gap-2">
@@ -1042,7 +1042,7 @@ const CheckoutSteps = () => {
                           key={address._id}
                           onClick={() => handleAddressSelect(address)}
                           className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
-                            selectedAddressId === address._id ? 'border-[#5A0F1B] bg-[#5A0F1B]/5' : 'border-gray-200 hover:border-[#5A0F1B]/50'
+                            selectedAddressId === address._id ? 'border-[#2d7d32] bg-[#2d7d32]/5' : 'border-gray-200 hover:border-[#2d7d32]/50'
                           }`}
                         >
                           <div className="flex items-start justify-between">
@@ -1059,7 +1059,7 @@ const CheckoutSteps = () => {
                       ))}
                     </div>
                     <div className="text-center">
-                      <button type="button" onClick={handleNewAddress} className="text-sm text-[#5A0F1B] hover:text-[#7A1525] font-semibold">
+                      <button type="button" onClick={handleNewAddress} className="text-sm text-[#2d7d32] hover:text-[#1e6623] font-semibold">
                         + Add New Address
                       </button>
                     </div>
@@ -1075,7 +1075,7 @@ const CheckoutSteps = () => {
                           type="checkbox"
                           checked={useShippingAsBilling}
                           onChange={(e) => handleUseShippingAsBilling(e.target.checked)}
-                          className="w-4 h-4 text-[#5A0F1B] focus:ring-[#5A0F1B] rounded"
+                          className="w-4 h-4 text-[#2d7d32] focus:ring-[#2d7d32] rounded"
                         />
                         <span className="ml-2 text-sm text-gray-700 font-medium">Billing address same as shipping</span>
                       </label>
@@ -1098,7 +1098,7 @@ const CheckoutSteps = () => {
                         type="checkbox"
                         checked={useShippingAsBilling}
                         onChange={(e) => handleUseShippingAsBilling(e.target.checked)}
-                        className="w-4 h-4 text-[#5A0F1B] focus:ring-[#5A0F1B] rounded"
+                        className="w-4 h-4 text-[#2d7d32] focus:ring-[#2d7d32] rounded"
                       />
                       <span className="ml-2 text-sm text-gray-700 font-medium">Billing address same as shipping</span>
                     </label>
@@ -1116,7 +1116,7 @@ const CheckoutSteps = () => {
                 <button
                   type="button"
                   onClick={handleNextStep}
-                  className="w-full py-3 bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] hover:from-[#7A1525] hover:to-[#8A1F35] text-white font-bold rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg"
+                  className="w-full py-3 bg-gradient-to-r from-[#2d7d32] to-[#1e6623] hover:from-[#1e6623] hover:to-[#1a431c] text-white font-bold rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg"
                 >
                   Continue to Payment <FaArrowRight />
                 </button>
@@ -1143,7 +1143,7 @@ const CheckoutSteps = () => {
                               <span>Qty: {item.quantity}</span>
                               {item.size && <span>• {item.size}</span>}
                             </div>
-                            <p className="text-sm font-semibold text-[#5A0F1B] mt-1">₹{((item.product?.discountPrice || item.product?.price) * item.quantity).toLocaleString()}</p>
+                            <p className="text-sm font-semibold text-[#2d7d32] mt-1">₹{((item.product?.discountPrice || item.product?.price) * item.quantity).toLocaleString()}</p>
                           </div>
                         </div>
                       ))}
@@ -1156,7 +1156,7 @@ const CheckoutSteps = () => {
                     <div className="space-y-2">
                       {paymentMethods.map((method) => (
                         <label key={method.value} className={`block p-3 border-2 rounded-lg cursor-pointer transition-all ${
-                          paymentMethod === method.value ? 'border-[#5A0F1B] bg-[#5A0F1B]/5' : 'border-gray-200 hover:border-[#5A0F1B]/50'
+                          paymentMethod === method.value ? 'border-[#2d7d32] bg-[#2d7d32]/5' : 'border-gray-200 hover:border-[#2d7d32]/50'
                         }`}>
                           <div className="flex items-center">
                             <input
@@ -1165,12 +1165,12 @@ const CheckoutSteps = () => {
                               value={method.value}
                               checked={paymentMethod === method.value}
                               onChange={(e) => setPaymentMethod(e.target.value)}
-                              className="w-4 h-4 text-[#5A0F1B] focus:ring-[#5A0F1B]"
+                              className="w-4 h-4 text-[#2d7d32] focus:ring-[#2d7d32]"
                             />
                             <div className="ml-3 flex-1">
                               <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-2">
-                                  <span className="text-[#5A0F1B]">{method.icon}</span>
+                                  <span className="text-[#2d7d32]">{method.icon}</span>
                                   <div>
                                     <div className="font-semibold text-gray-900 text-sm">{method.label}</div>
                                     <div className="text-xs text-gray-600">{method.description}</div>
@@ -1198,13 +1198,13 @@ const CheckoutSteps = () => {
                           value={couponCode}
                           onChange={(e) => setCouponCode(e.target.value.toUpperCase())}
                           placeholder="Enter coupon code"
-                          className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:border-[#5A0F1B] focus:ring-1 focus:ring-[#5A0F1B]"
+                          className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:border-[#2d7d32] focus:ring-1 focus:ring-[#2d7d32]"
                         />
                         <button
                           type="button"
                           onClick={handleApplyCoupon}
                           disabled={couponLoading || !couponCode.trim()}
-                          className="px-4 py-2 text-sm font-semibold bg-[#5A0F1B] text-white rounded-lg hover:bg-[#7A1525] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                          className="px-4 py-2 text-sm font-semibold bg-[#2d7d32] text-white rounded-lg hover:bg-[#1e6623] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                           {couponLoading ? 'Applying...' : 'Apply'}
                         </button>
@@ -1323,12 +1323,12 @@ const CheckoutSteps = () => {
                   {/* Total & Pay Button */}
                   <div className="flex justify-between text-xl font-bold text-gray-900 mb-4">
                     <span>Total</span>
-                    <span className="text-[#5A0F1B]">₹{total.toLocaleString()}</span>
+                    <span className="text-[#2d7d32]">₹{total.toLocaleString()}</span>
                   </div>
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-3 bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] hover:from-[#7A1525] hover:to-[#8A1F35] text-white font-bold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg"
+                    className="w-full py-3 bg-gradient-to-r from-[#2d7d32] to-[#1e6623] hover:from-[#1e6623] hover:to-[#1a431c] text-white font-bold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg"
                   >
                     {loading ? (
                       <>
@@ -1352,7 +1352,7 @@ const CheckoutSteps = () => {
                 </div>
               </div>
               <div>
-                <button type="button" onClick={handlePreviousStep} className="flex items-center gap-2 text-[#5A0F1B] hover:text-[#7A1525] font-semibold">
+                <button type="button" onClick={handlePreviousStep} className="flex items-center gap-2 text-[#2d7d32] hover:text-[#1e6623] font-semibold">
                   <FaArrowLeft /> Back to Address
                 </button>
               </div>

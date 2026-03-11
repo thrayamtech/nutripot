@@ -112,7 +112,7 @@ const AdminCoupons = () => {
               resetForm();
               setShowModal(true);
             }}
-            className="flex items-center gap-2 px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition"
+            className="flex items-center gap-2 px-4 py-2 text-[#f77c1c] text-white rounded-lg hover:bg-amber-700 transition"
           >
             <FaPlus /> Create Coupon
           </button>
@@ -121,7 +121,7 @@ const AdminCoupons = () => {
         {/* Coupons Grid */}
         {loading ? (
           <div className="flex items-center justify-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-600"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#f77c1c]"></div>
           </div>
         ) : coupons.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -130,7 +130,7 @@ const AdminCoupons = () => {
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center">
-                      <FaTicketAlt className="text-2xl text-amber-600" />
+                      <FaTicketAlt className="text-2xl text-[#f77c1c]" />
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-gray-800">{coupon.code}</h3>
@@ -200,7 +200,7 @@ const AdminCoupons = () => {
                 resetForm();
                 setShowModal(true);
               }}
-              className="px-6 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition"
+              className="px-6 py-3 text-[#f77c1c] text-white rounded-lg hover:bg-amber-700 transition"
             >
               Create Your First Coupon
             </button>
@@ -324,7 +324,7 @@ const AdminCoupons = () => {
                   id="isActive"
                   checked={formData.isActive}
                   onChange={(e) => setFormData({ ...formData, isActive: e.target.checked })}
-                  className="w-4 h-4 text-amber-600 border-gray-300 rounded focus:ring-amber-500"
+                  className="w-4 h-4 text-[#f77c1c] border-gray-300 rounded focus:ring-amber-500"
                 />
                 <label htmlFor="isActive" className="ml-2 text-sm text-gray-700">
                   Active (coupon can be used)
@@ -334,7 +334,7 @@ const AdminCoupons = () => {
               <div className="flex items-center gap-3 pt-4">
                 <button
                   type="submit"
-                  className="flex-1 px-4 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition font-medium"
+                  className="flex-1 px-4 py-3 text-[#f77c1c] text-white rounded-lg hover:bg-amber-700 transition font-medium"
                 >
                   {editingCoupon ? 'Update Coupon' : 'Create Coupon'}
                 </button>

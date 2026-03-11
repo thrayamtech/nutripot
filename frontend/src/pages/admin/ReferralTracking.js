@@ -141,7 +141,7 @@ const ReferralTracking = () => {
                 placeholder="Search by name or phone..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5A0F1B] focus:border-transparent"
+                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2d7d32] focus:border-transparent"
               />
             </div>
             <div className="flex items-center gap-2">
@@ -149,7 +149,7 @@ const ReferralTracking = () => {
               <select
                 value={statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value)}
-                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5A0F1B] focus:border-transparent"
+                className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2d7d32] focus:border-transparent"
               >
                 <option value="">All Status</option>
                 <option value="pending">Pending</option>
@@ -174,7 +174,7 @@ const ReferralTracking = () => {
         <div className="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
           {loading ? (
             <div className="flex items-center justify-center h-64">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#5A0F1B]"></div>
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#2d7d32]"></div>
             </div>
           ) : referrals.length === 0 ? (
             <div className="text-center py-12 text-gray-500">

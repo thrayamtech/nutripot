@@ -169,7 +169,7 @@ const BillingDashboard = () => {
           <div className="bg-white rounded-lg shadow-sm">
             <div className="p-4 border-b border-gray-200 flex items-center justify-between">
               <h3 className="font-semibold text-gray-800">Recent Sales</h3>
-              <Link to="/admin/billing/sales" className="text-amber-600 hover:underline text-sm">
+              <Link to="/admin/billing/sales" className="text-[#f77c1c] hover:underline text-sm">
                 View All
               </Link>
             </div>

@@ -67,7 +67,7 @@ const LoyaltySettings = () => {
     return (
       <AdminLayout>
         <div className="flex items-center justify-center h-64">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#5A0F1B]"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#2d7d32]"></div>
         </div>
       </AdminLayout>
     );
@@ -419,7 +419,7 @@ const LoyaltySettings = () => {
           <button
             onClick={handleSave}
             disabled={saving}
-            className="px-8 py-4 bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] text-white rounded-lg hover:from-[#6A1525] hover:to-[#8A1F35] transition disabled:opacity-50 flex items-center gap-3 font-bold text-lg shadow-xl"
+            className="px-8 py-4 bg-gradient-to-r from-[#2d7d32] to-[#1e6623] text-white rounded-lg hover:from-[#1e6623] hover:to-[#1a431c] transition disabled:opacity-50 flex items-center gap-3 font-bold text-lg shadow-xl"
           >
             {saving ? (
               <>

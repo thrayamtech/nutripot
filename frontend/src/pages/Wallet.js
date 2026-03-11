@@ -101,7 +101,7 @@ const Wallet = () => {
       <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-amber-50 py-8">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-center h-64">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#5A0F1B]"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#2d7d32]"></div>
           </div>
         </div>
       </div>
@@ -118,9 +118,9 @@ const Wallet = () => {
         </div>
 
         {/* How to Earn Points - Info Banner */}
-        <div className="bg-gradient-to-r from-[#5A0F1B]/5 to-[#8A1F35]/5 border-2 border-[#5A0F1B]/20 rounded-xl p-4 mb-6">
+        <div className="bg-gradient-to-r from-[#2d7d32]/5 to-[#1a431c]/5 border-2 border-[#2d7d32]/20 rounded-xl p-4 mb-6">
           <div className="flex items-start gap-3">
-            <FaInfoCircle className="text-[#5A0F1B] text-xl mt-0.5 flex-shrink-0" />
+            <FaInfoCircle className="text-[#2d7d32] text-xl mt-0.5 flex-shrink-0" />
             <div>
               <h3 className="font-bold text-gray-900 mb-2 text-sm">How to Earn Points:</h3>
               <div className="grid md:grid-cols-2 gap-2 text-xs text-gray-700">
@@ -140,7 +140,7 @@ const Wallet = () => {
 
         {/* Balance Cards - Compact */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          <div className="bg-gradient-to-br from-[#5A0F1B] to-[#7A1525] rounded-xl p-5 text-white shadow-lg">
+          <div className="bg-gradient-to-br from-[#2d7d32] to-[#1e6623] rounded-xl p-5 text-white shadow-lg">
             <div className="flex items-center justify-between mb-3">
               <FaWallet className="text-2xl opacity-80" />
               <span className="text-xs opacity-80">Available Balance</span>
@@ -208,7 +208,7 @@ const Wallet = () => {
                 onClick={() => setActiveTab('overview')}
                 className={`flex-1 px-5 py-3 font-semibold transition text-sm ${
                   activeTab === 'overview'
-                    ? 'bg-[#5A0F1B] text-white'
+                    ? 'bg-[#2d7d32] text-white'
                     : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
                 }`}
               >
@@ -219,7 +219,7 @@ const Wallet = () => {
                 onClick={() => setActiveTab('referral')}
                 className={`flex-1 px-5 py-3 font-semibold transition text-sm ${
                   activeTab === 'referral'
-                    ? 'bg-[#5A0F1B] text-white'
+                    ? 'bg-[#2d7d32] text-white'
                     : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
                 }`}
               >
@@ -281,10 +281,10 @@ const Wallet = () => {
             {activeTab === 'referral' && (
               <div>
                 {/* Refer a Friend CTA */}
-                <div className="bg-gradient-to-r from-[#5A0F1B]/5 to-[#8A1F35]/5 rounded-lg p-4 mb-4 border border-[#5A0F1B]/20">
+                <div className="bg-gradient-to-r from-[#2d7d32]/5 to-[#1a431c]/5 rounded-lg p-4 mb-4 border border-[#2d7d32]/20">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="p-2 bg-gradient-to-br from-[#5A0F1B] to-[#8A1F35] rounded-lg">
+                      <div className="p-2 bg-gradient-to-br from-[#2d7d32] to-[#1a431c] rounded-lg">
                         <FaUserPlus className="text-white text-lg" />
                       </div>
                       <div>
@@ -294,7 +294,7 @@ const Wallet = () => {
                     </div>
                     <button
                       onClick={() => navigate('/refer-friend')}
-                      className="px-4 py-2 bg-gradient-to-r from-[#5A0F1B] to-[#8A1F35] text-white rounded-lg hover:shadow-lg transition font-semibold text-sm flex items-center gap-2 whitespace-nowrap"
+                      className="px-4 py-2 bg-gradient-to-r from-[#2d7d32] to-[#1a431c] text-white rounded-lg hover:shadow-lg transition font-semibold text-sm flex items-center gap-2 whitespace-nowrap"
                     >
                       <FaUserPlus className="text-xs" /> Refer Now
                     </button>
@@ -315,8 +315,8 @@ const Wallet = () => {
                     <p className="text-xl font-bold text-green-600">{referralStats?.activeReferrals || 0}</p>
                     <p className="text-xs text-gray-600">Active</p>
                   </div>
-                  <div className="bg-gradient-to-br from-[#5A0F1B]/10 to-[#8A1F35]/10 rounded-lg p-3 text-center border border-[#5A0F1B]/20">
-                    <p className="text-xl font-bold text-[#5A0F1B]">{referralStats?.totalRewardsEarned || 0}</p>
+                  <div className="bg-gradient-to-br from-[#2d7d32]/10 to-[#1a431c]/10 rounded-lg p-3 text-center border border-[#2d7d32]/20">
+                    <p className="text-xl font-bold text-[#2d7d32]">{referralStats?.totalRewardsEarned || 0}</p>
                     <p className="text-xs text-gray-600">Points Earned</p>
                   </div>
                 </div>
@@ -328,7 +328,7 @@ const Wallet = () => {
                       {referrals.map((referral) => (
                         <div
                           key={referral.id}
-                          className="bg-gradient-to-r from-amber-50/50 to-orange-50/50 rounded-lg p-3 border border-[#5A0F1B]/10 hover:border-[#5A0F1B]/30 transition"
+                          className="bg-gradient-to-r from-amber-50/50 to-orange-50/50 rounded-lg p-3 border border-[#2d7d32]/10 hover:border-[#2d7d32]/30 transition"
                         >
                           <div className="flex items-start justify-between">
                             <div className="flex-1 min-w-0">
@@ -351,13 +351,13 @@ const Wallet = () => {
                               </div>
                             </div>
                             <div className="text-right ml-3">
-                              <p className="text-xl font-bold text-[#5A0F1B]">+{referral.totalRewardEarned}</p>
+                              <p className="text-xl font-bold text-[#2d7d32]">+{referral.totalRewardEarned}</p>
                               <p className="text-[10px] text-gray-500">points earned</p>
                             </div>
                           </div>
 
                           {referral.purchases && referral.purchases.length > 0 && (
-                            <div className="mt-2 pt-2 border-t border-[#5A0F1B]/10">
+                            <div className="mt-2 pt-2 border-t border-[#2d7d32]/10">
                               <p className="text-[10px] font-semibold text-gray-700 mb-1.5">Purchase History:</p>
                               <div className="space-y-1">
                                 {referral.purchases.map((purchase, idx) => (
@@ -376,12 +376,12 @@ const Wallet = () => {
                   </div>
                 ) : (
                   <div className="text-center py-8 text-gray-500">
-                    <FaUsers className="text-4xl mx-auto mb-3 opacity-30 text-[#5A0F1B]" />
+                    <FaUsers className="text-4xl mx-auto mb-3 opacity-30 text-[#2d7d32]" />
                     <p className="text-sm font-semibold text-gray-700">No referrals yet</p>
                     <p className="text-xs mt-1 mb-3">Start referring friends to earn rewards!</p>
                     <button
                       onClick={() => navigate('/refer-friend')}
-                      className="px-4 py-2 bg-gradient-to-r from-[#5A0F1B] to-[#8A1F35] text-white rounded-lg hover:shadow-lg transition font-semibold text-sm inline-flex items-center gap-2"
+                      className="px-4 py-2 bg-gradient-to-r from-[#2d7d32] to-[#1a431c] text-white rounded-lg hover:shadow-lg transition font-semibold text-sm inline-flex items-center gap-2"
                     >
                       <FaUserPlus /> Add Your First Friend
                     </button>

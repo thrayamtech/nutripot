@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { FaTruck, FaUndo, FaShieldAlt, FaHeadset, FaTag, FaCrown, FaFire, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { FaTruck, FaUndo, FaShieldAlt, FaHeadset, FaTag, FaLeaf, FaFire, FaChevronLeft, FaChevronRight, FaSeedling, FaAward, FaStar } from 'react-icons/fa';
 import HeroSlider from '../components/HeroSlider';
 import ProductCard from '../components/ProductCard';
 import ProductReels from '../components/ProductReels';
@@ -33,14 +34,10 @@ const Home = () => {
   const fetchSettings = async () => {
     try {
       const { data } = await API.get('/settings/public');
-      console.log('Settings response:', data);
-      // If reels_enabled setting exists, use its value, otherwise default to true
       const reelsValue = data.settings?.reels_enabled;
-      console.log('Reels enabled value:', reelsValue);
       setReelsEnabled(reelsValue === undefined ? true : reelsValue);
     } catch (error) {
-      console.error('Error fetching settings:', error);
-      setReelsEnabled(true); // Default to enabled if fetch fails
+      setReelsEnabled(true);
     }
   };
 
@@ -55,18 +52,15 @@ const Home = () => {
       setFeaturedProducts(productsRes.data.products || []);
       setReels(reelsRes.data.reels || []);
 
-      // Add homepage structured data for featured products
       if (productsRes.data.products?.length > 0) {
         setStructuredData(
           generateCollectionSchema(
-            { name: 'Featured Sarees Collection', description: 'Our handpicked selection of premium sarees' },
+            { name: 'Featured NutriPot Products', description: 'Our handpicked selection of premium natural food products' },
             productsRes.data.products
           ),
           'homepage-collection-data'
         );
       }
-
-      // Fetch initial products for "All" category
       fetchCategoryProducts();
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -78,9 +72,7 @@ const Home = () => {
   const fetchCategoryProducts = async () => {
     setCategoryLoading(true);
     try {
-      const url = selectedCategory === 'all'
-        ? '/products?limit=12'
-        : `/products?category=${selectedCategory}&limit=12`;
+      const url = selectedCategory === 'all' ? '/products?limit=12' : `/products?category=${selectedCategory}&limit=12`;
       const { data } = await API.get(url);
       setCategoryProducts(data.products || []);
     } catch (error) {
@@ -90,13 +82,10 @@ const Home = () => {
     }
   };
 
-  // Featured carousel scroll functions
   const scrollFeaturedCarousel = (direction) => {
     if (featuredScrollRef.current) {
-      const scrollAmount = 300;
-      const newScrollLeft = featuredScrollRef.current.scrollLeft + (direction === 'left' ? -scrollAmount : scrollAmount);
       featuredScrollRef.current.scrollTo({
-        left: newScrollLeft,
+        left: featuredScrollRef.current.scrollLeft + (direction === 'left' ? -300 : 300),
         behavior: 'smooth'
       });
     }
@@ -110,10 +99,6 @@ const Home = () => {
     }
   };
 
-  const handleFeaturedScroll = () => {
-    checkFeaturedScrollPosition();
-  };
-
   useEffect(() => {
     const container = featuredScrollRef.current;
     if (container) {
@@ -123,100 +108,108 @@ const Home = () => {
     }
   }, [featuredProducts]);
 
+  const naturalBenefits = [
+    { icon: <FaLeaf />, text: '100% Natural', color: '#2d7d32' },
+    { icon: <FaSeedling />, text: 'Organic Sourced', color: '#388E3C' },
+    { icon: <FaAward />, text: 'Quality Certified', color: '#f77c1c' },
+    { icon: <FaStar />, text: 'Customer Loved', color: '#f77c1c' },
+  ];
+
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#faf9f7]">
       {/* Hero Slider */}
       <HeroSlider />
 
-      {/* Promo Banner Strip - More Elegant */}
-      <div className="bg-gradient-to-r from-[#1e3a8a] via-[#1d4ed8] to-[#1e3a8a] text-white py-2 overflow-hidden shadow-md">
+      {/* Promo Marquee */}
+      <div className="bg-gradient-to-r from-[#1a431c] via-[#2d7d32] to-[#1a431c] text-white py-2.5 overflow-hidden">
         <div className="flex animate-marquee whitespace-nowrap">
-          <div className="flex items-center gap-8 md:gap-12 px-6">
-            <span className="flex items-center gap-2 font-medium text-xs md:text-sm tracking-wide">
-              <FaFire className="text-white/90" /> MEGA SALE: Up to 50% OFF
-            </span>
-            <span className="flex items-center gap-2 font-medium text-xs md:text-sm tracking-wide">
-              <FaTag className="text-white/90" /> Free Shipping on Orders Above ₹999
-            </span>
-            <span className="flex items-center gap-2 font-medium text-xs md:text-sm tracking-wide">
-              <FaCrown className="text-white/90" /> Premium Quality Guaranteed
-            </span>
-          </div>
-          <div className="flex items-center gap-8 md:gap-12 px-6">
-            <span className="flex items-center gap-2 font-medium text-xs md:text-sm tracking-wide">
-              <FaFire className="text-white/90" /> MEGA SALE: Up to 50% OFF
-            </span>
-            <span className="flex items-center gap-2 font-medium text-xs md:text-sm tracking-wide">
-              <FaTag className="text-white/90" /> Free Shipping on Orders Above ₹999
-            </span>
-            <span className="flex items-center gap-2 font-medium text-xs md:text-sm tracking-wide">
-              <FaCrown className="text-white/90" /> Premium Quality Guaranteed
-            </span>
-          </div>
+          {[1, 2].map((i) => (
+            <div key={i} className="flex items-center gap-10 md:gap-16 px-8">
+              <span className="flex items-center gap-2 font-semibold text-xs md:text-sm tracking-wide">
+                <FaFire className="text-[#f77c1c]" /> SPECIAL OFFER: Up to 40% OFF on Select Products
+              </span>
+              <span className="flex items-center gap-2 font-semibold text-xs md:text-sm tracking-wide">
+                <FaTag className="text-[#f77c1c]" /> Free Shipping on Orders Above ₹999
+              </span>
+              <span className="flex items-center gap-2 font-semibold text-xs md:text-sm tracking-wide">
+                <FaLeaf className="text-[#66BB6A]" /> 100% Natural &amp; No Preservatives
+              </span>
+              <span className="flex items-center gap-2 font-semibold text-xs md:text-sm tracking-wide">
+                <FaSeedling className="text-[#66BB6A]" /> Organic Certified Ingredients
+              </span>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Featured Products Section - Elegant Carousel */}
-      <section className="py-6 md:py-10 bg-gradient-to-b from-white via-[#1e3a8a]/5 to-white relative overflow-hidden">
-        {/* Decorative Elements */}
-        <div className="absolute top-10 right-10 w-32 h-32 bg-[#1e3a8a]/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 left-10 w-40 h-40 bg-[#1d4ed8]/20 rounded-full blur-3xl"></div>
+      {/* Natural Benefits Strip */}
+      <section className="bg-white border-b border-green-100">
+        <div className="max-w-5xl mx-auto px-4 py-5">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {naturalBenefits.map(({ icon, text, color }, i) => (
+              <div key={i} className="flex items-center gap-3 justify-center">
+                <div className="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm" style={{ backgroundColor: color }}>
+                  {icon}
+                </div>
+                <span className="font-bold text-gray-700 text-sm">{text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Products Carousel */}
+      <section className="py-10 md:py-14 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#f0faf0]/60 to-white pointer-events-none" />
+        <div className="absolute top-0 right-0 w-64 h-64 bg-[#2d7d32]/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#f77c1c]/5 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-[1600px] mx-auto px-4 md:px-6 relative">
-          <div className="text-center mb-4 md:mb-6">
-            <div className="inline-block mb-1">
-              <div className="flex items-center gap-1.5 text-[#1e3a8a] font-serif text-xs tracking-[0.15em] uppercase">
-                <FaCrown className="text-xs" />
-                <span>Handpicked</span>
-              </div>
-            </div>
-            <h2 className="text-xl md:text-3xl font-serif font-bold bg-gradient-to-r from-[#1e3a8a] via-[#1d4ed8] to-[#1e3a8a] bg-clip-text text-transparent mb-1">
-              Featured Collection
+          {/* Section Header */}
+          <div className="text-center mb-6 md:mb-8">
+            <span className="section-subtitle">Handpicked for You</span>
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-[#1a431c] mt-1 mb-2">
+              Featured Products
             </h2>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#1e3a8a] to-transparent mx-auto mb-1"></div>
-            <p className="text-gray-600 text-xs md:text-sm max-w-2xl mx-auto">
-              Trending styles and timeless classics curated just for you
+            <div className="leaf-divider mb-2" />
+            <p className="text-gray-500 text-sm max-w-xl mx-auto">
+              Our most loved natural products — tried, tested, and trusted by thousands
             </p>
           </div>
 
           {loading ? (
-            <div className="flex gap-4 md:gap-5 overflow-x-auto scrollbar-hide pb-4">
-              {[...Array(12)].map((_, i) => (
-                <div key={i} className="flex-shrink-0 w-[170px] sm:w-[190px] md:w-[220px] animate-pulse">
-                  <div className="bg-gradient-to-br from-gray-200 to-gray-100 aspect-[3/4] rounded-2xl mb-3"></div>
-                  <div className="bg-gray-200 h-4 rounded w-3/4 mb-2"></div>
-                  <div className="bg-gray-200 h-4 rounded w-1/2"></div>
+            <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-4">
+              {[...Array(8)].map((_, i) => (
+                <div key={i} className="flex-shrink-0 w-[180px] sm:w-[200px] md:w-[220px] animate-pulse">
+                  <div className="bg-gradient-to-br from-green-100 to-green-50 aspect-[3/4] rounded-2xl mb-3" />
+                  <div className="bg-green-100 h-4 rounded-full w-3/4 mb-2" />
+                  <div className="bg-green-100 h-4 rounded-full w-1/2" />
                 </div>
               ))}
             </div>
           ) : (
             <div className="relative group">
-              {/* Left Scroll Button - More Elegant */}
               {showFeaturedLeftArrow && (
                 <button
                   onClick={() => scrollFeaturedCarousel('left')}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white hover:bg-gradient-to-r hover:from-[#1e3a8a] hover:to-[#1d4ed8] shadow-xl rounded-full flex items-center justify-center text-gray-800 hover:text-white opacity-0 group-hover:opacity-100 transition-all duration-300 border border-gray-100"
-                  aria-label="Scroll left"
+                  className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-11 h-11 bg-white hover:bg-[#2d7d32] shadow-xl rounded-full flex items-center justify-center text-gray-700 hover:text-white opacity-0 group-hover:opacity-100 transition-all duration-300 border border-green-100"
                 >
-                  <FaChevronLeft className="text-lg" />
+                  <FaChevronLeft />
                 </button>
               )}
-
-              {/* Right Scroll Button - More Elegant */}
               {showFeaturedRightArrow && (
                 <button
                   onClick={() => scrollFeaturedCarousel('right')}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white hover:bg-gradient-to-r hover:from-[#1e3a8a] hover:to-[#1d4ed8] shadow-xl rounded-full flex items-center justify-center text-gray-800 hover:text-white opacity-0 group-hover:opacity-100 transition-all duration-300 border border-gray-100"
-                  aria-label="Scroll right"
+                  className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-11 h-11 bg-white hover:bg-[#2d7d32] shadow-xl rounded-full flex items-center justify-center text-gray-700 hover:text-white opacity-0 group-hover:opacity-100 transition-all duration-300 border border-green-100"
                 >
-                  <FaChevronRight className="text-lg" />
+                  <FaChevronRight />
                 </button>
               )}
-
               <div
                 ref={featuredScrollRef}
                 className="flex gap-4 md:gap-5 overflow-x-auto scrollbar-hide pb-4 scroll-smooth"
-                onScroll={handleFeaturedScroll}
+                onScroll={checkFeaturedScrollPosition}
               >
                 {featuredProducts.map(product => (
                   <div key={product._id} className="flex-shrink-0 w-[170px] sm:w-[190px] md:w-[220px]">
@@ -226,60 +219,94 @@ const Home = () => {
               </div>
             </div>
           )}
+
+          <div className="text-center mt-8">
+            <Link to="/products?featured=true" className="inline-flex items-center gap-2 btn btn-primary">
+              View All Featured
+              <FaChevronRight className="text-xs" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Product Reels Section - Conditionally rendered */}
+      {/* Why NutriPot - Value Props */}
+      <section className="py-10 bg-gradient-to-br from-[#1a431c] to-[#2d7d32] relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 right-0 w-64 h-64 border-2 border-white rounded-full -translate-y-32 translate-x-32" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 border border-white rounded-full translate-y-24 -translate-x-24" />
+        </div>
+        <div className="max-w-6xl mx-auto px-4 relative">
+          <div className="text-center mb-8">
+            <span className="text-[#f77c1c] font-bold text-xs tracking-[0.2em] uppercase">Why Choose Us</span>
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-white mt-1">The NutriPot Promise</h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { icon: <FaTruck className="text-2xl" />, title: 'Free Shipping', desc: 'On orders above ₹999' },
+              { icon: <FaLeaf className="text-2xl" />, title: '100% Natural', desc: 'No artificial additives' },
+              { icon: <FaShieldAlt className="text-2xl" />, title: 'Secure Payment', desc: '100% safe checkout' },
+              { icon: <FaHeadset className="text-2xl" />, title: '24/7 Support', desc: 'Always here for you' },
+            ].map((item, i) => (
+              <div key={i} className="text-center group">
+                <div className="w-16 h-16 bg-white/15 group-hover:bg-[#f77c1c] rounded-2xl flex items-center justify-center text-white mx-auto mb-3 transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl">
+                  {item.icon}
+                </div>
+                <h3 className="font-bold text-white text-sm md:text-base mb-1">{item.title}</h3>
+                <p className="text-green-200 text-xs md:text-sm">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Product Reels */}
       {reelsEnabled && (
         <div className="bg-gradient-to-b from-gray-50 to-white">
           <ProductReels reels={reels} />
         </div>
       )}
 
-      {/* Shop by Category Section - Elegant & Modern */}
-      <section className="py-6 md:py-10 bg-white relative overflow-hidden">
-        {/* Decorative Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a8a]/10 via-transparent to-[#1d4ed8]/10 pointer-events-none"></div>
+      {/* Shop by Category */}
+      <section className="py-10 md:py-14 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-nature-pattern pointer-events-none" />
 
         <div className="max-w-[1600px] mx-auto px-4 md:px-6 relative">
-          {/* Section Header - More Artistic */}
-          <div className="text-center mb-4 md:mb-6">
-            <div className="inline-block mb-1">
-              <span className="text-[#1e3a8a] font-serif text-xs tracking-[0.15em] uppercase">Collections</span>
-            </div>
-            <h2 className="text-xl md:text-3xl font-serif font-bold bg-gradient-to-r from-gray-900 via-[#1e3a8a] to-gray-900 bg-clip-text text-transparent mb-1">
+          {/* Section Header */}
+          <div className="text-center mb-6 md:mb-8">
+            <span className="section-subtitle">Browse & Discover</span>
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-[#1a431c] mt-1 mb-2">
               Shop by Category
             </h2>
-            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#1e3a8a] to-transparent mx-auto mb-1"></div>
-            <p className="text-gray-600 text-xs md:text-sm max-w-2xl mx-auto">
-              Discover our exquisite saree collections
+            <div className="leaf-divider mb-2" />
+            <p className="text-gray-500 text-sm max-w-xl mx-auto">
+              Explore our curated range of natural food categories
             </p>
           </div>
 
-          {/* Category Filter Menu - Modern Pills */}
-          <div className="mb-6 md:mb-8">
-            <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4">
+          {/* Category Filter Pills */}
+          <div className="mb-8">
+            <div className="flex flex-wrap justify-center items-center gap-2 md:gap-3">
               <button
                 onClick={() => setSelectedCategory('all')}
-                className={`px-5 md:px-7 py-2 md:py-2.5 rounded-full font-medium text-sm md:text-base transition-all duration-300 ${
+                className={`px-5 md:px-6 py-2 md:py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${
                   selectedCategory === 'all'
-                    ? 'bg-gradient-to-r from-[#1e3a8a] to-[#1d4ed8] text-white shadow-lg shadow-[#1e3a8a]/30 scale-105'
-                    : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-[#1e3a8a]'
+                    ? 'bg-[#2d7d32] text-white shadow-lg shadow-[#2d7d32]/30 scale-105'
+                    : 'bg-white text-gray-600 hover:bg-green-50 border border-gray-200 hover:border-[#2d7d32]'
                 }`}
               >
-                All
+                🌿 All Products
               </button>
-              {categories.map((category) => (
+              {categories.map((cat) => (
                 <button
-                  key={category._id}
-                  onClick={() => setSelectedCategory(category._id)}
-                  className={`px-5 md:px-7 py-2 md:py-2.5 rounded-full font-medium text-sm md:text-base transition-all duration-300 ${
-                    selectedCategory === category._id
-                      ? 'bg-gradient-to-r from-[#1e3a8a] to-[#1d4ed8] text-white shadow-lg shadow-[#1e3a8a]/30 scale-105'
-                      : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 hover:border-[#1e3a8a]'
+                  key={cat._id}
+                  onClick={() => setSelectedCategory(cat._id)}
+                  className={`px-5 md:px-6 py-2 md:py-2.5 rounded-full font-semibold text-sm transition-all duration-300 ${
+                    selectedCategory === cat._id
+                      ? 'bg-[#2d7d32] text-white shadow-lg shadow-[#2d7d32]/30 scale-105'
+                      : 'bg-white text-gray-600 hover:bg-green-50 border border-gray-200 hover:border-[#2d7d32]'
                   }`}
                 >
-                  {category.name}
+                  {cat.name}
                 </button>
               ))}
             </div>
@@ -287,33 +314,39 @@ const Home = () => {
 
           {/* Products Grid */}
           {categoryLoading ? (
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-5">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
               {[...Array(12)].map((_, i) => (
                 <div key={i} className="animate-pulse">
-                  <div className="bg-gradient-to-br from-gray-200 to-gray-100 aspect-[3/4] rounded-xl mb-3"></div>
-                  <div className="bg-gray-200 h-4 rounded w-3/4 mb-2"></div>
-                  <div className="bg-gray-200 h-4 rounded w-1/2"></div>
+                  <div className="bg-gradient-to-br from-green-100 to-green-50 aspect-[3/4] rounded-2xl mb-3" />
+                  <div className="bg-green-100 h-4 rounded-full w-3/4 mb-2" />
+                  <div className="bg-green-100 h-4 rounded-full w-1/2" />
                 </div>
               ))}
             </div>
           ) : (
             <>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-5">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
                 {categoryProducts.map((product) => (
                   <ProductCard key={product._id} product={product} />
                 ))}
               </div>
 
-              {/* No Products Message */}
-              {categoryProducts.length === 0 && !categoryLoading && (
+              {categoryProducts.length === 0 && (
                 <div className="text-center py-16">
-                  <div className="inline-block p-4 bg-gray-50 rounded-full mb-4">
-                    <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
-                    </svg>
+                  <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <FaSeedling className="text-4xl text-[#2d7d32]" />
                   </div>
-                  <p className="text-gray-500 text-base md:text-lg font-medium">No products found in this category</p>
-                  <p className="text-gray-400 text-sm mt-2">Try selecting a different category</p>
+                  <p className="text-gray-600 text-base font-semibold">No products in this category yet</p>
+                  <p className="text-gray-400 text-sm mt-1">Try selecting a different category</p>
+                </div>
+              )}
+
+              {categoryProducts.length > 0 && (
+                <div className="text-center mt-10">
+                  <Link to="/products" className="inline-flex items-center gap-2 btn btn-outline">
+                    View All Products
+                    <FaChevronRight className="text-xs" />
+                  </Link>
                 </div>
               )}
             </>
@@ -321,46 +354,48 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Features Section - Modern & Elegant */}
-      <section className="py-6 md:py-8 bg-gradient-to-r from-gray-50 via-white to-gray-50">
+      {/* Newsletter / CTA Banner */}
+      <section className="py-12 bg-gradient-to-r from-[#fff8f0] via-white to-[#f0faf0]">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <div className="inline-flex items-center gap-2 bg-[#f77c1c]/10 text-[#e86010] text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4">
+            <FaLeaf /> Stay Natural
+          </div>
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-[#1a431c] mb-3">
+            Get Healthy Recipes &amp; Offers
+          </h2>
+          <p className="text-gray-500 text-sm mb-6 max-w-lg mx-auto">
+            Subscribe to our newsletter for exclusive deals, wellness tips, and new product alerts.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input
+              type="email"
+              placeholder="Your email address"
+              className="flex-1 px-5 py-3 border-2 border-green-200 rounded-full text-sm focus:outline-none focus:border-[#2d7d32] bg-white"
+            />
+            <button className="btn btn-primary px-8 py-3 text-sm">
+              Subscribe
+            </button>
+          </div>
+          <p className="text-xs text-gray-400 mt-3">No spam. Unsubscribe anytime.</p>
+        </div>
+      </section>
+
+      {/* Features Strip */}
+      <section className="py-8 bg-gradient-to-r from-gray-50 via-white to-gray-50 border-t border-gray-100">
         <div className="max-w-[1400px] mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
-              {
-                icon: <FaTruck className="text-2xl md:text-3xl" />,
-                title: 'Free Shipping',
-                desc: 'On orders above ₹999',
-                gradient: 'from-[#1e3a8a] to-[#2563eb]'
-              },
-              {
-                icon: <FaUndo className="text-2xl md:text-3xl" />,
-                title: 'Easy Returns',
-                desc: '7 days return policy',
-                gradient: 'from-[#0c1a5c] to-[#1e3a8a]'
-              },
-              {
-                icon: <FaShieldAlt className="text-2xl md:text-3xl" />,
-                title: 'Secure Payment',
-                desc: '100% secure checkout',
-                gradient: 'from-[#1d4ed8] to-[#3b82f6]'
-              },
-              {
-                icon: <FaHeadset className="text-2xl md:text-3xl" />,
-                title: '24/7 Support',
-                desc: 'Dedicated customer care',
-                gradient: 'from-[#2563eb] to-[#60a5fa]'
-              }
-            ].map((feature, index) => (
-              <div key={index} className="flex flex-col items-center text-center group">
-                <div className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center text-white mb-3 shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300`}>
+              { icon: <FaTruck className="text-2xl md:text-3xl" />, title: 'Free Shipping', desc: 'Orders above ₹999', gradient: 'from-[#2d7d32] to-[#388E3C]' },
+              { icon: <FaUndo className="text-2xl md:text-3xl" />, title: 'Easy Returns', desc: '7-day return policy', gradient: 'from-[#1a431c] to-[#2d7d32]' },
+              { icon: <FaShieldAlt className="text-2xl md:text-3xl" />, title: 'Secure Payment', desc: '100% safe checkout', gradient: 'from-[#f77c1c] to-[#e86010]' },
+              { icon: <FaHeadset className="text-2xl md:text-3xl" />, title: '24/7 Support', desc: 'Dedicated care team', gradient: 'from-[#e86010] to-[#c14c0d]' },
+            ].map((feature, i) => (
+              <div key={i} className="flex flex-col items-center text-center group">
+                <div className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center text-white mb-3 shadow-md group-hover:shadow-lg group-hover:scale-110 transition-all duration-300`}>
                   {feature.icon}
                 </div>
-                <h3 className="font-semibold text-gray-900 text-sm md:text-base mb-1">
-                  {feature.title}
-                </h3>
-                <p className="text-xs md:text-sm text-gray-500">
-                  {feature.desc}
-                </p>
+                <h3 className="font-bold text-gray-900 text-sm md:text-base mb-0.5">{feature.title}</h3>
+                <p className="text-xs md:text-sm text-gray-500">{feature.desc}</p>
               </div>
             ))}
           </div>

@@ -1,28 +1,20 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { FaLeaf, FaLock, FaEnvelope } from 'react-icons/fa';
 import { useAuth } from '../context/AuthContext';
 
 const Login = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-  });
+  const [formData, setFormData] = useState({ email: '', password: '' });
   const [loading, setLoading] = useState(false);
 
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
     try {
       await login(formData.email, formData.password);
       navigate('/');
@@ -33,100 +25,98 @@ const Login = () => {
     }
   };
 
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-6 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-4">
-        <div>
-          <div className="flex items-center justify-center mb-2">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-700 via-blue-600 to-indigo-800 rounded-2xl shadow-lg flex items-center justify-center">
-              <span className="text-white font-serif font-bold text-xl">A</span>
+    <div className="min-h-screen flex items-center justify-center bg-[#faf9f7] py-10 px-4 relative overflow-hidden">
+      {/* Background blobs */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-green-100/40 rounded-full blur-3xl -translate-y-32 translate-x-32 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-56 h-56 bg-amber-100/30 rounded-full blur-3xl translate-y-28 -translate-x-28 pointer-events-none" />
+
+      <div className="max-w-sm w-full relative z-10">
+        {/* Brand header */}
+        <div className="text-center mb-8">
+          <Link to="/" className="inline-flex flex-col items-center gap-2 group">
+            <img src="/logo.png" alt="NutriPot" className="w-16 h-16 object-contain group-hover:scale-105 transition-transform"
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.nextSibling.style.display = 'flex';
+              }}
+            />
+            <div className="w-16 h-16 bg-gradient-to-br from-[#2d7d32] to-[#1a431c] rounded-2xl items-center justify-center shadow-xl hidden">
+              <FaLeaf className="text-white text-2xl" />
             </div>
-          </div>
-          <h2 className="mt-3 text-center text-2xl font-serif font-bold text-gray-900">
-            Admin Login
-          </h2>
-          <p className="mt-1 text-center text-sm text-gray-600">
-            Sign in with email and password
-          </p>
+          </Link>
+          <h2 className="text-2xl font-display font-bold text-[#1a431c] mt-3">Admin Login</h2>
+          <p className="text-sm text-gray-500 mt-1">Sign in to the NutriPot admin panel</p>
         </div>
 
-        <form className="mt-4 space-y-4" onSubmit={handleSubmit}>
-          <div className="rounded-md shadow-sm space-y-3">
+        {/* Form Card */}
+        <div className="bg-white rounded-2xl shadow-xl border border-green-50 p-7">
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label htmlFor="email" className="block text-xs font-medium text-gray-700 mb-1">
-                Email address
+              <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1.5">
+                Email Address
               </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-                className="input"
-                placeholder="your@email.com"
-              />
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <FaEnvelope className="text-[#2d7d32] text-sm" />
+                </div>
+                <input
+                  id="email" name="email" type="email" autoComplete="email" required
+                  value={formData.email} onChange={handleChange}
+                  className="w-full pl-11 pr-4 py-3 border-2 border-gray-200 rounded-xl text-sm focus:outline-none focus:border-[#2d7d32] focus:ring-2 focus:ring-[#2d7d32]/10 transition-all bg-gray-50/50"
+                  placeholder="admin@nutripot.in"
+                />
+              </div>
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-xs font-medium text-gray-700 mb-1">
+              <label htmlFor="password" className="block text-sm font-semibold text-gray-700 mb-1.5">
                 Password
               </label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                autoComplete="current-password"
-                required
-                value={formData.password}
-                onChange={handleChange}
-                className="input"
-                placeholder="Enter your password"
-              />
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                  <FaLock className="text-[#2d7d32] text-sm" />
+                </div>
+                <input
+                  id="password" name="password" type="password" autoComplete="current-password" required
+                  value={formData.password} onChange={handleChange}
+                  className="w-full pl-11 pr-4 py-3 border-2 border-gray-200 rounded-xl text-sm focus:outline-none focus:border-[#2d7d32] focus:ring-2 focus:ring-[#2d7d32]/10 transition-all bg-gray-50/50"
+                  placeholder="Enter your password"
+                />
+              </div>
             </div>
-          </div>
 
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <input
-                id="remember-me"
-                name="remember-me"
-                type="checkbox"
-                className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
-              />
-              <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                Remember me
+            <div className="flex items-center justify-between">
+              <label className="flex items-center gap-2 cursor-pointer">
+                <input type="checkbox" className="w-4 h-4 accent-[#2d7d32] rounded" />
+                <span className="text-sm text-gray-600">Remember me</span>
               </label>
-            </div>
-
-            <div className="text-sm">
-              <Link to="/forgot-password" className="font-medium text-primary-600 hover:text-primary-500">
-                Forgot your password?
+              <Link to="/forgot-password" className="text-sm text-[#2d7d32] hover:text-[#1e6623] font-semibold transition-colors">
+                Forgot password?
               </Link>
             </div>
-          </div>
 
-          <div>
             <button
-              type="submit"
-              disabled={loading}
-              className="w-full btn btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+              type="submit" disabled={loading}
+              className="w-full py-3.5 bg-gradient-to-r from-[#2d7d32] to-[#1e6623] hover:from-[#1e6623] hover:to-[#1a431c] text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
-              {loading ? 'Signing in...' : 'Sign in'}
+              {loading
+                ? <><div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />Signing in...</>
+                : 'Sign In'}
             </button>
-          </div>
-        </form>
+          </form>
+        </div>
 
-        {/* Footer Link */}
-        <div className="text-center">
-          <p className="text-sm text-gray-600">
+        <div className="text-center mt-5">
+          <p className="text-sm text-gray-500">
             Not an admin?{' '}
-            <Link to="/login" className="font-semibold text-blue-700 hover:text-blue-800 transition-colors">
+            <Link to="/user-login" className="font-bold text-[#2d7d32] hover:text-[#1e6623] transition-colors">
               User Login
             </Link>
           </p>
+          <Link to="/" className="block mt-2 text-xs text-gray-400 hover:text-[#2d7d32] transition-colors">
+            ← Back to Home
+          </Link>
         </div>
       </div>
     </div>

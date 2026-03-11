@@ -1,19 +1,19 @@
 /**
- * SEO Utility for JJ Trendz Official
+ * SEO Utility for NutriPot
  * Manages dynamic meta tags, structured data, and page titles
  * No external dependencies required
  */
 
-const SITE_NAME = 'JJ Trendz Official';
-const SITE_URL = 'https://jjtrendz.com';
-const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`;
+const SITE_NAME = 'NutriPot';
+const SITE_URL = 'https://nutripot.in';
+const DEFAULT_IMAGE = `${SITE_URL}/logo.png`;
 
 /**
  * Update page title with brand name
  * @param {string} title - Page-specific title
  */
 export const setPageTitle = (title) => {
-  document.title = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} - Premium Boutique Fashion Online India`;
+  document.title = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} - Pure Natural Food Products Online India`;
 };
 
 /**
@@ -123,8 +123,8 @@ export const generateProductSchema = (product) => {
       '@type': 'Brand',
       name: SITE_NAME
     },
-    category: product.category?.name || 'Sarees',
-    material: product.fabric || 'Premium Fabric',
+    category: product.category?.name || 'Natural Foods',
+    material: product.fabric || 'Natural',
     offers: {
       '@type': 'Offer',
       url: `${SITE_URL}/products/${product._id}`,
@@ -175,7 +175,7 @@ export const generateCollectionSchema = (category, products = []) => {
   return {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    name: category.name || 'Sarees Collection',
+    name: category.name || 'Natural Foods Collection',
     description: category.description || `Shop ${category.name} at ${SITE_NAME}`,
     url: `${SITE_URL}/products?category=${category._id}`,
     mainEntity: {
@@ -210,10 +210,10 @@ export const generateLocalBusinessSchema = () => {
     '@type': 'Store',
     '@id': `${SITE_URL}/#store`,
     name: SITE_NAME,
-    description: 'Premium boutique fashion - designer kurtis, co-ords, party wear & bridal collections online in India',
+    description: 'Premium natural and organic food products — dry fruits, nuts, spices, grains & health foods online in India',
     url: SITE_URL,
     telephone: '+91-88072-59471',
-    email: 'info@jjtrendz.com',
+    email: 'info@nutripot.in',
     priceRange: '₹₹₹',
     currenciesAccepted: 'INR',
     paymentAccepted: 'Cash, Credit Card, Debit Card, UPI, Net Banking',
@@ -285,27 +285,27 @@ export const setSEO = (config) => {
 export const PAGE_SEO = {
   home: {
     title: null, // Uses default
-    description: 'Shop premium boutique fashion at JJ Trendz Official. Explore our exclusive collection of designer kurtis, co-ords, party wear & bridal collections. Free shipping across India.',
+    description: 'Shop premium natural and organic food products at NutriPot. Explore dry fruits, nuts, spices, grains & health foods. Free shipping across India. 100% Natural.',
     url: '/'
   },
   products: {
     title: 'Shop All Products',
-    description: 'Browse our complete collection of premium boutique fashion. Filter by kurtis, co-ords, party wear, and bridal collections. Best prices with free shipping across India.',
+    description: 'Browse our complete collection of natural & organic food products. Dry fruits, nuts, spices, grains and health foods at best prices with free shipping across India.',
     url: '/products'
   },
   about: {
     title: 'About Us',
-    description: 'Learn about JJ Trendz Official - your trusted destination for premium boutique fashion. Discover our story, values, and commitment to quality Indian fashion.',
+    description: 'Learn about NutriPot - your trusted destination for pure natural food products. Discover our story, values, and commitment to quality organic foods.',
     url: '/about'
   },
   contact: {
     title: 'Contact Us',
-    description: 'Get in touch with JJ Trendz Official. We are here to help with your fashion queries, orders, and styling advice. Contact us via phone, email, or WhatsApp.',
+    description: 'Get in touch with NutriPot. We are here to help with your queries, orders, and nutrition advice. Contact us via phone, email, or WhatsApp.',
     url: '/contact'
   },
   blogs: {
-    title: 'Saree Blog & Style Guide',
-    description: 'Explore fashion styling tips, trends, fabric guides, and occasion wear advice on the JJ Trendz blog.',
+    title: 'Natural Food Blog & Nutrition Guide',
+    description: 'Explore nutrition tips, healthy recipes, ingredient guides, and wellness advice on the NutriPot blog.',
     url: '/blogs'
   }
 };

@@ -180,7 +180,7 @@ const Suppliers = () => {
               resetForm();
               setShowModal(true);
             }}
-            className="flex items-center gap-2 px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition"
+            className="flex items-center gap-2 px-4 py-2 bg-[#f77c1c] text-white rounded-lg hover:bg-amber-700 transition"
           >
             <FaPlus /> Add Supplier
           </button>
@@ -274,7 +274,7 @@ const Suppliers = () => {
                 resetForm();
                 setShowModal(true);
               }}
-              className="px-6 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition"
+              className="px-6 py-3 bg-[#f77c1c] text-white rounded-lg hover:bg-amber-700 transition"
             >
               Add Your First Supplier
             </button>
@@ -520,7 +520,7 @@ const Suppliers = () => {
               <div className="flex items-center gap-3 pt-4">
                 <button
                   type="submit"
-                  className="flex-1 px-4 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition font-medium"
+                  className="flex-1 px-4 py-3 bg-[#f77c1c] text-white rounded-lg hover:bg-amber-700 transition font-medium"
                 >
                   {editingSupplier ? 'Update Supplier' : 'Add Supplier'}
                 </button>

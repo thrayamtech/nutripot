@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -33,7 +35,6 @@
     }
   }
 
-  /* Smooth scale animation from center - no directional movement */
   @keyframes scaleIn {
     from {
       opacity: 0;
@@ -45,7 +46,6 @@
     }
   }
 
-  /* Slide up from bottom animation - for modal that shows product image above */
   @keyframes slideUpBottom {
     from {
       opacity: 0;
@@ -64,7 +64,6 @@
     overflow: hidden;
   }
 
-  /* Hide scrollbar for horizontal scroll */
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
@@ -74,7 +73,6 @@
     display: none;
   }
 
-  /* Marquee animation for promo banner */
   @keyframes marquee {
     0% {
       transform: translateX(0);
@@ -85,53 +83,87 @@
   }
 
   .animate-marquee {
-    animation: marquee 20s linear infinite;
+    animation: marquee 24s linear infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-green {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(45, 125, 50, 0.4); }
+    50% { box-shadow: 0 0 0 12px rgba(45, 125, 50, 0); }
+  }
+  .animate-pulse-green {
+    animation: pulse-green 2s ease-in-out infinite;
   }
 }
 
 @layer base {
   body {
     @apply font-sans text-gray-900 antialiased;
+    background-color: #faf9f7;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
+    font-family: 'Poppins', 'Nunito', system-ui, sans-serif;
   }
 }
 
 @layer components {
   .btn {
-    @apply px-6 py-2.5 rounded-md font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply px-6 py-2.5 rounded-full font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
   }
 
   .btn-primary {
-    @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+    @apply bg-[#2d7d32] text-white hover:bg-[#1e6623] focus:ring-[#2d7d32] shadow-md hover:shadow-lg;
   }
 
   .btn-secondary {
-    @apply bg-gray-200 text-gray-900 hover:bg-gray-300 focus:ring-gray-500;
+    @apply bg-[#f77c1c] text-white hover:bg-[#e86010] focus:ring-[#f77c1c] shadow-md hover:shadow-lg;
   }
 
   .btn-outline {
-    @apply border-2 border-primary-600 text-primary-600 hover:bg-primary-50 focus:ring-primary-500;
+    @apply border-2 border-[#2d7d32] text-[#2d7d32] hover:bg-[#f0faf0] focus:ring-[#2d7d32];
   }
 
   .input {
-    @apply w-full px-4 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+    @apply w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#2d7d32] focus:border-transparent;
   }
 
   .card {
-    @apply bg-white rounded-lg shadow-md overflow-hidden;
+    @apply bg-white rounded-2xl shadow-md overflow-hidden;
   }
 
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-display font-bold text-[#1a431c];
+  }
+
+  .section-subtitle {
+    @apply text-[#f77c1c] font-semibold text-sm tracking-[0.15em] uppercase font-sans;
+  }
+
+  .leaf-divider {
+    @apply w-16 h-1 rounded-full mx-auto;
+    background: linear-gradient(90deg, transparent, #2d7d32, transparent);
   }
 }
 
 @layer utilities {
   .text-shadow {
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .text-shadow-green {
+    text-shadow: 0 2px 8px rgba(45, 125, 50, 0.3);
   }
 
   .animation-delay-200 {
@@ -141,50 +173,55 @@
   .animation-delay-400 {
     animation-delay: 400ms;
   }
+
+  .bg-nature-pattern {
+    background-image: radial-gradient(circle at 20% 50%, rgba(45,125,50,0.05) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 20%, rgba(247,124,28,0.05) 0%, transparent 50%);
+  }
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f0faf0;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 5px;
+  background: #80be89;
+  border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #2d7d32;
 }
 
 /* Custom scrollbar for popup */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #f9fafb;
+  background: #f0faf0;
   border-radius: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #d1d5db;
+  background: #b3dab8;
   border-radius: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
+  background: #4d9e59;
 }
 
 /* Loading spinner */
 .spinner {
-  border: 3px solid #f3f3f3;
-  border-top: 3px solid #1d4ed8;
+  border: 3px solid #dcf0dc;
+  border-top: 3px solid #2d7d32;
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -198,5 +235,27 @@
 
 /* Toast customization */
 .Toastify__toast {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Nunito', 'Inter', sans-serif;
+  border-radius: 12px !important;
+}
+
+.Toastify__toast--success {
+  background: linear-gradient(135deg, #2d7d32, #43A047) !important;
+}
+
+/* Organic shape */
+.organic-shape {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+/* Leaf badge */
+.leaf-badge {
+  background: linear-gradient(135deg, #2d7d32, #4a9d4a);
+  color: white;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }

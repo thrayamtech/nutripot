@@ -111,29 +111,29 @@ const WhatsAppLogin = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-50 py-12 px-4">
+    <div className="min-h-screen bg-[#faf9f7] py-12 px-4">
       <div className="max-w-md mx-auto">
         {/* Back Button */}
         <button
-          onClick={() => navigate('/login')}
-          className="mb-6 flex items-center gap-2 text-gray-600 hover:text-green-600 transition-colors"
+          onClick={() => navigate('/user-login')}
+          className="mb-6 flex items-center gap-2 text-gray-500 hover:text-[#2d7d32] transition-colors font-medium text-sm"
         >
-          <FaArrowLeft />
-          <span>Back to Login Options</span>
+          <FaArrowLeft className="text-xs" />
+          <span>Back to Login</span>
         </button>
 
         {/* Login Card */}
-        <div className="bg-white rounded-2xl shadow-xl p-8">
+        <div className="bg-white rounded-2xl shadow-xl border border-green-50 p-8">
           {/* Logo/Header */}
-          <div className="text-center mb-8">
-            <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+          <div className="text-center mb-7">
+            <div className="w-20 h-20 bg-gradient-to-br from-[#2d7d32] to-[#1a431c] rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
               <FaWhatsapp className="text-4xl text-white" />
             </div>
-            <h1 className="text-3xl font-bold text-gray-800 mb-2">
+            <h1 className="text-2xl font-display font-bold text-[#1a431c] mb-1">
               WhatsApp Login
             </h1>
-            <p className="text-gray-600">
-              Login securely via WhatsApp OTP
+            <p className="text-gray-500 text-sm">
+              Verify securely via WhatsApp OTP
             </p>
           </div>
 
@@ -153,7 +153,7 @@ const WhatsAppLogin = () => {
                     value={mobileNumber}
                     onChange={(e) => setMobileNumber(e.target.value.replace(/\D/g, '').slice(0, 10))}
                     placeholder="Enter 10-digit mobile number"
-                    className="w-full pl-14 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    className="w-full pl-14 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2d7d32]/20 focus:border-[#2d7d32]"
                     maxLength="10"
                     required
                   />
@@ -166,7 +166,7 @@ const WhatsAppLogin = () => {
               <button
                 type="submit"
                 disabled={loading || mobileNumber.length !== 10}
-                className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-3 rounded-lg font-semibold hover:from-green-600 hover:to-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-[#2d7d32] to-[#1e6623] text-white py-3.5 rounded-xl font-bold hover:from-[#1e6623] hover:to-[#1a431c] focus:outline-none focus:ring-2 focus:ring-[#2d7d32]/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg"
               >
                 {loading ? (
                   <>
@@ -192,7 +192,7 @@ const WhatsAppLogin = () => {
                   <button
                     type="button"
                     onClick={handleResendOTP}
-                    className="text-sm text-green-600 hover:text-green-700 font-medium"
+                    className="text-sm text-[#2d7d32] hover:text-[#1e6623] font-medium"
                   >
                     Change Number
                   </button>
@@ -206,7 +206,7 @@ const WhatsAppLogin = () => {
                     value={otp}
                     onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 6))}
                     placeholder="Enter 4-digit OTP"
-                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent text-center text-2xl tracking-widest"
+                    className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2d7d32]/20 focus:border-[#2d7d32] text-center text-2xl tracking-widest"
                     maxLength="6"
                     required
                   />
@@ -235,14 +235,14 @@ const WhatsAppLogin = () => {
               <div className="text-center">
                 {timer > 0 ? (
                   <p className="text-sm text-gray-500">
-                    Resend OTP in <span className="font-semibold text-green-600">{timer}s</span>
+                    Resend OTP in <span className="font-semibold text-[#2d7d32]">{timer}s</span>
                   </p>
                 ) : (
                   <button
                     type="button"
                     onClick={handleSendOTP}
                     disabled={loading}
-                    className="text-sm text-green-600 hover:text-green-700 font-medium hover:underline disabled:opacity-50"
+                    className="text-sm text-[#2d7d32] hover:text-[#1e6623] font-medium hover:underline disabled:opacity-50"
                   >
                     Resend OTP
                   </button>
@@ -252,9 +252,9 @@ const WhatsAppLogin = () => {
           )}
 
           {/* Info Box */}
-          <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+          <div className="mt-6 p-4 bg-[#f0faf0] border border-green-200 rounded-xl">
             <p className="text-xs text-gray-600 text-center">
-              <FaWhatsapp className="inline mr-1 text-green-600" />
+              <FaWhatsapp className="inline mr-1 text-[#2d7d32]" />
               Secure authentication via WhatsApp
             </p>
           </div>
@@ -264,11 +264,11 @@ const WhatsAppLogin = () => {
         <div className="mt-6 text-center text-sm text-gray-500">
           <p>
             By continuing, you agree to our{' '}
-            <a href="/terms" className="text-green-600 hover:underline">
+            <a href="/terms" className="text-[#2d7d32] hover:underline">
               Terms of Service
             </a>{' '}
             and{' '}
-            <a href="/privacy" className="text-green-600 hover:underline">
+            <a href="/privacy" className="text-[#2d7d32] hover:underline">
               Privacy Policy
             </a>
           </p>

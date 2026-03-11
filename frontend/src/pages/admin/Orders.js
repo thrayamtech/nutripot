@@ -410,7 +410,7 @@ const AdminOrders = () => {
             </button>
             <button
               onClick={fetchOrders}
-              className="px-4 py-2 bg-[#5A0F1B] text-white rounded-lg hover:bg-[#7A1525] transition"
+              className="px-4 py-2 bg-[#2d7d32] text-white rounded-lg hover:bg-[#1e6623] transition"
             >
               Refresh
             </button>
@@ -459,13 +459,13 @@ const AdminOrders = () => {
                 placeholder="Search by Order#, Name, Email, Phone..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#5A0F1B] focus:ring-1 focus:ring-[#5A0F1B]"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2d7d32] focus:ring-1 focus:ring-[#2d7d32]"
               />
             </div>
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#5A0F1B]"
+              className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2d7d32]"
             >
               <option value="">All Status</option>
               <option value="Pending">Pending</option>
@@ -479,7 +479,7 @@ const AdminOrders = () => {
             <select
               value={paymentFilter}
               onChange={(e) => setPaymentFilter(e.target.value)}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#5A0F1B]"
+              className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2d7d32]"
             >
               <option value="">All Payments</option>
               <option value="paid">Paid</option>
@@ -493,7 +493,7 @@ const AdminOrders = () => {
         {/* Orders Table */}
         {loading ? (
           <div className="flex items-center justify-center py-12">
-            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-[#5A0F1B]"></div>
+            <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-[#2d7d32]"></div>
           </div>
         ) : filteredOrders.length > 0 ? (
           <div className="bg-white rounded-lg shadow-sm overflow-hidden">
@@ -516,7 +516,7 @@ const AdminOrders = () => {
                     <tr key={order._id} className="hover:bg-gray-50 transition">
                       <td className="px-4 py-4">
                         <div>
-                          <span className="font-mono text-sm font-bold text-[#5A0F1B]">
+                          <span className="font-mono text-sm font-bold text-[#2d7d32]">
                             {order.orderNumber}
                           </span>
                           <p className="text-xs text-gray-500 mt-1">ID: {order._id.slice(-8)}</p>
@@ -624,7 +624,7 @@ const AdminOrders = () => {
       {showDetailsModal && selectedOrder && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-lg max-w-5xl w-full max-h-[95vh] overflow-hidden flex flex-col">
-            <div className="p-6 border-b border-gray-200 flex items-center justify-between bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] text-white">
+            <div className="p-6 border-b border-gray-200 flex items-center justify-between bg-gradient-to-r from-[#2d7d32] to-[#1e6623] text-white">
               <div>
                 <h3 className="text-2xl font-bold">Order Details</h3>
                 <p className="text-sm opacity-90 mt-1">Order #{selectedOrder.orderNumber}</p>
@@ -632,7 +632,7 @@ const AdminOrders = () => {
               <div className="flex items-center gap-2">
                 <button
                   onClick={handlePrint}
-                  className="px-4 py-2 bg-white text-[#5A0F1B] rounded-lg hover:bg-gray-100 transition flex items-center gap-2 font-semibold"
+                  className="px-4 py-2 bg-white text-[#2d7d32] rounded-lg hover:bg-gray-100 transition flex items-center gap-2 font-semibold"
                 >
                   <FaPrint /> Print
                 </button>
@@ -650,7 +650,7 @@ const AdminOrders = () => {
               <div ref={printRef} className="space-y-6">
                 {/* Header for print */}
                 <div className="print-only text-center mb-6">
-                  <h1 className="text-3xl font-bold text-[#1e3a8a]">JJ Trendz Official</h1>
+                  <h1 className="text-3xl font-bold text-[#2d7d32]">NutriPot</h1>
                   <p className="text-gray-600">Order Invoice</p>
                   <hr className="my-4" />
                 </div>
@@ -660,7 +660,7 @@ const AdminOrders = () => {
                   <div className="space-y-4">
                     <div className="bg-gray-50 rounded-lg p-4">
                       <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
-                        <FaShoppingCart className="text-[#5A0F1B]" />
+                        <FaShoppingCart className="text-[#2d7d32]" />
                         Order Information
                       </h4>
                       <div className="space-y-2 text-sm">
@@ -725,7 +725,7 @@ const AdminOrders = () => {
                           <p className="text-sm text-gray-600 mt-1">Unit Price: ₹{item.price?.toLocaleString()}</p>
                         </div>
                         <div className="text-right">
-                          <p className="font-bold text-[#5A0F1B] text-lg">₹{(item.price * item.quantity)?.toLocaleString()}</p>
+                          <p className="font-bold text-[#2d7d32] text-lg">₹{(item.price * item.quantity)?.toLocaleString()}</p>
                         </div>
                       </div>
                     ))}
@@ -754,7 +754,7 @@ const AdminOrders = () => {
                     )}
                     <div className="border-t-2 border-gray-300 pt-3 flex justify-between text-xl font-bold">
                       <span>Total:</span>
-                      <span className="text-[#5A0F1B]">₹{selectedOrder.totalPrice?.toLocaleString()}</span>
+                      <span className="text-[#2d7d32]">₹{selectedOrder.totalPrice?.toLocaleString()}</span>
                     </div>
                   </div>
                 </div>
@@ -796,7 +796,7 @@ const AdminOrders = () => {
                       {selectedOrder.statusHistory.map((history, index) => (
                         <div key={index} className="flex gap-3 bg-gray-50 rounded-lg p-3">
                           <div className="flex flex-col items-center">
-                            <div className="w-3 h-3 bg-[#5A0F1B] rounded-full"></div>
+                            <div className="w-3 h-3 bg-[#2d7d32] rounded-full"></div>
                             {index < selectedOrder.statusHistory.length - 1 && (
                               <div className="w-0.5 h-full bg-gray-300 mt-1"></div>
                             )}
@@ -841,7 +841,7 @@ const AdminOrders = () => {
                   value={statusData.status}
                   onChange={(e) => setStatusData({ ...statusData, status: e.target.value })}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#5A0F1B]"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2d7d32]"
                 >
                   <option value="">Select Status</option>
                   <option value="Pending">Pending</option>
@@ -857,7 +857,7 @@ const AdminOrders = () => {
                   value={statusData.note}
                   onChange={(e) => setStatusData({ ...statusData, note: e.target.value })}
                   rows="3"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#5A0F1B]"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2d7d32]"
                   placeholder="Add a note about this status change..."
                 />
               </div>
@@ -865,7 +865,7 @@ const AdminOrders = () => {
                 <button
                   type="submit"
                   disabled={processingAction}
-                  className="flex-1 px-4 py-3 bg-[#5A0F1B] text-white rounded-lg hover:bg-[#7A1525] transition font-semibold disabled:opacity-50"
+                  className="flex-1 px-4 py-3 bg-[#2d7d32] text-white rounded-lg hover:bg-[#1e6623] transition font-semibold disabled:opacity-50"
                 >
                   {processingAction ? 'Updating...' : 'Update Status'}
                 </button>
@@ -1043,10 +1043,10 @@ const AdminOrders = () => {
               }}
             >
               {/* Sticker Header */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px', borderBottom: '2px solid #1e3a8a', paddingBottom: '8px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px', borderBottom: '2px solid #2d7d32', paddingBottom: '8px' }}>
                 <div style={{ flex: 1 }}>
-                  <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#1e3a8a', margin: 0, lineHeight: '1.2' }}>
-                    JJ Trendz Official
+                  <h3 style={{ fontSize: '20px', fontWeight: 'bold', color: '#2d7d32', margin: 0, lineHeight: '1.2' }}>
+                    NutriPot
                   </h3>
                   <p style={{ fontSize: '10px', color: '#666', margin: '3px 0' }}>Premium Boutique Fashion</p>
                   <p style={{ fontSize: '9px', color: '#333', margin: '2px 0', fontWeight: 'bold' }}>
@@ -1073,12 +1073,12 @@ const AdminOrders = () => {
                   <div style={{
                     backgroundColor: '#fff',
                     padding: '10px',
-                    border: '3px solid #5A0F1B',
+                    border: '3px solid #2d7d32',
                     borderRadius: '8px',
                     minHeight: '200px'
                   }}>
                     <div style={{
-                      backgroundColor: '#5A0F1B',
+                      backgroundColor: '#2d7d32',
                       color: 'white',
                       padding: '4px 8px',
                       borderRadius: '4px',
@@ -1131,7 +1131,7 @@ const AdminOrders = () => {
                       </div>
                       <div>
                         <p style={{ margin: '0 0 3px 0', color: '#666' }}>Order Value:</p>
-                        <p style={{ margin: 0, fontWeight: 'bold', fontSize: '13px', color: '#5A0F1B' }}>
+                        <p style={{ margin: 0, fontWeight: 'bold', fontSize: '13px', color: '#2d7d32' }}>
                           ₹{order.totalPrice?.toLocaleString()}
                         </p>
                       </div>
@@ -1222,7 +1222,7 @@ const AdminOrders = () => {
                   border: '1px solid #ff9800'
                 }}>
                   <p style={{ margin: '0 0 2px 0', fontSize: '11px', fontWeight: 'bold', color: '#000' }}>
-                    JJ Trendz Official
+                    NutriPot
                   </p>
                   <p style={{ margin: '0', fontSize: '9px', lineHeight: '1.3', color: '#333' }}>
                     11/109/2, Edavattam, Thirunanthikarai<br />
@@ -1234,7 +1234,7 @@ const AdminOrders = () => {
 
               {/* Footer */}
               <div style={{
-                borderTop: '2px solid #5A0F1B',
+                borderTop: '2px solid #2d7d32',
                 marginTop: '8px',
                 paddingTop: '6px',
                 textAlign: 'center'

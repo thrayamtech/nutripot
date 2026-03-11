@@ -496,7 +496,7 @@ const CheckoutNew = () => {
             <div className="flex flex-col items-center">
               <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold shadow-lg transition-all ${
                 currentStep >= step.num
-                  ? 'bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] text-white'
+                  ? 'bg-gradient-to-r from-[#2d7d32] to-[#1e6623] text-white'
                   : 'bg-gray-200 text-gray-500'
               }`}>
                 {currentStep > step.num ? <FaCheckCircle /> : step.num}
@@ -505,7 +505,7 @@ const CheckoutNew = () => {
             </div>
             {index < 3 && (
               <div className={`w-16 h-1 mx-2 rounded transition-all ${
-                currentStep > step.num ? 'bg-gradient-to-r from-[#5A0F1B] to-[#7A1525]' : 'bg-gray-200'
+                currentStep > step.num ? 'bg-gradient-to-r from-[#2d7d32] to-[#1e6623]' : 'bg-gray-200'
               }`} />
             )}
           </React.Fragment>
@@ -524,14 +524,14 @@ const CheckoutNew = () => {
         {/* Page Title */}
         <div className="text-center mb-6">
           <h1 className="text-3xl md:text-4xl font-serif font-bold mb-2">
-            <span className="bg-gradient-to-r from-[#5A0F1B] via-[#7A1525] to-[#5A0F1B] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#2d7d32] via-[#1e6623] to-[#2d7d32] bg-clip-text text-transparent">
               Secure Checkout
             </span>
           </h1>
           <div className="flex items-center justify-center gap-2 mb-1">
-            <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-[#5A0F1B] to-transparent"></div>
-            <FaLock className="text-[#5A0F1B] text-sm" />
-            <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-[#5A0F1B] to-transparent"></div>
+            <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-[#2d7d32] to-transparent"></div>
+            <FaLock className="text-[#2d7d32] text-sm" />
+            <div className="w-12 h-0.5 bg-gradient-to-r from-transparent via-[#2d7d32] to-transparent"></div>
           </div>
           <p className="text-gray-600 text-sm">
             Complete your order in a few simple steps
@@ -546,7 +546,7 @@ const CheckoutNew = () => {
             <div>
               <div className="text-center mb-6">
                 <h2 className="text-2xl md:text-3xl font-serif font-bold mb-2">
-                  <span className="bg-gradient-to-r from-[#5A0F1B] via-[#7A1525] to-[#5A0F1B] bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-[#2d7d32] via-[#1e6623] to-[#2d7d32] bg-clip-text text-transparent">
                     Enter Mobile Number
                   </span>
                 </h2>
@@ -564,7 +564,7 @@ const CheckoutNew = () => {
                     value={mobileNumber}
                     onChange={(e) => setMobileNumber(e.target.value.replace(/\D/g, '').slice(0, 10))}
                     placeholder="Enter 10-digit mobile number"
-                    className="w-full px-5 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#5A0F1B]/20 focus:border-[#5A0F1B] transition-all text-base bg-white/50"
+                    className="w-full px-5 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2d7d32]/20 focus:border-[#2d7d32] transition-all text-base bg-white/50"
                     maxLength="10"
                   />
                   <p className="mt-2 text-xs text-gray-500">
@@ -574,7 +574,7 @@ const CheckoutNew = () => {
                 <button
                   onClick={handleSendOTP}
                   disabled={loading || mobileNumber.length !== 10}
-                  className="w-full py-3 bg-gradient-to-r from-[#5A0F1B] via-[#7A1525] to-[#5A0F1B] hover:from-[#6A1525] hover:via-[#8A1F35] hover:to-[#6A1525] text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-[1.02]"
+                  className="w-full py-3 bg-gradient-to-r from-[#2d7d32] via-[#1e6623] to-[#2d7d32] hover:from-[#1e6623] hover:via-[#1a431c] hover:to-[#1e6623] text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-[1.02]"
                 >
                   {loading ? (
                     <span className="flex items-center justify-center gap-2">
@@ -597,7 +597,7 @@ const CheckoutNew = () => {
             <div>
               <div className="text-center mb-6">
                 <h2 className="text-2xl md:text-3xl font-serif font-bold mb-2">
-                  <span className="bg-gradient-to-r from-[#5A0F1B] via-[#7A1525] to-[#5A0F1B] bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-[#2d7d32] via-[#1e6623] to-[#2d7d32] bg-clip-text text-transparent">
                     Verify OTP
                   </span>
                 </h2>
@@ -610,14 +610,14 @@ const CheckoutNew = () => {
                     </label>
                     <button
                       onClick={() => setCurrentStep(1)}
-                      className="text-sm text-[#5A0F1B] hover:text-[#7A1525] font-semibold transition-colors"
+                      className="text-sm text-[#2d7d32] hover:text-[#1e6623] font-semibold transition-colors"
                     >
                       Edit Number
                     </button>
                   </div>
-                  <div className="mb-4 p-3 bg-gradient-to-r from-[#5A0F1B]/10 to-[#7A1525]/10 rounded-xl border border-[#5A0F1B]/20">
+                  <div className="mb-4 p-3 bg-gradient-to-r from-[#2d7d32]/10 to-[#1e6623]/10 rounded-xl border border-[#2d7d32]/20">
                     <p className="text-sm text-gray-700 text-center">
-                      Code sent to <span className="font-bold text-[#5A0F1B]">{mobileNumber}</span>
+                      Code sent to <span className="font-bold text-[#2d7d32]">{mobileNumber}</span>
                     </p>
                   </div>
                   <input
@@ -625,7 +625,7 @@ const CheckoutNew = () => {
                     value={otp}
                     onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 4))}
                     placeholder="• • • •"
-                    className="w-full px-5 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#5A0F1B]/20 focus:border-[#5A0F1B] transition-all text-center text-2xl tracking-[1em] font-bold bg-white/50"
+                    className="w-full px-5 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#2d7d32]/20 focus:border-[#2d7d32] transition-all text-center text-2xl tracking-[1em] font-bold bg-white/50"
                     maxLength="4"
                   />
                 </div>
@@ -634,15 +634,15 @@ const CheckoutNew = () => {
                 <div className="text-center mb-6">
                   {timer > 0 ? (
                     <div className="flex items-center justify-center gap-2">
-                      <div className="w-2 h-2 bg-[#5A0F1B] rounded-full animate-pulse"></div>
+                      <div className="w-2 h-2 bg-[#2d7d32] rounded-full animate-pulse"></div>
                       <p className="text-sm text-gray-600">
-                        Resend code in <span className="font-bold text-[#5A0F1B]">{timer}s</span>
+                        Resend code in <span className="font-bold text-[#2d7d32]">{timer}s</span>
                       </p>
                     </div>
                   ) : (
                     <button
                       onClick={handleResendOTP}
-                      className="text-sm text-[#5A0F1B] hover:text-[#7A1525] font-bold underline decoration-2 underline-offset-4 transition-colors"
+                      className="text-sm text-[#2d7d32] hover:text-[#1e6623] font-bold underline decoration-2 underline-offset-4 transition-colors"
                     >
                       Resend Verification Code
                     </button>
@@ -652,7 +652,7 @@ const CheckoutNew = () => {
                 <button
                   onClick={handleVerifyOTP}
                   disabled={loading || otp.length !== 4}
-                  className="w-full py-3 bg-gradient-to-r from-[#5A0F1B] via-[#7A1525] to-[#5A0F1B] hover:from-[#6A1525] hover:via-[#8A1F35] hover:to-[#6A1525] text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-[1.02]"
+                  className="w-full py-3 bg-gradient-to-r from-[#2d7d32] via-[#1e6623] to-[#2d7d32] hover:from-[#1e6623] hover:via-[#1a431c] hover:to-[#1e6623] text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-[1.02]"
                 >
                   {loading ? (
                     <span className="flex items-center justify-center gap-2">
@@ -668,11 +668,11 @@ const CheckoutNew = () => {
                 </button>
 
                 {/* Test OTP Info */}
-                <div className="mt-6 p-3 bg-gradient-to-r from-[#5A0F1B]/10 to-[#7A1525]/10 rounded-2xl border-2 border-[#5A0F1B]/30">
+                <div className="mt-6 p-3 bg-gradient-to-r from-[#2d7d32]/10 to-[#1e6623]/10 rounded-2xl border-2 border-[#2d7d32]/30">
                   <div className="flex items-center justify-center gap-3">
-                    <div className="w-2 h-2 bg-[#5A0F1B] rounded-full animate-pulse"></div>
-                    <p className="text-sm text-[#5A0F1B] text-center font-medium">
-                      Testing Mode: Use code <span className="font-bold text-[#5A0F1B] bg-white px-3 py-1 rounded-lg">1234</span>
+                    <div className="w-2 h-2 bg-[#2d7d32] rounded-full animate-pulse"></div>
+                    <p className="text-sm text-[#2d7d32] text-center font-medium">
+                      Testing Mode: Use code <span className="font-bold text-[#2d7d32] bg-white px-3 py-1 rounded-lg">1234</span>
                     </p>
                   </div>
                 </div>

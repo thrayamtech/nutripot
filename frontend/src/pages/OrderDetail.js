@@ -103,7 +103,7 @@ const OrderDetail = () => {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-[#5A0F1B] mx-auto"></div>
+          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-[#2d7d32] mx-auto"></div>
           <p className="mt-4 text-gray-600">Loading order details...</p>
         </div>
       </div>
@@ -117,7 +117,7 @@ const OrderDetail = () => {
           <FaTimesCircle className="text-6xl text-red-500 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Order Not Found</h2>
           <p className="text-gray-600 mb-6">The order you're looking for doesn't exist.</p>
-          <Link to="/orders" className="px-6 py-3 bg-[#5A0F1B] text-white rounded-lg hover:bg-[#7A1525] transition-colors">
+          <Link to="/orders" className="px-6 py-3 bg-[#2d7d32] text-white rounded-lg hover:bg-[#1e6623] transition-colors">
             View All Orders
           </Link>
         </div>
@@ -187,7 +187,7 @@ const OrderDetail = () => {
                     {order.statusHistory.map((history, index) => (
                       <div key={index} className="flex gap-3">
                         <div className="flex flex-col items-center">
-                          <div className="w-3 h-3 bg-[#5A0F1B] rounded-full"></div>
+                          <div className="w-3 h-3 bg-[#2d7d32] rounded-full"></div>
                           {index < order.statusHistory.length - 1 && (
                             <div className="w-0.5 h-full bg-gray-300 mt-1"></div>
                           )}
@@ -238,7 +238,7 @@ const OrderDetail = () => {
                         {item.size && <span>• Size: {item.size}</span>}
                         {item.color?.name && <span>• Color: {item.color.name}</span>}
                       </div>
-                      <p className="text-lg font-bold text-[#5A0F1B] mt-2">
+                      <p className="text-lg font-bold text-[#2d7d32] mt-2">
                         ₹{(item.price * item.quantity).toLocaleString()}
                       </p>
                     </div>
@@ -250,7 +250,7 @@ const OrderDetail = () => {
             {/* Shipping Address */}
             <div className="bg-white rounded-lg shadow-sm p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-                <FaMapMarkerAlt className="text-[#5A0F1B]" />
+                <FaMapMarkerAlt className="text-[#2d7d32]" />
                 Shipping Address
               </h2>
               <div className="text-gray-700">
@@ -263,7 +263,7 @@ const OrderDetail = () => {
                   {order.shippingAddress.city}, {order.shippingAddress.state} - {order.shippingAddress.pincode}
                 </p>
                 <p className="mt-2 flex items-center gap-2">
-                  <FaPhone className="text-[#5A0F1B]" />
+                  <FaPhone className="text-[#2d7d32]" />
                   {order.shippingAddress.phone}
                 </p>
               </div>
@@ -319,7 +319,7 @@ const OrderDetail = () => {
                 )}
                 <div className="pt-3 border-t-2 border-gray-200 flex justify-between text-xl font-bold">
                   <span>Total</span>
-                  <span className="text-[#5A0F1B]">₹{order.totalPrice.toLocaleString()}</span>
+                  <span className="text-[#2d7d32]">₹{order.totalPrice.toLocaleString()}</span>
                 </div>
               </div>
 
@@ -344,7 +344,7 @@ const OrderDetail = () => {
                 </Link>
                 <Link
                   to="/products"
-                  className="block w-full px-4 py-2 bg-[#5A0F1B] hover:bg-[#7A1525] text-white text-center rounded-lg font-semibold transition-colors"
+                  className="block w-full px-4 py-2 bg-[#2d7d32] hover:bg-[#1e6623] text-white text-center rounded-lg font-semibold transition-colors"
                 >
                   Continue Shopping
                 </Link>
@@ -352,14 +352,14 @@ const OrderDetail = () => {
             </div>
 
             {/* Help Section */}
-            <div className="bg-gradient-to-br from-[#5A0F1B]/10 to-[#7A1525]/10 rounded-lg p-6">
+            <div className="bg-gradient-to-br from-[#2d7d32]/10 to-[#1e6623]/10 rounded-lg p-6">
               <h3 className="text-lg font-bold text-gray-900 mb-2">Need Help?</h3>
               <p className="text-sm text-gray-700 mb-4">
                 If you have any questions about your order, please contact our customer support.
               </p>
               <Link
                 to="/contact"
-                className="block w-full px-4 py-2 bg-white hover:bg-gray-50 text-[#5A0F1B] text-center rounded-lg font-semibold border-2 border-[#5A0F1B] transition-colors"
+                className="block w-full px-4 py-2 bg-white hover:bg-gray-50 text-[#2d7d32] text-center rounded-lg font-semibold border-2 border-[#2d7d32] transition-colors"
               >
                 Contact Support
               </Link>

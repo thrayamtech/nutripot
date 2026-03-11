@@ -241,7 +241,7 @@ const Purchase = () => {
             </button>
             <button
               onClick={() => { resetForm(); setModalType('invoice'); setShowModal(true); }}
-              className="flex items-center gap-2 px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition"
+              className="flex items-center gap-2 px-4 py-2 bg-[#f77c1c] text-white rounded-lg hover:bg-amber-700 transition"
             >
               <FaPlus /> New Invoice
             </button>
@@ -254,7 +254,7 @@ const Purchase = () => {
             onClick={() => setActiveTab('orders')}
             className={`pb-3 px-1 font-medium transition ${
               activeTab === 'orders'
-                ? 'text-amber-600 border-b-2 border-amber-600'
+                ? 'text-[#f77c1c] border-b-2 border-amber-600'
                 : 'text-gray-500 hover:text-gray-700'
             }`}
           >
@@ -265,7 +265,7 @@ const Purchase = () => {
             onClick={() => setActiveTab('invoices')}
             className={`pb-3 px-1 font-medium transition ${
               activeTab === 'invoices'
-                ? 'text-amber-600 border-b-2 border-amber-600'
+                ? 'text-[#f77c1c] border-b-2 border-amber-600'
                 : 'text-gray-500 hover:text-gray-700'
             }`}
           >
@@ -469,7 +469,7 @@ const Purchase = () => {
                       type="checkbox"
                       checked={formData.isInterState}
                       onChange={(e) => setFormData({ ...formData, isInterState: e.target.checked })}
-                      className="rounded text-amber-600"
+                      className="rounded text-[#f77c1c]"
                     />
                     <span className="text-sm">Inter-State Purchase (IGST)</span>
                   </label>
@@ -601,7 +601,7 @@ const Purchase = () => {
                 <button
                   type="submit"
                   disabled={formData.items.length === 0}
-                  className="flex-1 px-4 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition font-medium disabled:bg-gray-400"
+                  className="flex-1 px-4 py-3 bg-[#f77c1c] text-white rounded-lg hover:bg-amber-700 transition font-medium disabled:bg-gray-400"
                 >
                   {modalType === 'order' ? 'Create Purchase Order' : 'Create Purchase Invoice'}
                 </button>

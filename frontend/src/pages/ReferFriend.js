@@ -95,24 +95,24 @@ const ReferFriend = () => {
           /* Login Prompt Section - Compact */
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-6">
-              <div className="inline-block p-3 bg-gradient-to-br from-[#5A0F1B] to-[#8A1F35] rounded-full mb-3">
+              <div className="inline-block p-3 bg-gradient-to-br from-[#2d7d32] to-[#1a431c] rounded-full mb-3">
                 <FaUsers className="text-3xl text-white" />
               </div>
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-[#5A0F1B] to-[#8A1F35] bg-clip-text text-transparent mb-2">
+              <h1 className="text-3xl font-bold bg-gradient-to-r from-[#2d7d32] to-[#1a431c] bg-clip-text text-transparent mb-2">
                 Refer & Earn Rewards
               </h1>
               <p className="text-gray-600">Share the elegance with friends and earn on every purchase!</p>
             </div>
 
-            <div className="bg-white rounded-xl shadow-lg border-2 border-[#5A0F1B]/20 p-6 text-center mb-6">
-              <div className="inline-block p-3 bg-gradient-to-br from-[#5A0F1B] to-[#8A1F35] rounded-full mb-3">
+            <div className="bg-white rounded-xl shadow-lg border-2 border-[#2d7d32]/20 p-6 text-center mb-6">
+              <div className="inline-block p-3 bg-gradient-to-br from-[#2d7d32] to-[#1a431c] rounded-full mb-3">
                 <FaSignInAlt className="text-2xl text-white" />
               </div>
               <h2 className="text-xl font-bold text-gray-900 mb-2">Login to Start Referring</h2>
               <p className="text-gray-600 text-sm mb-4">Login to add friends and earn rewards</p>
               <button
                 onClick={() => navigate('/login')}
-                className="px-6 py-2.5 bg-gradient-to-r from-[#5A0F1B] to-[#8A1F35] text-white rounded-lg hover:shadow-lg transition-all font-semibold flex items-center gap-2 mx-auto"
+                className="px-6 py-2.5 bg-gradient-to-r from-[#2d7d32] to-[#1a431c] text-white rounded-lg hover:shadow-lg transition-all font-semibold flex items-center gap-2 mx-auto"
               >
                 <FaSignInAlt /> Login Now
               </button>
@@ -120,22 +120,22 @@ const ReferFriend = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200 text-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-[#5A0F1B]/10 to-[#8A1F35]/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <FaUserPlus className="text-2xl text-[#5A0F1B]" />
+                <div className="w-12 h-12 bg-gradient-to-br from-[#2d7d32]/10 to-[#1a431c]/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <FaUserPlus className="text-2xl text-[#2d7d32]" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-1">Easy Referral</h3>
                 <p className="text-xs text-gray-600">Name & WhatsApp only</p>
               </div>
               <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200 text-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-[#5A0F1B]/10 to-[#8A1F35]/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <FaGift className="text-2xl text-[#5A0F1B]" />
+                <div className="w-12 h-12 bg-gradient-to-br from-[#2d7d32]/10 to-[#1a431c]/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <FaGift className="text-2xl text-[#2d7d32]" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-1">Earn Rewards</h3>
                 <p className="text-xs text-gray-600">On every friend's purchase</p>
               </div>
               <div className="bg-white rounded-lg p-4 shadow-md border border-gray-200 text-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-[#5A0F1B]/10 to-[#8A1F35]/10 rounded-full flex items-center justify-center mx-auto mb-2">
-                  <FaCheckCircle className="text-2xl text-[#5A0F1B]" />
+                <div className="w-12 h-12 bg-gradient-to-br from-[#2d7d32]/10 to-[#1a431c]/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                  <FaCheckCircle className="text-2xl text-[#2d7d32]" />
                 </div>
                 <h3 className="font-bold text-gray-900 mb-1">Track Progress</h3>
                 <p className="text-xs text-gray-600">Real-time monitoring</p>
@@ -151,7 +151,7 @@ const ReferFriend = () => {
                 {/* Left: Header & Form */}
                 <div>
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="p-2.5 bg-gradient-to-br from-[#5A0F1B] to-[#8A1F35] rounded-lg">
+                    <div className="p-2.5 bg-gradient-to-br from-[#2d7d32] to-[#1a431c] rounded-lg">
                       <FaUserPlus className="text-xl text-white" />
                     </div>
                     <div>
@@ -169,7 +169,7 @@ const ReferFriend = () => {
                         type="text"
                         value={friendForm.name}
                         onChange={(e) => setFriendForm({ ...friendForm, name: e.target.value })}
-                        className="w-full px-3 py-2.5 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5A0F1B] focus:border-transparent transition text-sm"
+                        className="w-full px-3 py-2.5 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2d7d32] focus:border-transparent transition text-sm"
                         placeholder="Enter friend's name"
                         required
                       />
@@ -184,7 +184,7 @@ const ReferFriend = () => {
                           type="tel"
                           value={friendForm.whatsapp}
                           onChange={(e) => setFriendForm({ ...friendForm, whatsapp: e.target.value })}
-                          className="w-full pl-10 pr-3 py-2.5 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#5A0F1B] focus:border-transparent transition text-sm"
+                          className="w-full pl-10 pr-3 py-2.5 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-[#2d7d32] focus:border-transparent transition text-sm"
                           placeholder="10-digit number"
                           maxLength="10"
                           pattern="[0-9]{10}"
@@ -194,7 +194,7 @@ const ReferFriend = () => {
                     </div>
                     <button
                       type="submit"
-                      className="w-full px-6 py-2.5 bg-gradient-to-r from-[#5A0F1B] to-[#8A1F35] text-white rounded-lg hover:shadow-lg transition-all font-semibold flex items-center justify-center gap-2"
+                      className="w-full px-6 py-2.5 bg-gradient-to-r from-[#2d7d32] to-[#1a431c] text-white rounded-lg hover:shadow-lg transition-all font-semibold flex items-center justify-center gap-2"
                     >
                       <FaUserPlus /> Add Referral
                     </button>
@@ -204,22 +204,22 @@ const ReferFriend = () => {
                 {/* Right: How to Earn & Statistics */}
                 <div>
                   {/* How to Earn Referral Points */}
-                  <div className="bg-gradient-to-r from-[#5A0F1B]/5 to-[#8A1F35]/5 border-2 border-[#5A0F1B]/20 rounded-lg p-3 mb-4">
+                  <div className="bg-gradient-to-r from-[#2d7d32]/5 to-[#1a431c]/5 border-2 border-[#2d7d32]/20 rounded-lg p-3 mb-4">
                     <div className="flex items-start gap-2 mb-2">
-                      <FaInfoCircle className="text-[#5A0F1B] text-sm mt-0.5 flex-shrink-0" />
+                      <FaInfoCircle className="text-[#2d7d32] text-sm mt-0.5 flex-shrink-0" />
                       <h4 className="font-bold text-gray-900 text-sm">How to Earn Referral Points:</h4>
                     </div>
                     <div className="space-y-2 text-xs text-gray-700">
                       <div className="flex items-start gap-2">
-                        <span className="bg-[#5A0F1B] text-white rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0 text-[10px] font-bold">1</span>
+                        <span className="bg-[#2d7d32] text-white rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0 text-[10px] font-bold">1</span>
                         <span><strong>Add Your Friend:</strong> Enter their name and WhatsApp number using the form</span>
                       </div>
                       <div className="flex items-start gap-2">
-                        <span className="bg-[#5A0F1B] text-white rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0 text-[10px] font-bold">2</span>
+                        <span className="bg-[#2d7d32] text-white rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0 text-[10px] font-bold">2</span>
                         <span><strong>Friend Registers:</strong> When they sign up using the same WhatsApp number, referral is linked</span>
                       </div>
                       <div className="flex items-start gap-2">
-                        <span className="bg-[#5A0F1B] text-white rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0 text-[10px] font-bold">3</span>
+                        <span className="bg-[#2d7d32] text-white rounded-full w-5 h-5 flex items-center justify-center flex-shrink-0 text-[10px] font-bold">3</span>
                         <span><strong>Friend Purchases:</strong> Every time your friend makes a purchase, you earn points!</span>
                       </div>
                       <div className="flex items-start gap-2">
@@ -227,7 +227,7 @@ const ReferFriend = () => {
                         <span><strong>Unlimited Earnings:</strong> Earn rewards on every purchase your friend makes</span>
                       </div>
                     </div>
-                    <div className="mt-3 pt-2 border-t border-[#5A0F1B]/20">
+                    <div className="mt-3 pt-2 border-t border-[#2d7d32]/20">
                       <p className="text-xs text-gray-600 flex items-center gap-1">
                         💡 <strong>Point Value:</strong> 1 Point = ₹1 • Use points at checkout for discounts
                       </p>
@@ -237,8 +237,8 @@ const ReferFriend = () => {
                   <h3 className="text-lg font-bold text-gray-900 mb-3">Your Statistics</h3>
                   {referralStats && (
                     <div className="grid grid-cols-2 gap-3 mb-4">
-                      <div className="bg-gradient-to-br from-[#5A0F1B]/5 to-[#8A1F35]/5 rounded-lg p-3 text-center border border-[#5A0F1B]/20">
-                        <p className="text-2xl font-bold text-[#5A0F1B]">{referralStats.totalReferrals}</p>
+                      <div className="bg-gradient-to-br from-[#2d7d32]/5 to-[#1a431c]/5 rounded-lg p-3 text-center border border-[#2d7d32]/20">
+                        <p className="text-2xl font-bold text-[#2d7d32]">{referralStats.totalReferrals}</p>
                         <p className="text-xs text-gray-600 mt-0.5">Total Referrals</p>
                       </div>
                       <div className="bg-yellow-50 rounded-lg p-3 text-center border border-yellow-200">
@@ -250,7 +250,7 @@ const ReferFriend = () => {
                         <p className="text-xs text-gray-600 mt-0.5">Active</p>
                       </div>
                       <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-lg p-3 text-center border border-amber-200">
-                        <p className="text-2xl font-bold text-[#5A0F1B]">{referralStats.totalRewardsEarned}</p>
+                        <p className="text-2xl font-bold text-[#2d7d32]">{referralStats.totalRewardsEarned}</p>
                         <p className="text-xs text-gray-600 mt-0.5">Points Earned</p>
                       </div>
                     </div>
@@ -268,17 +268,17 @@ const ReferFriend = () => {
 
             {/* Referrals List - Compact */}
             <div className="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-              <div className="bg-gradient-to-r from-[#5A0F1B] to-[#8A1F35] px-5 py-3">
+              <div className="bg-gradient-to-r from-[#2d7d32] to-[#1a431c] px-5 py-3">
                 <h3 className="text-lg font-bold text-white">Your Referrals</h3>
               </div>
               <div className="p-5 max-h-96 overflow-y-auto">
                 {loading ? (
                   <div className="flex items-center justify-center py-8">
-                    <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#5A0F1B]"></div>
+                    <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#2d7d32]"></div>
                   </div>
                 ) : referrals.length === 0 ? (
                   <div className="text-center py-8 text-gray-500">
-                    <FaUsers className="text-4xl mx-auto mb-2 opacity-30 text-[#5A0F1B]" />
+                    <FaUsers className="text-4xl mx-auto mb-2 opacity-30 text-[#2d7d32]" />
                     <p className="text-sm font-semibold text-gray-700">No referrals yet</p>
                     <p className="text-xs mt-1">Add your first friend above!</p>
                   </div>
@@ -287,7 +287,7 @@ const ReferFriend = () => {
                     {referrals.map((referral) => (
                       <div
                         key={referral.id}
-                        className="bg-gradient-to-r from-amber-50/50 to-orange-50/50 rounded-lg p-3 border border-[#5A0F1B]/10 hover:border-[#5A0F1B]/30 transition-all"
+                        className="bg-gradient-to-r from-amber-50/50 to-orange-50/50 rounded-lg p-3 border border-[#2d7d32]/10 hover:border-[#2d7d32]/30 transition-all"
                       >
                         <div className="flex items-start justify-between">
                           <div className="flex-1 min-w-0">
@@ -310,13 +310,13 @@ const ReferFriend = () => {
                             </div>
                           </div>
                           <div className="text-right ml-3">
-                            <p className="text-xl font-bold text-[#5A0F1B]">+{referral.totalRewardEarned}</p>
+                            <p className="text-xl font-bold text-[#2d7d32]">+{referral.totalRewardEarned}</p>
                             <p className="text-[10px] text-gray-500">points</p>
                           </div>
                         </div>
 
                         {referral.purchases && referral.purchases.length > 0 && (
-                          <div className="mt-2 pt-2 border-t border-[#5A0F1B]/10">
+                          <div className="mt-2 pt-2 border-t border-[#2d7d32]/10">
                             <p className="text-[10px] font-semibold text-gray-700 mb-1.5">Purchase History:</p>
                             <div className="space-y-1">
                               {referral.purchases.map((purchase, idx) => (

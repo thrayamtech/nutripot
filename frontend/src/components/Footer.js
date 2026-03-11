@@ -1,137 +1,179 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaFacebook, FaInstagram, FaTwitter, FaPinterest, FaYoutube, FaWhatsapp, FaPhone, FaEnvelope, FaMapMarkerAlt, FaHeart } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaTwitter, FaYoutube, FaWhatsapp, FaPhone, FaEnvelope, FaMapMarkerAlt, FaHeart, FaLeaf, FaSeedling } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-b from-[#0c1a5c] to-[#060e35] text-gray-300">
+    <footer className="bg-gradient-to-b from-[#1a431c] to-[#0d2611] text-gray-300">
+      {/* Decorative top wave */}
+      <div className="w-full overflow-hidden leading-none" style={{ height: '40px' }}>
+        <svg viewBox="0 0 1200 40" preserveAspectRatio="none" className="w-full h-full">
+          <path d="M0,20 C300,40 600,0 900,20 C1050,30 1150,15 1200,20 L1200,40 L0,40 Z" fill="#faf9f7" />
+        </svg>
+      </div>
+
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
+      <div className="container mx-auto px-4 pt-4 pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+          {/* Brand Column */}
           <div>
-            <h3 className="text-2xl font-serif font-bold mb-1 bg-gradient-to-r from-white to-[#93c5fd] bg-clip-text text-transparent">
-              JJ Trendz
-            </h3>
-            <p className="text-blue-300 text-xs font-semibold tracking-widest mb-4 uppercase">Official</p>
-            <p className="text-gray-400 mb-4 leading-relaxed">
-              Your one-stop destination for premium boutique fashion. We bring you the finest collection of handcrafted and designer wear, blending tradition with modern elegance.
+            <div className="flex items-center gap-3 mb-3">
+              <img src="/logo.png" alt="NutriPot" className="w-14 h-14 object-contain"
+                onError={(e) => { e.target.style.display = 'none'; }} />
+              <div>
+                <h3 className="text-xl font-display font-bold text-white leading-tight">NutriPot</h3>
+                <span className="text-[10px] font-bold text-[#f77c1c] tracking-[0.2em] uppercase">Pure Natural Goodness</span>
+              </div>
+            </div>
+            <p className="text-gray-400 text-sm mb-5 leading-relaxed">
+              Your trusted source for premium natural food products. From farm-fresh ingredients to wholesome snacks — we bring nature's best to your table.
             </p>
-            <div className="flex space-x-3">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-[#1e3a8a]/50 hover:bg-[#1e3a8a] p-3 rounded-full transition">
-                <FaFacebook className="text-xl" />
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-[#1e3a8a]/50 hover:bg-[#1e3a8a] p-3 rounded-full transition">
-                <FaInstagram className="text-xl" />
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="bg-[#1e3a8a]/50 hover:bg-[#1e3a8a] p-3 rounded-full transition">
-                <FaTwitter className="text-xl" />
-              </a>
-              <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" className="bg-[#1e3a8a]/50 hover:bg-[#1e3a8a] p-3 rounded-full transition">
-                <FaPinterest className="text-xl" />
-              </a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="bg-[#1e3a8a]/50 hover:bg-[#1e3a8a] p-3 rounded-full transition">
-                <FaYoutube className="text-xl" />
-              </a>
+            <div className="flex space-x-2.5">
+              {[
+                { href: 'https://facebook.com', icon: <FaFacebook className="text-lg" /> },
+                { href: 'https://instagram.com', icon: <FaInstagram className="text-lg" /> },
+                { href: 'https://twitter.com', icon: <FaTwitter className="text-lg" /> },
+                { href: 'https://youtube.com', icon: <FaYoutube className="text-lg" /> },
+              ].map(({ href, icon }) => (
+                <a key={href} href={href} target="_blank" rel="noopener noreferrer"
+                  className="w-9 h-9 bg-white/10 hover:bg-[#2d7d32] rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110">
+                  {icon}
+                </a>
+              ))}
+            </div>
+
+            {/* Green badge */}
+            <div className="mt-5 inline-flex items-center gap-2 bg-[#2d7d32]/30 border border-[#2d7d32]/50 rounded-full px-4 py-1.5">
+              <FaLeaf className="text-[#4a9d4a] text-xs" />
+              <span className="text-xs font-semibold text-green-300">100% Natural Certified</span>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-white font-bold text-lg mb-4 border-b border-[#1e3a8a] pb-2">Quick Links</h4>
-            <ul className="space-y-2">
-              <li><Link to="/" className="hover:text-[#60a5fa] transition flex items-center"><span className="mr-2">›</span> Home</Link></li>
-              <li><Link to="/products" className="hover:text-[#60a5fa] transition flex items-center"><span className="mr-2">›</span> Shop</Link></li>
-              <li><Link to="/categories" className="hover:text-[#60a5fa] transition flex items-center"><span className="mr-2">›</span> Categories</Link></li>
-              <li><Link to="/about" className="hover:text-[#60a5fa] transition flex items-center"><span className="mr-2">›</span> About Us</Link></li>
-              <li><Link to="/blogs" className="hover:text-[#60a5fa] transition flex items-center"><span className="mr-2">›</span> Blogs</Link></li>
-              <li><Link to="/contact" className="hover:text-[#60a5fa] transition flex items-center"><span className="mr-2">›</span> Contact Us</Link></li>
+            <h4 className="text-white font-bold text-base mb-4 flex items-center gap-2">
+              <FaSeedling className="text-[#4a9d4a] text-sm" />
+              Quick Links
+            </h4>
+            <ul className="space-y-2.5">
+              {[
+                { to: '/', label: 'Home' },
+                { to: '/products', label: 'Shop All Products' },
+                { to: '/categories', label: 'Categories' },
+                { to: '/about', label: 'About NutriPot' },
+                { to: '/blogs', label: 'Health & Nutrition Blog' },
+                { to: '/contact', label: 'Contact Us' },
+              ].map(({ to, label }) => (
+                <li key={to}>
+                  <Link to={to} className="text-gray-400 hover:text-[#66BB6A] transition-colors duration-200 text-sm flex items-center gap-2 group">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#2d7d32] group-hover:bg-[#f77c1c] transition-colors" />
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Customer Service */}
           <div>
-            <h4 className="text-white font-bold text-lg mb-4 border-b border-[#1e3a8a] pb-2">Customer Service</h4>
-            <ul className="space-y-2">
-              <li><Link to="/contact" className="hover:text-[#60a5fa] transition flex items-center"><span className="mr-2">›</span> Contact Us</Link></li>
-              <li><Link to="/track-order" className="hover:text-[#60a5fa] transition flex items-center"><span className="mr-2">›</span> Track Order</Link></li>
-              <li><Link to="/shipping-policy" className="hover:text-[#60a5fa] transition flex items-center"><span className="mr-2">›</span> Shipping Information</Link></li>
-              <li><Link to="/refund-policy" className="hover:text-[#60a5fa] transition flex items-center"><span className="mr-2">›</span> Returns & Exchange</Link></li>
-              <li><Link to="/faq" className="hover:text-[#60a5fa] transition flex items-center"><span className="mr-2">›</span> FAQ</Link></li>
-              <li><Link to="/size-guide" className="hover:text-[#60a5fa] transition flex items-center"><span className="mr-2">›</span> Size Guide</Link></li>
+            <h4 className="text-white font-bold text-base mb-4 flex items-center gap-2">
+              <FaLeaf className="text-[#4a9d4a] text-sm" />
+              Customer Service
+            </h4>
+            <ul className="space-y-2.5">
+              {[
+                { to: '/contact', label: 'Help & Support' },
+                { to: '/track-order', label: 'Track Your Order' },
+                { to: '/shipping-policy', label: 'Shipping Information' },
+                { to: '/refund-policy', label: 'Returns & Refunds' },
+                { to: '/faq', label: 'FAQ' },
+              ].map(({ to, label }) => (
+                <li key={to}>
+                  <Link to={to} className="text-gray-400 hover:text-[#66BB6A] transition-colors duration-200 text-sm flex items-center gap-2 group">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#2d7d32] group-hover:bg-[#f77c1c] transition-colors" />
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-white font-bold text-lg mb-4 border-b border-[#1e3a8a] pb-2">Get In Touch</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start">
-                <FaMapMarkerAlt className="text-[#60a5fa] mt-1 mr-3 flex-shrink-0" />
-                <span className="text-sm">
+            <h4 className="text-white font-bold text-base mb-4 flex items-center gap-2">
+              <FaPhone className="text-[#4a9d4a] text-sm" />
+              Get In Touch
+            </h4>
+            <ul className="space-y-3.5">
+              <li className="flex items-start gap-3">
+                <FaMapMarkerAlt className="text-[#f77c1c] mt-0.5 flex-shrink-0 text-sm" />
+                <span className="text-gray-400 text-sm leading-relaxed">
                   11/109/2, Edavattam, Thirunanthikarai,<br />
                   Kulasekharam, Kanyakumari Dist,<br />
-                  629161, Tamilnadu
+                  629161, Tamilnadu, India
                 </span>
               </li>
-              <li className="flex items-center">
-                <FaPhone className="text-[#60a5fa] mr-3 flex-shrink-0" />
-                <a href="tel:+918807259471" className="hover:text-[#60a5fa] transition text-sm">+91 88072 59471</a>
+              <li className="flex items-center gap-3">
+                <FaPhone className="text-[#f77c1c] flex-shrink-0 text-sm" />
+                <a href="tel:+918807259471" className="text-gray-400 hover:text-[#66BB6A] transition-colors text-sm">+91 88072 59471</a>
               </li>
-              <li className="flex items-center">
-                <FaEnvelope className="text-[#60a5fa] mr-3 flex-shrink-0" />
-                <a href="mailto:info@jjtrendz.com" className="hover:text-[#60a5fa] transition text-sm">info@jjtrendz.com</a>
+              <li className="flex items-center gap-3">
+                <FaEnvelope className="text-[#f77c1c] flex-shrink-0 text-sm" />
+                <a href="mailto:info@nutripot.in" className="text-gray-400 hover:text-[#66BB6A] transition-colors text-sm">info@nutripot.in</a>
               </li>
-              <li className="flex items-center">
-                <FaWhatsapp className="text-[#60a5fa] mr-3 flex-shrink-0" />
-                <a href="https://wa.me/918807259471" target="_blank" rel="noopener noreferrer" className="hover:text-[#60a5fa] transition text-sm">Chat on WhatsApp</a>
+              <li className="flex items-center gap-3">
+                <FaWhatsapp className="text-[#f77c1c] flex-shrink-0 text-sm" />
+                <a href="https://wa.me/918807259471" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#66BB6A] transition-colors text-sm">Chat on WhatsApp</a>
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      {/* Payment & Trust Badges */}
-      <div className="border-t border-[#1e3a8a]/40 py-6">
+      {/* Trust Badges */}
+      <div className="border-t border-[#2d7d32]/30 py-5">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap justify-center items-center gap-6 text-center">
-            <div className="flex items-center space-x-2 text-sm">
-              <span className="font-semibold text-white">Secure Payment:</span>
-              <span className="text-gray-400">Visa, MasterCard, UPI, Net Banking</span>
-            </div>
-            <div className="text-gray-600 text-sm">|</div>
-            <div className="flex items-center space-x-2 text-sm">
-              <span className="font-semibold text-white">100% Authentic</span>
-            </div>
-            <div className="text-gray-600 text-sm">|</div>
-            <div className="flex items-center space-x-2 text-sm">
-              <span className="font-semibold text-white">Free Shipping</span>
-              <span className="text-gray-400">On Orders ₹999+</span>
-            </div>
+            {[
+              { label: '100% Natural', desc: 'All ingredients' },
+              { label: 'No Preservatives', desc: 'Pure & clean' },
+              { label: 'Free Shipping', desc: 'On orders ₹999+' },
+              { label: 'Secure Payment', desc: 'UPI, Cards, Net Banking' },
+            ].map(({ label, desc }) => (
+              <div key={label} className="flex items-center gap-2 text-sm">
+                <FaLeaf className="text-[#4a9d4a]" />
+                <div>
+                  <span className="font-bold text-white">{label}</span>
+                  <span className="text-gray-500 ml-1 text-xs">{desc}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
       {/* Copyright */}
-      <div className="border-t border-[#1e3a8a]/40 bg-[#060e35] py-6">
+      <div className="border-t border-[#2d7d32]/20 bg-[#0a1e0c] py-5">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center text-sm">
-            <p className="text-gray-400 mb-2 md:mb-0">
-              © 2025 JJ Trendz Official. All rights reserved.
+          <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-sm">
+            <p className="text-gray-500">
+              © 2025 NutriPot. All rights reserved.
             </p>
-            <div className="flex items-center text-gray-400">
+            <div className="flex items-center text-gray-500 gap-1">
               <span>Made with</span>
-              <FaHeart className="text-blue-400 mx-2 animate-pulse" />
+              <FaHeart className="text-[#f77c1c] animate-pulse mx-1" />
               <span>in India</span>
             </div>
-            <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 mt-2 md:mt-0">
-              <Link to="/privacy-policy" className="hover:text-[#60a5fa] transition">Privacy Policy</Link>
-              <span className="text-gray-600">|</span>
-              <Link to="/terms-conditions" className="hover:text-[#60a5fa] transition">Terms & Conditions</Link>
-              <span className="text-gray-600">|</span>
-              <Link to="/refund-policy" className="hover:text-[#60a5fa] transition">Refund Policy</Link>
-              <span className="text-gray-600">|</span>
-              <Link to="/shipping-policy" className="hover:text-[#60a5fa] transition">Shipping Policy</Link>
+            <div className="flex flex-wrap justify-center gap-x-4 gap-y-1">
+              {[
+                { to: '/privacy-policy', label: 'Privacy Policy' },
+                { to: '/terms-conditions', label: 'Terms' },
+                { to: '/refund-policy', label: 'Refund Policy' },
+                { to: '/shipping-policy', label: 'Shipping' },
+              ].map(({ to, label }) => (
+                <Link key={to} to={to} className="text-gray-500 hover:text-[#66BB6A] transition-colors">{label}</Link>
+              ))}
             </div>
           </div>
         </div>

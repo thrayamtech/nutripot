@@ -130,7 +130,7 @@ const AdminUsers = () => {
         {/* Users Table */}
         {loading ? (
           <div className="flex items-center justify-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-600"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#f77c1c]"></div>
           </div>
         ) : filteredUsers.length > 0 ? (
           <div className="bg-white rounded-lg shadow-sm overflow-hidden">
@@ -151,7 +151,7 @@ const AdminUsers = () => {
                     <tr key={user._id} className="hover:bg-gray-50">
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center text-white font-bold">
+                          <div className="w-10 h-10 text-[#f77c1c] rounded-full flex items-center justify-center text-white font-bold">
                             {user.name?.charAt(0).toUpperCase()}
                           </div>
                           <div>

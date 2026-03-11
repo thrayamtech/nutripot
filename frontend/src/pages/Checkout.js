@@ -97,8 +97,8 @@ const Checkout = () => {
         key: keyData.key,
         amount: amount * 100,
         currency: 'INR',
-        name: 'JJ Trendz Official',
-        description: 'Purchase from JJ Trendz Official',
+        name: 'NutriPot',
+        description: 'Purchase from NutriPot',
         order_id: razorpayOrderId,
         handler: async function (response) {
           try {
@@ -123,7 +123,7 @@ const Checkout = () => {
           contact: formData.phone
         },
         theme: {
-          color: '#5A0F1B'
+          color: '#2d7d32'
         },
         modal: {
           ondismiss: function() {
@@ -246,8 +246,8 @@ const Checkout = () => {
                     key={method.value}
                     className={`block p-4 border-2 rounded-lg cursor-pointer transition-all ${
                       formData.paymentMethod === method.value
-                        ? 'border-[#5A0F1B] bg-[#5A0F1B]/5'
-                        : 'border-gray-200 hover:border-[#5A0F1B]/50'
+                        ? 'border-[#2d7d32] bg-[#2d7d32]/5'
+                        : 'border-gray-200 hover:border-[#2d7d32]/50'
                     }`}
                   >
                     <div className="flex items-center">
@@ -257,12 +257,12 @@ const Checkout = () => {
                         value={method.value}
                         checked={formData.paymentMethod === method.value}
                         onChange={handleChange}
-                        className="w-5 h-5 text-[#5A0F1B] focus:ring-[#5A0F1B]"
+                        className="w-5 h-5 text-[#2d7d32] focus:ring-[#2d7d32]"
                       />
                       <div className="ml-3 flex-1">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-2">
-                            <span className="text-[#5A0F1B]">{method.icon}</span>
+                            <span className="text-[#2d7d32]">{method.icon}</span>
                             <div>
                               <div className="font-semibold text-gray-900 text-sm">{method.label}</div>
                               <div className="text-xs text-gray-600">{method.description}</div>
@@ -301,7 +301,7 @@ const Checkout = () => {
                         <span>Qty: {item.quantity}</span>
                         {item.size && <span>• {item.size}</span>}
                       </div>
-                      <p className="text-sm font-semibold text-[#5A0F1B]">
+                      <p className="text-sm font-semibold text-[#2d7d32]">
                         ₹{((item.product?.discountPrice || item.product?.price) * item.quantity).toLocaleString()}
                       </p>
                     </div>
@@ -324,14 +324,14 @@ const Checkout = () => {
               {/* Total */}
               <div className="flex justify-between text-xl font-bold text-gray-900 mb-6">
                 <span>Total</span>
-                <span className="text-[#5A0F1B]">₹{total.toLocaleString()}</span>
+                <span className="text-[#2d7d32]">₹{total.toLocaleString()}</span>
               </div>
 
               {/* Place Order / Pay Now Button */}
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full py-3 bg-gradient-to-r from-[#5A0F1B] to-[#7A1525] hover:from-[#7A1525] hover:to-[#8A1F35] text-white font-bold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg"
+                className="w-full py-3 bg-gradient-to-r from-[#2d7d32] to-[#1e6623] hover:from-[#1e6623] hover:to-[#1a431c] text-white font-bold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg"
               >
                 {loading ? (
                   <>
@@ -375,7 +375,7 @@ const Checkout = () => {
                       value={formData.fullName}
                       onChange={handleChange}
                       required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#5A0F1B] focus:ring-1 focus:ring-[#5A0F1B] text-sm"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2d7d32] focus:ring-1 focus:ring-[#2d7d32] text-sm"
                       placeholder="Enter your full name"
                     />
                   </div>
@@ -390,7 +390,7 @@ const Checkout = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#5A0F1B] focus:ring-1 focus:ring-[#5A0F1B] text-sm"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2d7d32] focus:ring-1 focus:ring-[#2d7d32] text-sm"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -406,7 +406,7 @@ const Checkout = () => {
                       onChange={handleChange}
                       required
                       maxLength="10"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#5A0F1B] focus:ring-1 focus:ring-[#5A0F1B] text-sm"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2d7d32] focus:ring-1 focus:ring-[#2d7d32] text-sm"
                       placeholder="10-digit mobile"
                     />
                   </div>
@@ -421,7 +421,7 @@ const Checkout = () => {
                       value={formData.addressLine1}
                       onChange={handleChange}
                       required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#5A0F1B] focus:ring-1 focus:ring-[#5A0F1B] text-sm"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2d7d32] focus:ring-1 focus:ring-[#2d7d32] text-sm"
                       placeholder="House No., Street, Area"
                     />
                   </div>
@@ -435,7 +435,7 @@ const Checkout = () => {
                       name="addressLine2"
                       value={formData.addressLine2}
                       onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#5A0F1B] focus:ring-1 focus:ring-[#5A0F1B] text-sm"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2d7d32] focus:ring-1 focus:ring-[#2d7d32] text-sm"
                       placeholder="Apartment, Suite (Optional)"
                     />
                   </div>
@@ -450,7 +450,7 @@ const Checkout = () => {
                       value={formData.city}
                       onChange={handleChange}
                       required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#5A0F1B] focus:ring-1 focus:ring-[#5A0F1B] text-sm"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2d7d32] focus:ring-1 focus:ring-[#2d7d32] text-sm"
                       placeholder="City"
                     />
                   </div>
@@ -465,7 +465,7 @@ const Checkout = () => {
                       value={formData.state}
                       onChange={handleChange}
                       required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#5A0F1B] focus:ring-1 focus:ring-[#5A0F1B] text-sm"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2d7d32] focus:ring-1 focus:ring-[#2d7d32] text-sm"
                       placeholder="State"
                     />
                   </div>
@@ -481,7 +481,7 @@ const Checkout = () => {
                       onChange={handleChange}
                       required
                       maxLength="6"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#5A0F1B] focus:ring-1 focus:ring-[#5A0F1B] text-sm"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#2d7d32] focus:ring-1 focus:ring-[#2d7d32] text-sm"
                       placeholder="6-digit pincode"
                     />
                   </div>

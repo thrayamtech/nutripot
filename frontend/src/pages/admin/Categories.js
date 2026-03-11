@@ -95,7 +95,7 @@ const AdminCategories = () => {
               resetForm();
               setShowModal(true);
             }}
-            className="flex items-center gap-2 px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition"
+            className="flex items-center gap-2 px-4 py-2 text-[#f77c1c] text-white rounded-lg hover:bg-amber-700 transition"
           >
             <FaPlus /> Add Category
           </button>
@@ -104,7 +104,7 @@ const AdminCategories = () => {
         {/* Categories Grid */}
         {loading ? (
           <div className="flex items-center justify-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-amber-600"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#f77c1c]"></div>
           </div>
         ) : categories.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -157,7 +157,7 @@ const AdminCategories = () => {
                 resetForm();
                 setShowModal(true);
               }}
-              className="px-6 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition"
+              className="px-6 py-3 text-[#f77c1c] text-white rounded-lg hover:bg-amber-700 transition"
             >
               Create Your First Category
             </button>
@@ -206,7 +206,7 @@ const AdminCategories = () => {
               <div className="flex items-center gap-3 pt-4">
                 <button
                   type="submit"
-                  className="flex-1 px-4 py-3 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition font-medium"
+                  className="flex-1 px-4 py-3 text-[#f77c1c] text-white rounded-lg hover:bg-amber-700 transition font-medium"
                 >
                   {editingCategory ? 'Update Category' : 'Create Category'}
                 </button>
